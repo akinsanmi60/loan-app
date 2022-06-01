@@ -1,34 +1,51 @@
 import styled from "styled-components";
+import libimage from "../../assets/libr.jpg";
 
 export const StudentWrapper = styled.div`
   color: #16194f;
+  .wallpaper img {
+       
+  }
   .pawa {
     margin-bottom: 30px;
-    .eligibilty {
-    margin-top: 22px;
-    row-gap: 20px;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    .hero {
+    .faq {
       display: flex;
-      max-width: 284px;
-      margin: 0px auto;
-      .fa {
-        width: 64px;
-        height: 64px;
-      }
-      .kuchi {
-        width: calc(100% - 84px);
+      justify-content: center;
+      font-size: 28px;
+      margin-top: 30px;
+      margin-bottom: -10px;
+      @media screen and (max-width: 425px) {
         font-size: 20px;
-        text-align: left;
+      }
+      @media screen and (max-width: 375px) {
+        margin-top: 30px;
+        font-size: 16px;
       }
     }
-    @media screen and (max-width: 425px) {
-    grid-template-columns: 1fr;
+    .eligibilty {
+      margin-top: 22px;
+      row-gap: 20px;
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      .hero {
+        display: flex;
+        max-width: 284px;
+        margin: 0px auto;
+        .fa {
+          width: 64px;
+          height: 64px;
+        }
+        .kuchi {
+          width: calc(100% - 84px);
+          font-size: 20px;
+          text-align: left;
+        }
+      }
+      @media screen and (max-width: 425px) {
+      grid-template-columns: 1fr;
+      }
     }
-   
-  }
 
   }
   .general {
@@ -95,6 +112,14 @@ export const StudentWrapper = styled.div`
 
   .studfaq {
   }
+`;
+
+export const ImgWrapper = styled.div`
+  background-image: url(${libimage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
 `;
 const QuestionStyled = styled.div`
   background-color: #fff;

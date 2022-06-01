@@ -1,22 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
-import { InnerLayout, StudentWrapper } from "../style";
+import { ImgWrapper, InnerLayout, StudentWrapper } from "../style";
 import kampus from "../../../assets/kampus.jpg";
 import StudentFaq from "./component/faq";
 import Studenttimeline from "./component/timeline";
+// import libimage from "../../../assets/libr.jpg";
 
 function Student() {
   return (
     <StudentWrapper>
-      <div className="wallpaper">imgaes</div>
+      <div className="wallpaper">
+        <ImgWrapper>heloo</ImgWrapper>
+      </div>
       <div className="pawa">
-        <h2
-          className="faqtitle"
-          style={{ display: "flex", justifyContent: " center" }}
-        >
-          Am I eligible?
-        </h2>
+        <h2 className="faq">Am I eligible?</h2>
         <div className="eligibilty">
           <div className="hero">
             <div className="fa">
