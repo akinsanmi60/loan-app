@@ -5,7 +5,6 @@ import { ImgWrapper, InnerLayout, StudentWrapper } from "../style";
 import kampus from "../../../assets/kampus.jpg";
 import StudentFaq from "./component/faq";
 import Studenttimeline from "./component/timeline";
-// import libimage from "../../../assets/libr.jpg";
 
 function Student() {
   return (
@@ -98,6 +97,20 @@ function Student() {
           </h2>
           <StudentFaq />
         </InnerLayout>
+      </div>
+
+      <div className="applybtn">
+        <p>
+          Are you ready to begin your application?{" "}
+          <Link
+            to="/studentloansignup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yes
+          </Link>{" "}
+          /No
+        </p>
       </div>
     </StudentWrapper>
   );

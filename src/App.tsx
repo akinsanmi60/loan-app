@@ -12,6 +12,7 @@ import Business from "./pages/Loans/Business";
 import Press from "./pages/Press";
 import StudentQA from "./pages/Question/components/studentQA";
 import BusinessQA from "./pages/Question/components/businessQA";
+import StudentLoanForm from "./pages/Loan Signup/StudentLoanSign/UserForm";
 
 function App() {
   return (
@@ -100,6 +101,14 @@ function App() {
                 <Press />
               </OuterLayout>
             </LayoutWrapper>
+          }
+        />
+        <Route
+          path="/studentloansignup"
+          element={
+            <OuterLayout>
+              <StudentLoanForm />
+            </OuterLayout>
           }
         />
       </Routes>
