@@ -55,5 +55,8 @@ const formValue = {
   totNonCash: "",
   prevLoans: "",
   anyLoan: "",
+  bankrupt: true,
+  defaultPay: true,
+  optionTxt: "",
 };
 export default formValue;

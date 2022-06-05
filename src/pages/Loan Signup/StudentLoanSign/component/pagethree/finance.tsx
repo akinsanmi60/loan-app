@@ -206,9 +206,8 @@ function FinancePage({ values, handleChange }: ProFin) {
         <div className="info">
           <div className="infobox">
             <p>
-              Have you been declared bankrupt or had any County Court Judgements
-              (CCJs) against you or entered into an Individual Voluntary
-              Arrangements (IVAs) in the last 6 years?
+              Have you defaulted on any payments or had any payments in arrears
+              in the last 6 years?
             </p>
             <div className="check">
               <div>
@@ -237,8 +236,8 @@ function FinancePage({ values, handleChange }: ProFin) {
         <div className="info">
           <p>Any other information relevant to your application?</p>
           <Input
-            defaultValue={values.totSaving}
-            onChange={handleChange("totSaving")}
+            defaultValue={values.optionTxt}
+            onChange={handleChange("optionTxt")}
             type="text"
             className="optional"
           />

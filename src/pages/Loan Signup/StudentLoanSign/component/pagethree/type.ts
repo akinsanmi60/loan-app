@@ -17,6 +17,9 @@ export type ProFin = {
     totNonCash: string;
     prevLoans: string;
     anyLoan: string;
+    bankrupt: boolean;
+    defaultPay: boolean;
+    optionTxt: string;
   };
   handleChange: Function;
 };
