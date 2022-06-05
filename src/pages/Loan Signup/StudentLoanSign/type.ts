@@ -51,5 +51,9 @@ const formValue = {
   scholarship: "",
   govt: "",
   otherloans: "",
+  totSaving: "",
+  totNonCash: "",
+  prevLoans: "",
+  anyLoan: "",
 };
 export default formValue;

@@ -42,6 +42,9 @@ const PersonalWrapper = styled.div`
     font-size: 15px;
     padding-left: 15px;
     margin-bottom: 30px;
+    @media screen and (min-width: 1025px) {
+      font-size: 18px;
+    }
     @media screen and (max-width: 425px) {
       padding-left: 15px;
       font-size: 12px;
@@ -58,11 +61,17 @@ const PersonalWrapper = styled.div`
     font-size: 15px;
     padding-left: 15px;
     margin-bottom: 30px;
+    @media screen and (min-width: 1025px) {
+      font-size: 18px;
+    }
 
     .addinput {
       margin-top: 20px;
       .addput {
         width: 78.5vw;
+        @media screen and (min-width: 1025px) {
+          width: 83.5vw;
+        }
       }
       @media screen and (max-width: 425px) {
         margin-top: 12px;
@@ -102,6 +111,9 @@ const PersonalWrapper = styled.div`
     font-size: 15px;
     padding-left: 15px;
     margin-bottom: 30px;
+    @media screen and (min-width: 1025px) {
+      font-size: 18px;
+    }
     @media screen and (max-width: 425px) {
       padding-left: 15px;
       font-size: 12px;

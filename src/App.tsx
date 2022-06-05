@@ -106,9 +106,11 @@ function App() {
         <Route
           path="/studentloansignup"
           element={
-            <OuterLayout>
-              <StudentLoanForm />
-            </OuterLayout>
+            <LayoutWrapper>
+              <OuterLayout>
+                <StudentLoanForm />
+              </OuterLayout>
+            </LayoutWrapper>
           }
         />
       </Routes>

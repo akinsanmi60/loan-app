@@ -13,6 +13,10 @@ export type ProFin = {
     scholarship: string;
     govt: string;
     otherloans: string;
+    totSaving: string;
+    totNonCash: string;
+    prevLoans: string;
+    anyLoan: string;
   };
   handleChange: Function;
 };
