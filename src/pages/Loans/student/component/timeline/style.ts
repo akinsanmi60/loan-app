@@ -4,6 +4,24 @@ const TimeWrapper = styled.div`
   h1 {
     font-size: 1.3rem;
     color: #16194f;
+    @media screen and (max-width: 425px) {
+      font-size: 17px;
+    }
+  }
+  p {
+    font-size: 15px;
+    @media screen and (min-width: 1025px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: 425px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 375px) {
+      font-size: 17px;
+    }
+    @media screen and (max-width: 320px) {
+      font-size: 15px;
+    }
   }
 `;
 export default TimeWrapper;

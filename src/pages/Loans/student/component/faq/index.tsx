@@ -21,7 +21,7 @@ function Questioncard({ question }: QProp) {
   return (
     <QuestionStyled>
       <div className="q-con">
-        <div className="toggle-title">
+        <div className="toggle-title" onClick={btnToggler}>
           <h4>{question.title}</h4>
           <div className="click" onClick={btnToggler}>
             {toggle ? <FaMinusCircle /> : <FaPlusCircle />}

@@ -3,6 +3,21 @@ import libimage from "../../assets/libr.jpg";
 
 export const StudentWrapper = styled.div`
   color: #16194f;
+   p {
+    font-size: 15px;
+    @media screen and (min-width: 1025px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: 425px) {
+      font-size: 17px;
+    }
+    @media screen and (max-width: 375px) {
+      font-size: 17px;
+    }
+    @media screen and (max-width: 320px) {
+      font-size: 15px;
+    }
+  }
   .wallpaper img {
        
   }
@@ -28,6 +43,9 @@ export const StudentWrapper = styled.div`
       display: grid;
       justify-items: center;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+      p {
+        
+      }
       .hero {
         display: flex;
         max-width: 284px;
@@ -90,7 +108,6 @@ export const StudentWrapper = styled.div`
       flex-direction: column-reverse;
       .text {
         p {
-          font-size: 16px;
           text-align: justify;
         }
       }
@@ -118,27 +135,34 @@ export const ImgWrapper = styled.div`
   background-image: url(${libimage});
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
+  @media screen and (max-width: 425px) {
+    background-size: contain;
+  }
 `;
 const QuestionStyled = styled.div`
   background-color: #fff;
   width: 100%;
   margin: 1rem 0;
-  padding: 1.4rem 1rem;
+  padding: 1.8rem 2.8rem;
   border-radius: 24px;
   transition: all 0.4s ease-in-out;
   box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25),
     0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) !important;
+  @media screen and (max-width: 425px) {
+    padding: 1rem 1.5rem;
+  }
+
   p {
     transition: all 0.4s ease-in-out;
-    font-size: 1rem;
     text-align: justify;
   }
   h4 {
     color: #16194f;
     transition: all 0.4s ease-in-out;
     font-size: 1.3rem;
+    margin-bottom: 12px;
   }
   .toggle-title {
     display: flex;
@@ -154,7 +178,11 @@ const QuestionStyled = styled.div`
   }
 
   @media screen and (max-width: 425px) {
+    padding: 1rem 1.5rem;
     width: 100%;
+    h4 {
+      font-size: 16px;
+    }
   }
 `;
 export default QuestionStyled;

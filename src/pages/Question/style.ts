@@ -33,7 +33,7 @@ export const QuestionStyled = styled.div`
   background-color: #fff;
   width: 100%;
   margin: 1rem 0;
-  padding: 1.4rem 1rem;
+  padding: 1.8rem 2.8rem;
   border-radius: 24px;
   transition: all 0.4s ease-in-out;
   box-shadow: 0px 25px 50px rgba(22, 25, 79, 0.05);
@@ -47,6 +47,7 @@ export const QuestionStyled = styled.div`
     color: #16194f;
     transition: all 0.4s ease-in-out;
     font-size: 1.3rem;
+    margin-bottom: 12px;
   }
   .toggle-title {
     display: flex;
@@ -62,6 +63,10 @@ export const QuestionStyled = styled.div`
   }
 
   @media screen and (max-width: 425px) {
+    padding: 1rem 1.5rem;
     width: 100%;
+    h4 {
+      font-size: 16px;
+    }
   }
 `;
