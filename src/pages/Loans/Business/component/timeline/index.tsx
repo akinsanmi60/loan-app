@@ -6,27 +6,28 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import {
-  FaEnvelope,
-  FaLandmark,
+  FaBusinessTime,
   FaMoneyBill,
   FaPenAlt,
   FaPersonBooth,
+  FaPhoneAlt,
+  FaUserFriends,
 } from "react-icons/fa";
 import { timelineElements } from "../../data";
 import TimeWrapper, { TimeBox } from "./style";
 
-function Studenttimeline() {
+function Businesstimeline() {
   const IconsStyles = { background: "var(--dark-primary)" };
   return (
     <TimeBox>
       <VerticalTimeline>
         {timelineElements.map(timeline => {
           const personIcon = timeline.icon === "person";
+          const callIcon = timeline.icon === "call";
           const moneyIcon = timeline.icon === "money";
-          const messageIcon = timeline.icon === "message";
-          const bankIcon = timeline.icon === "bank";
+          const peopleIcon = timeline.icon === "people";
           const signIcon = timeline.icon === "sign";
-          const paymentIcon = timeline.icon === "payment";
+          const businessIcon = timeline.icon === "business";
           return (
             <VerticalTimelineElement
               key={timeline.title}
@@ -34,16 +35,16 @@ function Studenttimeline() {
               icon={
                 personIcon ? (
                   <FaPersonBooth style={{ color: "var(--neutral-light)" }} />
-                ) : moneyIcon ? (
-                  <FaMoneyBill style={{ color: "var(--neutral-light)" }} />
-                ) : messageIcon ? (
-                  <FaEnvelope style={{ color: "var(--neutral-light)" }} />
-                ) : bankIcon ? (
-                  <FaLandmark style={{ color: "var(--neutral-light)" }} />
+                ) : callIcon ? (
+                  <FaPhoneAlt style={{ color: "var(--neutral-light)" }} />
                 ) : signIcon ? (
                   <FaPenAlt style={{ color: "var(--neutral-light)" }} />
-                ) : paymentIcon ? (
+                ) : moneyIcon ? (
                   <FaMoneyBill style={{ color: "var(--neutral-light)" }} />
+                ) : peopleIcon ? (
+                  <FaUserFriends style={{ color: "var(--neutral-light)" }} />
+                ) : businessIcon ? (
+                  <FaBusinessTime style={{ color: "var(--neutral-light)" }} />
                 ) : (
                   ""
                 )
@@ -63,4 +64,4 @@ function Studenttimeline() {
   );
 }
 
-export default Studenttimeline;
+export default Businesstimeline;

@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
-import repaymentfaq from "../../data";
-import QuestionStyled from "../../../style";
+import { repaymentfaq } from "../../data";
+import QuestionStyled from "./style";
 
 type QProp = {
   question: {
-    id: number;
     title: string;
     description: string;
   };
@@ -33,7 +32,7 @@ function Questioncard({ question }: QProp) {
   );
 }
 
-function StudentFaq() {
+function BusinessFaq() {
   return (
     <div>
       {repaymentfaq.map(question => (
@@ -45,4 +44,4 @@ function StudentFaq() {
   );
 }
 
-export default StudentFaq;
+export default BusinessFaq;

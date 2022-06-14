@@ -19,12 +19,6 @@ const InnerLayout = styled.section`
       font-size: 15px;
     }
   }
-  @media screen and (max-width: 768px) {
-    padding: 0 2rem;
-  }
-  @media screen and (max-width: 425px) {
-    padding: 0 0.8rem;
-  }
 `;
 export default InnerLayout;
 
@@ -36,48 +30,17 @@ export const ImgWrapper = styled.div`
   width: 100%;
   @media screen and (max-width: 768px) {
     background-size: contain;
-    margin-bottom: -250px;
+    margin-bottom: -30px;
   }
   @media screen and (max-width: 425px) {
     background-size: contain;
-    margin-bottom: -400px;
+    margin-bottom: -170px;
   }
   @media screen and (max-width: 375px) {
-    margin-bottom: -420px;
+    margin-bottom: -190px;
   }
   @media screen and (max-width: 320px) {
-    margin-bottom: -440px;
-  }
-
-  .imgtext {
-    padding: 6rem 5rem;
-    h1 {
-      font-size: 60px;
-      font-weight: 800;
-      color: white;
-    }
-    p {
-      font-size: 40px;
-      color: white;
-      font-weight: 800;
-    }
-    @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 40px;
-      }
-      p {
-        font-size: 20px;
-      }
-    }
-    @media screen and (max-width: 425px) {
-      padding: 2rem 1rem;
-      h1 {
-        font-size: 20px;
-      }
-      p {
-        font-size: 16px;
-      }
-    }
+    margin-bottom: -225px;
   }
 `;
 

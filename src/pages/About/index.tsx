@@ -6,14 +6,7 @@ import InnerLayout, { AboutWrapper, ImgWrapper } from "./style";
 function About() {
   return (
     <>
-      <ImgWrapper>
-        <div className="wallpaper">
-          <div className="imgtext">
-            <h1>About Us</h1>
-            <p>Helping you build a prosperous future</p>
-          </div>
-        </div>
-      </ImgWrapper>
+      <ImgWrapper />
 
       <InnerLayout>
         <AboutWrapper>

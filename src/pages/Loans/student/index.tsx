@@ -10,7 +10,7 @@ function Student() {
   return (
     <StudentWrapper>
       <div className="wallpaper">
-        <ImgWrapper>heloo</ImgWrapper>
+        <ImgWrapper />
       </div>
       <div className="pawa">
         <h2 className="faq">Am I eligible?</h2>
