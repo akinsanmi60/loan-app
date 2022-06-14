@@ -32,7 +32,7 @@ function Business() {
       </div>
 
       <div className="requirement">
-        <h1>Are we eligible</h1>
+        <h1>Are we eligible?</h1>
         <div className="req-contain">
           {eligibilty.map(item => {
             const registerIcon = item.icon === "register";
@@ -68,8 +68,8 @@ function Business() {
           })}
         </div>
       </div>
-      <div className="requirement">
-        <h1>Are we eligible</h1>
+      <div className="application">
+        <h1>How it works</h1>
         <Businesstimeline />
       </div>
 

@@ -57,7 +57,7 @@ function Student() {
       </div>
       <div>
         <InnerLayout>
-          <h2 className="faqtitle">How it works.</h2>
+          <h2 className="timetitle">How it works.</h2>
           <Studenttimeline />
         </InnerLayout>
       </div>

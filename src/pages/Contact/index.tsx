@@ -5,12 +5,8 @@ import { Input } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import ContactWrapper, {
-  ButtonStyled,
-  ImgWrapper,
-  InnerLayout,
-  TextArea,
-} from "./style";
+import stude from "../../assets/student.jpg";
+import ContactWrapper, { ButtonStyled, InnerLayout, TextArea } from "./style";
 import FormField from "../../common/FormField";
 
 type FormData = {
@@ -47,88 +43,85 @@ function Contact() {
   };
 
   return (
-    <>
+    <ContactWrapper>
       <div className="wallpaper">
-        <ImgWrapper>heloo</ImgWrapper>
+        <img src={stude} alt="" className="img" />
       </div>
       <InnerLayout>
-        <ContactWrapper>
-          <div>
-            <div className="faq">
-              <div className="faqtitle">
-                <h1>How Can We Help?</h1>
-                <p>
-                  Please search our extensive range of FAQ topics for answers.
-                  If you still can’t find the answer, please fill out the form
-                  below.
-                </p>
-              </div>
-              <div className="btn">
-                <Box textAlign="center" marginTop={2}>
-                  <ButtonStyled onClick={() => navigate("/question")}>
-                    Read FAQs
-                  </ButtonStyled>
-                </Box>
-              </div>
+        <div>
+          <div className="faq">
+            <div className="faqtitle">
+              <h1>How Can We Help?</h1>
+              <p>
+                Please search our extensive range of FAQ topics for answers. If
+                you still can’t find the answer, please fill out the form below.
+              </p>
             </div>
-
-            <div className="box">
-              <form onSubmit={handleSubmit(submit)}>
-                <div className="labelinput">
-                  <FormField label="Name">
-                    <Input {...register("name")} type="text" />
-                  </FormField>
-                </div>
-                <div className="labelinput">
-                  <FormField label="Email">
-                    <Input
-                      {...register("email")}
-                      // {...(errors.email && "Email is required")}
-                      type="email"
-                    />
-                  </FormField>
-                </div>
-                <div className="labelinput">
-                  <FormField label="Phone">
-                    <Input {...register("phone")} type="text" />
-                  </FormField>
-                </div>
-                <div className="labelinput">
-                  <FormField label="Subject">
-                    <Input {...register("subject")} type="text" />
-                  </FormField>
-                </div>
-                <div className="labelinput">
-                  <FormField label="Comment/ detailed question">
-                    <TextArea {...register("comment")} />
-                  </FormField>
-                </div>
-                <div>
-                  <ButtonStyled type="submit">Submit</ButtonStyled>
-                </div>
-              </form>
-              <div className="condetail">
-                <div className="phone">
-                  <p>You can reach us by phone during business hours at:</p>
-                  <p>+234813759225</p>
-                  <p>Or mail us on</p>
-                  <p>hello@humoni.com</p>
-                </div>
-              </div>
+            <div className="btn">
+              <Box textAlign="center" marginTop={2}>
+                <ButtonStyled onClick={() => navigate("/question")}>
+                  FAQs
+                </ButtonStyled>
+              </Box>
             </div>
+          </div>
 
-            <div className="feed">
-              <div className="feedtitle">
-                <h1>We love to hear your feedback!</h1>
+          <div className="box">
+            <form onSubmit={handleSubmit(submit)}>
+              <div className="labelinput">
+                <FormField label="Name">
+                  <Input {...register("name")} type="text" />
+                </FormField>
               </div>
-              <div className="feedbtn">
-                <ButtonStyled>Share!</ButtonStyled>
+              <div className="labelinput">
+                <FormField label="Email">
+                  <Input
+                    {...register("email")}
+                    // {...(errors.email && "Email is required")}
+                    type="email"
+                  />
+                </FormField>
+              </div>
+              <div className="labelinput">
+                <FormField label="Phone">
+                  <Input {...register("phone")} type="text" />
+                </FormField>
+              </div>
+              <div className="labelinput">
+                <FormField label="Subject">
+                  <Input {...register("subject")} type="text" />
+                </FormField>
+              </div>
+              <div className="labelinput">
+                <FormField label="Comment/ detailed question">
+                  <TextArea {...register("comment")} />
+                </FormField>
+              </div>
+              <div>
+                <ButtonStyled type="submit">Submit</ButtonStyled>
+              </div>
+            </form>
+            <div className="condetail">
+              <div className="phone">
+                <p>You can reach us by phone during business hours at:</p>
+                <p>+234813759225</p>
+                <p>Or mail us on</p>
+                <p>hello@humoni.com</p>
               </div>
             </div>
           </div>
-        </ContactWrapper>
+
+          <div className="feed">
+            <div className="feedtitle">
+              <h1>We love to hear your feedback!</h1>
+            </div>
+            <div className="feedbtn">
+              <ButtonStyled>Share!</ButtonStyled>
+            </div>
+          </div>
+        </div>
       </InnerLayout>
-    </>
+    </ContactWrapper>
   );
 }
 

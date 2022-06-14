@@ -27,20 +27,17 @@ export const StudentWrapper = styled.div`
        
   }
   .pawa {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     .faq {
       display: flex;
       justify-content: center;
       font-size: 28px;
-      margin-top: 30px;
+      margin-top: 20px;
       margin-bottom: -10px;
       @media screen and (max-width: 425px) {
         font-size: 20px;
       }
-      @media screen and (max-width: 375px) {
-        margin-top: 30px;
-        font-size: 16px;
-      }
+
     }
     .eligibilty {
       margin-top: 22px;
@@ -72,8 +69,8 @@ export const StudentWrapper = styled.div`
 
   }
   .general {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 80px;
+    margin-bottom: 80px;
        @media screen and (max-width: 375px) {
       margin-bottom: 25px;
     }
@@ -132,20 +129,8 @@ export const StudentWrapper = styled.div`
     }
   }
 
-  .studfaq {
-  }
 `;
 
-// export const ImgWrapper = styled.div`
-//   background-image: url(${libimage});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   min-height: 90vh;
-//   width: 100%;
-//   @media screen and (max-width: 425px) {
-//     background-size: contain;
-//   }
-// `;
 const QuestionStyled = styled.div`
   background-color: #fff;
   width: 100%;
@@ -195,14 +180,29 @@ export default QuestionStyled;
 export const InnerLayout = styled.section`
   padding: 0 5rem;
   .faqtitle {
-    font-size: 28px;
-    margin-bottom: -10px;
+    font-size: 26px;
     @media screen and (max-width: 425px) {
       font-size: 20px;
     }
     @media screen and (max-width: 375px) {
       margin-top: 30px;
-      font-size: 16px;
+      font-size: 20px;
+    }
+    @media screen and (max-width: 375px) {
+      font-size: 17px;
+    }
+  }
+  .timetitle {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    @media screen and (max-width: 425px) {
+      font-size: 23px;
+    }
+    @media screen and (max-width: 375px) {
+      margin-top: 30px;
+      font-size: 22px;
     }
   }
   @media screen and (max-width: 768px) {

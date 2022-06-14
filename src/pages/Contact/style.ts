@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import stude from "../../assets/student.jpg";
 
 const ContactWrapper = styled.div`
   color: #16194f;
@@ -20,8 +19,17 @@ const ContactWrapper = styled.div`
       font-size: 15px;
     }
   }
+
+  .img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    margin-bottom: -10px;
+  }
+
   .box {
-    margin-top: 35px;
+    margin-top: 25px;
     box-shadow: 0 0.05em 0.05em 0 rgba(0, 0, 0, 0.25),
       0 0.4em 1em 0 rgba(0, 0, 0, 0.15) !important;
     padding: 2rem 4rem;
@@ -44,10 +52,10 @@ const ContactWrapper = styled.div`
 
   .feed,
   .faq {
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 30px;
     h1 {
-      font-size: 36px;
+      font-size: 30px;
       text-align: center !important;
     }
     p {
@@ -74,17 +82,6 @@ const ContactWrapper = styled.div`
 `;
 export default ContactWrapper;
 
-export const ImgWrapper = styled.div`
-  background-image: url(${stude});
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
-  width: 100%;
-  @media screen and (max-width: 425px) {
-    background-size: contain;
-  }
-`;
-
 export const InnerLayout = styled.section`
   padding: 0 5rem;
   .faqtitle {
@@ -96,6 +93,20 @@ export const InnerLayout = styled.section`
     @media screen and (max-width: 375px) {
       margin-top: 30px;
       font-size: 16px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      @media screen and (min-width: 1025px) {
+        font-size: 35px;
+      }
+      @media screen and (max-width: 425px) {
+        font-size: 22px;
+      }
+      @media screen and (max-width: 375px) {
+        font-size: 20px;
+      }
     }
   }
   @media screen and (max-width: 768px) {

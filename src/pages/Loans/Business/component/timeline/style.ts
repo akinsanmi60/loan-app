@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const TimeWrapper = styled.div`
   h1 {
-    font-size: 1.3rem;
+    font-size: 22px;
     color: #16194f;
     @media screen and (max-width: 425px) {
       font-size: 17px;
