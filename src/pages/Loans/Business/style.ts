@@ -3,6 +3,12 @@ import biz from "../../../assets/biz.jpg";
 
 const Businesswrapper = styled.div`
   color: #16194f;
+  .img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+  }
   p {
     font-size: 15px;
     margin-top: 10px;
@@ -32,15 +38,6 @@ const Businesswrapper = styled.div`
       padding-left: 19px;
       border-left: 8px solid #16194f;
     }
-    // @media screen and (max-width: 425px) {
-    //   margin-top: -60px;
-    // }
-    // @media screen and (max-width: 375px) {
-    //   margin-top: -90px;
-    // }
-    // @media screen and (max-width: 320px) {
-    //   margin-top: -110px;
-    // }
   }
 
   .req-contain {
@@ -90,12 +87,16 @@ export default Businesswrapper;
 export const ImageWrapper = styled.div`
   background-image: url(${biz});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   min-height: 87vh;
   width: 100%;
   @media screen and (max-width: 768px) {
     background-size: contain;
-    margin-bottom: -30px;
+    margin-bottom: -320px;
+  }
+  @media screen and (max-width: 768px) {
+    background-size: contain;
+    margin-bottom: -320px;
   }
   @media screen and (max-width: 425px) {
     background-size: contain;

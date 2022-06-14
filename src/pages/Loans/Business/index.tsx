@@ -10,13 +10,14 @@ import {
 import BusinessFaq from "./component/faq";
 import Businesstimeline from "./component/timeline";
 import eligibilty from "./data";
-import Businesswrapper, { ImageWrapper, InnerLayout } from "./style";
+import biz from "../../../assets/business-5816293.jpg";
+import Businesswrapper, { InnerLayout } from "./style";
 
 function Business() {
   return (
     <Businesswrapper>
       <div>
-        <ImageWrapper />
+        <img src={biz} alt="" className="img" />
       </div>
       <div className="who">
         <h2>Why We Do It</h2>

@@ -1,8 +1,13 @@
 import styled from "styled-components";
-import libimage from "../../assets/libr.jpg";
 
 export const StudentWrapper = styled.div`
   color: #16194f;
+  .img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+  }
    p {
     font-size: 15px;
     @media screen and (min-width: 1025px) {
@@ -131,16 +136,16 @@ export const StudentWrapper = styled.div`
   }
 `;
 
-export const ImgWrapper = styled.div`
-  background-image: url(${libimage});
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 90vh;
-  width: 100%;
-  @media screen and (max-width: 425px) {
-    background-size: contain;
-  }
-`;
+// export const ImgWrapper = styled.div`
+//   background-image: url(${libimage});
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   min-height: 90vh;
+//   width: 100%;
+//   @media screen and (max-width: 425px) {
+//     background-size: contain;
+//   }
+// `;
 const QuestionStyled = styled.div`
   background-color: #fff;
   width: 100%;

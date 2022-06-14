@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
-import { ImgWrapper, InnerLayout, StudentWrapper } from "../style";
+import { InnerLayout, StudentWrapper } from "../style";
+import stud from "../../../assets/student769021.jpg";
 import kampus from "../../../assets/kampus.jpg";
 import StudentFaq from "./component/faq";
 import Studenttimeline from "./component/timeline";
@@ -9,8 +10,8 @@ import Studenttimeline from "./component/timeline";
 function Student() {
   return (
     <StudentWrapper>
-      <div className="wallpaper">
-        <ImgWrapper />
+      <div>
+        <img src={stud} alt="" className="img" />
       </div>
       <div className="pawa">
         <h2 className="faq">Am I eligible?</h2>

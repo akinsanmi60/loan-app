@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import claass from "../../assets/claass.jpg";
 
-const InnerLayout = styled.section`
+const AboutWrapper = styled.div`
   color: #16194f;
+
   p {
     font-size: 15px;
     margin-top: 10px;
@@ -19,47 +19,18 @@ const InnerLayout = styled.section`
       font-size: 15px;
     }
   }
-`;
-export default InnerLayout;
-
-export const ImgWrapper = styled.div`
-  background-image: url(${claass});
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 87vh;
-  width: 100%;
-  @media screen and (max-width: 768px) {
+  .img {
     background-size: contain;
-    margin-bottom: -30px;
-  }
-  @media screen and (max-width: 425px) {
+    background-repeat: no-repeat;
     background-size: contain;
-    margin-bottom: -170px;
+    width: 100%;
   }
-  @media screen and (max-width: 375px) {
-    margin-bottom: -190px;
-  }
-  @media screen and (max-width: 320px) {
-    margin-bottom: -225px;
-  }
-`;
-
-export const AboutWrapper = styled.div`
   .who {
     margin-top: 26px;
     h2 {
       margin-bottom: 10px;
       padding-left: 19px;
       border-left: 8px solid #16194f;
-    }
-    @media screen and (max-width: 425px) {
-      margin-top: -60px;
-    }
-    @media screen and (max-width: 375px) {
-      margin-top: -90px;
-    }
-    @media screen and (max-width: 320px) {
-      margin-top: -110px;
     }
   }
 
@@ -96,6 +67,7 @@ export const AboutWrapper = styled.div`
     }
   }
 `;
+export default AboutWrapper;
 
 export const ValueWrapper = styled.div`
   color: #16194f;
