@@ -1,7 +1,8 @@
 import React from "react";
+import LoanCalculator from "../Loan Calculator";
 
 function Home() {
-  return <div>Home</div>;
+  return <LoanCalculator />;
 }
 
 export default Home;
