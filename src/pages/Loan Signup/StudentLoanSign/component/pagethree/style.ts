@@ -65,7 +65,7 @@ const FinWrapper = styled.div`
           background-color: var(--lavender-secondary);
 
           @media screen and (min-width: 1025px) {
-            margin-top: 257px;
+            margin-top: 245px;
           }
           @media screen and (max-width: 786px) {
             margin-top: 0;

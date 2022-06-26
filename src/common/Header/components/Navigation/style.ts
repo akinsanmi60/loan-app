@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaRegWindowClose } from "react-icons/fa";
 
 const NavigationStyled = styled.nav`
   background: var(--neutral-light);
@@ -13,21 +13,37 @@ const NavigationStyled = styled.nav`
 export default NavigationStyled;
 
 export const NavLink = styled(Link)`
-  color: "black";
+  color: #16194f;
+  margin-top: 10px;
   display: flex;
   align-items: center;
+  font-weight: 700;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
   &.active {
     color: #15cdfc;
+    font-weight: 900;
   }
 `;
 
 export const Bars = styled(FaBars)`
   display: none;
-  color: #000;
+  color: #16194f;
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 75%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+`;
+export const CloseBars = styled(FaRegWindowClose)`
+  display: none;
+  color: #16194f;
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
@@ -40,45 +56,71 @@ export const Bars = styled(FaBars)`
 `;
 
 export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: -24px;
+  .navlink {
+    display: flex;
+    gap: 150px;
+    margin-left: 100px;
+    @media screen and (max-width: 769px) {
+      display: none;
+    }
+    .navlink-container {
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      margin-right: -24px;
+    }
+  }
+
   @media screen and (max-width: 768px) {
-    display: none;
+    #nav-mobile {
+      display: block;
+      position: absolute;
+      right: -8px;
+      top: 4rem;
+      width: 50%;
+      background: red;
+      padding: 20px;
+      transition: all 0.3s;
+      color: var(--neutral-light);
+      z-index: 111;
+
+      .navlink-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    #nav-mobile {
+      width: 70%;
+    }
   }
 `;
 
 export const NavBtn = styled.nav`
-  display: flex;
-  align-items: center;
-  margin-right: 24px;
-  /* Third Nav */
-  /* justify-content: flex-end;
-  width: 100vw; */
-  @media screen and (min-width: 1024px) <style> .hma-dkY {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  border: #16194f 2px solid;
+  border-radius: 4px;
+  padding: 10px;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #16194f;
+    p {
+      color: var(--neutral-light);
+    }
   }
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+  // @media screen and (max-width: 768px) {
+  //   display: none;
+  // }
 `;
 
 export const NavBtnLink = styled(Link)`
-  display: flex;
-  border: black 2px solid;
-  border-radius: 4px;
-  background: transparent;
-  padding: 10px 22px;
-  color: #000;
   outline: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   text-decoration: none;
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
-  }
 `;

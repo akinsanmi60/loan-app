@@ -7,6 +7,7 @@ import Confirm from "./component/Credentials/Confirm";
 import formValue from "./type";
 import EductionBio from "./component/pagetwo/Education";
 import FinancePage from "./component/pagethree/finance";
+import FormWrapper from "./style";
 
 const StudentLoanForm = () => {
   // Steps
@@ -35,7 +36,7 @@ const StudentLoanForm = () => {
     setMultiFormValues({ ...multiFormValues, [input]: e.target.value });
   };
   return (
-    <div>
+    <FormWrapper>
       {activeStep === 0 && (
         <UserDetails values={multiFormValues} handleChange={handleChange} />
       )}
@@ -48,25 +49,27 @@ const StudentLoanForm = () => {
       {activeStep === 3 && <Review values={multiFormValues} />}
       {activeStep === 4 && <Confirm />}
 
-      <Button
-        disabled={activeStep === 0}
-        className="mr-5"
-        onClick={handleBack}
-        style={activeStep === 4 ? { display: "none" } : {}}
-      >
-        Back
-      </Button>
+      <div className="container">
+        <div className="btncase">
+          <Button
+            hidden={activeStep === 0}
+            className="btn-back"
+            onClick={handleBack}
+            style={activeStep === 4 ? { display: "none" } : {}}
+          >
+            Back
+          </Button>
 
-      <Button
-        className="ml-5"
-        variant="contained"
-        onClick={handleNext}
-        style={activeStep === 4 ? { display: "none" } : {}}
-      >
-        {}
-        {activeStep === steps.length - 1 ? "Submit" : "Next"}
-      </Button>
-    </div>
+          <Button
+            className="btn-next"
+            onClick={handleNext}
+            style={activeStep === 4 ? { display: "none" } : {}}
+          >
+            {activeStep === steps.length - 1 ? "Submit" : "Next"}
+          </Button>
+        </div>
+      </div>
+    </FormWrapper>
   );
 };
 
