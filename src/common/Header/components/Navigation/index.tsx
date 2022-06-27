@@ -14,6 +14,9 @@ function HeaderNavigation() {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+  const hideMenu = () => {
+    setShowMenu(false);
+  };
   return (
     <NavigationStyled>
       <NavLink to="/">
@@ -33,7 +36,7 @@ function HeaderNavigation() {
             <NavLink to="/question">FAQ</NavLink>
           </div>
           <NavBtn>
-            <NavBtnLink to="/signup">
+            <NavBtnLink to="/register" onClick={hideMenu}>
               <p>Get Started</p>
             </NavBtnLink>
           </NavBtn>

@@ -1,11 +1,11 @@
 import React from "react";
-import ButtonStyled from "./style";
+import { Button } from "@chakra-ui/react";
 
 type BtnProp = {
   name: string;
 };
 function PrimaryButton({ name }: BtnProp) {
-  return <ButtonStyled>{name}</ButtonStyled>;
+  return <Button>{name}</Button>;
 }
 
 export default PrimaryButton;

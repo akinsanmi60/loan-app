@@ -75,9 +75,9 @@ export const NavMenu = styled.div`
     #nav-mobile {
       display: block;
       position: absolute;
-      right: -8px;
+      right: 0px;
       top: 4rem;
-      width: 50%;
+      width: 100%;
       background: red;
       padding: 20px;
       transition: all 0.3s;
@@ -91,11 +91,15 @@ export const NavMenu = styled.div`
         margin-bottom: 20px;
       }
     }
+    #hide-nav-mobile {
+      left: -100%;
+    }
   }
 
   @media screen and (max-width: 500px) {
     #nav-mobile {
       width: 70%;
+      right: -5px;
     }
   }
 `;
