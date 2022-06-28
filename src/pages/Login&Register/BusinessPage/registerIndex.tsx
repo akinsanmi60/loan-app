@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -19,8 +19,7 @@ import FormField from "../../../common/FormField";
 import Container, { FormContainer, ContainerForm } from "../style";
 
 interface RegisterFormInputs {
-  firstName: string;
-  lastName: string;
+  businessName: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -36,8 +35,7 @@ type ToastProp = {
 
 const schema = yup
   .object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
+    businessName: yup.string().required(),
     email: yup.string().required(),
     password: yup.string().min(5).max(20).required(),
   })
@@ -47,7 +45,6 @@ function RegisterForm() {
   const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm<RegisterFormInputs>({
     resolver: yupResolver(schema),
@@ -83,13 +80,8 @@ function RegisterForm() {
       <h1>Create Account</h1>
       <form onSubmit={handleSubmit(submitForm)}>
         <div className="form">
-          <FormField label="First Name">
-            <Input {...register("firstName")} type="text" required />
-          </FormField>
-        </div>
-        <div className="form">
-          <FormField label="Last Name">
-            <Input {...register("lastName")} type="text" required />
+          <FormField label="Business Name">
+            <Input {...register("businessName")} type="text" required />
           </FormField>
         </div>
         <div className="form">
@@ -149,7 +141,7 @@ function RegisterForm() {
         <div className="text">
           <Text color="black" alignSelf="flex-start" fontSize={13}>
             Already have an account?{" "}
-            <Link to="/studentlogin">
+            <Link to="/businesslogin">
               <Text
                 color="txt.primary"
                 fontWeight="700"
@@ -166,14 +158,14 @@ function RegisterForm() {
   );
 }
 
-function StudentRegister() {
+function Register() {
   return (
     <>
       <Container>
         <ContainerForm>
           <div className="left">
             <h1>Welcome Back</h1>
-            <Link to="/studentlogin">
+            <Link to="/businesslogin">
               <button type="button" className="white_btn">
                 Login
               </button>
@@ -189,4 +181,4 @@ function StudentRegister() {
   );
 }
 
-export default StudentRegister;
+export default Register;

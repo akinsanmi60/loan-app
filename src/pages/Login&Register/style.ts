@@ -31,6 +31,12 @@ export const ContainerForm = styled.div`
     border-bottom-left-radius: 10px;
     padding: 20px;
   }
+  .ram {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
 
   .left h1,
   .ram h1 {
@@ -122,6 +128,7 @@ export const FormContainer = styled.div`
   .form {
     margin-bottom: 5px;
     label {
+      color: #16194f;
       font-size: 15px;
       margin-top: 15px;
     }

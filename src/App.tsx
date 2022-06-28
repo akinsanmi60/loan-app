@@ -7,14 +7,18 @@ import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import About from "./pages/About";
 import Question from "./pages/Question";
-import Student from "./pages/Loans/student";
-import Business from "./pages/Loans/Business";
 import Press from "./pages/Press";
+// Student-Routes
+import Student from "./pages/Loans/student";
 import StudentQA from "./pages/Question/components/studentQA";
-import BusinessQA from "./pages/Question/components/businessQA";
 import StudentLoanForm from "./pages/Loan Signup/StudentLoanSign/UserForm";
-import Register from "./pages/Login&Register/StudentPage/register";
-import Login from "./pages/Login&Register/StudentPage/login";
+import StudentRegister from "./pages/Login&Register/StudentPage/register";
+import StudentLogin from "./pages/Login&Register/StudentPage/login";
+// Business-Routes
+import Business from "./pages/Loans/Business";
+import BusinessQA from "./pages/Question/components/businessQA";
+import BusinessRegister from "./pages/Login&Register/BusinessPage/registerIndex";
+import BusinessLogin from "./pages/Login&Register/BusinessPage/loginIndex";
 
 function App() {
   return (
@@ -115,8 +119,14 @@ function App() {
             </LayoutWrapper>
           }
         />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+
+        {/* {StudentLogin} */}
+        <Route path="/studentregister" element={<StudentRegister />} />
+        <Route path="/studentlogin" element={<StudentLogin />} />
+
+        {/* {BusinessLogin} */}
+        <Route path="/businessregister" element={<BusinessRegister />} />
+        <Route path="/businesslogin" element={<BusinessLogin />} />
       </Routes>
     </div>
   );

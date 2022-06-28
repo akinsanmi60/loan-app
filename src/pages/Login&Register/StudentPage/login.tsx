@@ -110,7 +110,7 @@ function LoginForm() {
         <div className="text">
           <Text color="black" alignSelf="flex-start" fontSize={13}>
             Don't have an account?{" "}
-            <Link to="/register">
+            <Link to="/studentregister">
               <Text
                 color="txt.primary"
                 fontWeight="700"
@@ -137,9 +137,9 @@ function login() {
           </div>
           <div className="ram">
             <h1>New Here ?</h1>
-            <Link to="/register">
+            <Link to="/studentregister">
               <button type="button" className="white_btn">
-                Sing Up
+                Register
               </button>
             </Link>
           </div>

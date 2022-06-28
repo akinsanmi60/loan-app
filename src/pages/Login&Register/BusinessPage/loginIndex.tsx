@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
+import { Link } from "react-router-dom";
+import { Theme, toast, ToastContainer, ToastPosition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Button,
@@ -16,14 +15,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import FormField from "../../../common/FormField";
-import Container, { FormContainer, ContainerForm } from "../style";
+import Container, { ContainerForm, FormContainer } from "../style";
 
-interface RegisterFormInputs {
-  firstName: string;
-  lastName: string;
-  email: string;
+interface LoginFormInputs {
+  businessName: string;
   password: string;
-  confirmPassword: string;
 }
 
 type ToastProp = {
@@ -36,20 +32,15 @@ type ToastProp = {
 
 const schema = yup
   .object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    email: yup.string().required(),
+    businessName: yup.string().required(),
     password: yup.string().min(5).max(20).required(),
   })
   .required();
 
-function RegisterForm() {
+function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
-  const [show, setShow] = useState(false);
-  const navigate = useNavigate();
-
-  const { register, handleSubmit } = useForm<RegisterFormInputs>({
+  const { register, handleSubmit } = useForm<LoginFormInputs>({
     resolver: yupResolver(schema),
   });
 
@@ -63,14 +54,13 @@ function RegisterForm() {
 
   // to view password
   const handleClickP = () => setPshow(!pshow);
-  const handleClick = () => setShow(!show);
 
   const submitForm = (data: any) => {
     console.log("data", data);
     setLoading(true);
     try {
-      if (data.password !== data.confirmPassword) {
-        toast.error("passwords do not match", toastOptions);
+      if (data.password) {
+        toast.error("Login", toastOptions);
       }
     } catch (e) {
       console.log(e);
@@ -80,21 +70,11 @@ function RegisterForm() {
 
   return (
     <FormContainer>
-      <h1>Create Account</h1>
       <form onSubmit={handleSubmit(submitForm)}>
         <div className="form">
-          <FormField label="First Name">
-            <Input {...register("firstName")} type="text" required />
-          </FormField>
-        </div>
-        <div className="form">
-          <FormField label="Last Name">
-            <Input {...register("lastName")} type="text" required />
-          </FormField>
-        </div>
-        <div className="form">
-          <FormField label="Email">
-            <Input {...register("email")} type="email" required />
+          <h1 className="hero">Login to Your Account</h1>
+          <FormField label="Business Name">
+            <Input {...register("businessName")} type="text" required />
           </FormField>
         </div>
         <div className="form">
@@ -116,47 +96,28 @@ function RegisterForm() {
             </InputGroup>
           </FormField>
         </div>
-        <div className="form">
-          <FormField label="Confirm Password">
-            <InputGroup>
-              <Input
-                {...register("confirmPassword")}
-                type={show ? "text" : "password"}
-              />
-              <InputRightElement>
-                <Button className="btn-icon" onClick={handleClick}>
-                  {show ? (
-                    <ViewIcon color=" #16194F" />
-                  ) : (
-                    <ViewOffIcon color=" #16194F" />
-                  )}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-          </FormField>
-        </div>
         <Text color="txt.muted" alignSelf="flex-start" fontSize={10}>
-          By clicking 'register' it means you agree with our{" "}
+          Forget password?
           <Text as="a" textDecoration="underline" cursor="pointer">
-            terms and conditions
+            Click to reset password
           </Text>
         </Text>
         <div className="btn">
           <Button type="submit" className="green_btn">
-            {loading ? <CircularProgress /> : "Register"}
+            {loading ? <CircularProgress /> : "Login"}
           </Button>
         </div>
         <div className="text">
           <Text color="black" alignSelf="flex-start" fontSize={13}>
-            Already have an account?{" "}
-            <Link to="/studentlogin">
+            Don't have an account?{" "}
+            <Link to="/businessregister">
               <Text
                 color="txt.primary"
                 fontWeight="700"
                 as="button"
                 padding={3}
               >
-                Log in
+                Register
               </Text>
             </Link>
           </Text>
@@ -166,21 +127,21 @@ function RegisterForm() {
   );
 }
 
-function StudentRegister() {
+function login() {
   return (
     <>
       <Container>
         <ContainerForm>
-          <div className="left">
-            <h1>Welcome Back</h1>
-            <Link to="/studentlogin">
+          <div className="rom">
+            <LoginForm />
+          </div>
+          <div className="ram">
+            <h1>New Here ?</h1>
+            <Link to="/businessregister">
               <button type="button" className="white_btn">
-                Login
+                Register
               </button>
             </Link>
-          </div>
-          <div className="right">
-            <RegisterForm />
           </div>
         </ContainerForm>
       </Container>
@@ -189,4 +150,4 @@ function StudentRegister() {
   );
 }
 
-export default StudentRegister;
+export default login;

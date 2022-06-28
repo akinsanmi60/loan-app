@@ -36,7 +36,7 @@ function HeaderNavigation() {
             <NavLink to="/question">FAQ</NavLink>
           </div>
           <NavBtn>
-            <NavBtnLink to="/register" onClick={hideMenu}>
+            <NavBtnLink to="/studentregister" onClick={hideMenu}>
               <p>Get Started</p>
             </NavBtnLink>
           </NavBtn>
