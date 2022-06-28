@@ -85,26 +85,26 @@ export const timelineElements = [
 export const repaymentfaq = [
   {
     id: 1,
-    title: "When do I start repaying my loan?",
+    title: "How much can I borrow?",
     description:
-      "The date of the first repayment of your loan will be shown on your provisional offer details and on the loan agreement under the introductory section. You will also be able to view it under the loan repayment schedule on your Lendwise dashboard. In general, borrowers in full-time education will benefit from a grace period for the whole duration of the studies (and potentially a short period following completion of studies of up to 6 months). Repayments for borrowers in part-time education will, most of the times, commence the month after the signing of the loan agreement.",
+      "Our minimum and maximum  loan amount both depend on the borrower’s repayment capacity assessed based on verifiable business inventory and other criteria.",
   },
   {
     id: 2,
-    title: "What will happen if I miss a repayment?",
+    title: "What type of Loan do you offer?",
     description:
-      "No, our interest rates are fixed. In this way you can easily budget your cash flows with regard to repayment over the term of the loan and expect no surprises following a sudden increase in the general level of interest rates in the economy.",
+      "We offer Term loan, Working-Capital loan, Equipment-Financing loan and Loan against Property to existing businesses",
   },
   {
     id: 3,
-    title: "Can I repay my loan early?",
+    title: "How long does it take to get a loan?",
     description:
-      "You can surely repay your loan early without incurring any fees. Please contact through our mailling address or call +2348137592235 if you need to find out more.",
+      "It doesn’t take longer than it ought to as long as the necessary requirements are adequately met (less than 7 working days).",
   },
   {
     id: 4,
-    title: "Where do I send the money?",
+    title: "What is your loan fixed interest rate?",
     description:
-      "We will ask you to sign a direct debit mandate once the provisional offer is accepted whereby you will provide us with the details of your bank account to use in the direct debit procedure.",
+      "Our interest rate differs depending on the loan amount. However, it is very competitive and flexible.",
   },
 ];

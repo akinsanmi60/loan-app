@@ -30,10 +30,18 @@ function HeaderNavigation() {
           id={showMenu ? "nav-mobile" : "hide-nav-mobile"}
         >
           <div className="navlink-container">
-            <NavLink to="/student">Student</NavLink>
-            <NavLink to="/business">Business</NavLink>
-            <NavLink to="/press">Blog</NavLink>
-            <NavLink to="/question">FAQ</NavLink>
+            <NavLink to="/student" onClick={hideMenu}>
+              Student
+            </NavLink>
+            <NavLink to="/business" onClick={hideMenu}>
+              Business
+            </NavLink>
+            <NavLink to="/press" onClick={hideMenu}>
+              Blog
+            </NavLink>
+            <NavLink to="/question" onClick={hideMenu}>
+              FAQ
+            </NavLink>
           </div>
           <NavBtn>
             <NavBtnLink to="/studentregister" onClick={hideMenu}>
@@ -43,7 +51,9 @@ function HeaderNavigation() {
         </div>
       </NavMenu>
 
-      <div onClick={toggleMenu}>{showMenu ? <CloseBars /> : <Bars />}</div>
+      <div onClick={toggleMenu}>
+        {showMenu ? <CloseBars onClick={hideMenu} /> : <Bars />}
+      </div>
     </NavigationStyled>
   );
 }

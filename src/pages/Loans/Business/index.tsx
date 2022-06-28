@@ -7,13 +7,16 @@ import {
   FaPeopleCarry,
   FaRegistered,
 } from "react-icons/fa";
+import { useNavigate } from "react-router";
 import BusinessFaq from "./component/faq";
 import Businesstimeline from "./component/timeline";
 import eligibilty from "./data";
 import biz from "../../../assets/business-5816293.jpg";
-import Businesswrapper, { InnerLayout } from "./style";
+import Businesswrapper, { ButtonStyled, InnerLayout } from "./style";
+import BusinessCalculator from "./component/calculator";
 
 function Business() {
+  const navigate = useNavigate();
   return (
     <Businesswrapper>
       <div>
@@ -68,6 +71,30 @@ function Business() {
           })}
         </div>
       </div>
+
+      <div className="calculator">
+        <BusinessCalculator />
+      </div>
+
+      <div className="journey">
+        <div className="journeyText">
+          <h1 className="heroin">
+            Grow and expand your business with us. A range of easily accessible
+            loans
+          </h1>
+        </div>
+        <div className="journeybth">
+          <div className="begin-btn">
+            <ButtonStyled
+              type="submit"
+              onClick={() => navigate("/businessregister")}
+            >
+              begin
+            </ButtonStyled>
+          </div>
+        </div>
+      </div>
+
       <div className="application">
         <h1>How it works</h1>
         <Businesstimeline />

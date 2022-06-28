@@ -62,9 +62,12 @@ const Businesswrapper = styled.div`
     }
   }
 
+  .requirement {
+    margin-bottom: 40px;
+  }
   .req-contain {
     display: grid;
-    gap: 30px;
+    gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
     @media screen and (max-width: 425px) {
       grid-template-columns: 1fr;
@@ -72,7 +75,7 @@ const Businesswrapper = styled.div`
     }
     .box {
       margin-top: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       .box-con {
         padding: 1.5rem 1rem;
         @media screen and (max-width: 425px) {
@@ -103,8 +106,40 @@ const Businesswrapper = styled.div`
     }
   }
 
-  .application {
-    margin-bottom: 40px;
+  .application,
+  .calculator,
+  .studfaq {
+    margin-bottom: 60px;
+  }
+
+  .journey {
+    margin-bottom: 30px;
+    background-color: var(--dark-primary);
+    color: white;
+    display: grid;
+    // gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+    .heroin {
+      margin-top: 0px;
+    }
+    .begin-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media screen and (max-width: 786px) {
+      .begin-btn {
+        margin-top: 40px;
+      }
+    }
+    @media screen and (max-width: 425px) {
+      grid-template-columns: 1fr;
+      padding: 18px;
+      .begin-btn {
+        margin-top: 18px;
+      }
+    }
   }
 `;
 export default Businesswrapper;
@@ -125,5 +160,38 @@ export const InnerLayout = styled.section`
   }
   @media screen and (max-width: 425px) {
     padding: 0 0.8rem;
+  }
+`;
+
+export const ButtonStyled = styled.button`
+  background-color: #6ab165;
+  padding: 0.7rem 1rem;
+  color: white;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 70%;
+  height: 60px;
+  @media screen and (max-width: 425px) {
+    margin-top: 10px;
+    width: 35%;
+    height: 40px;
+    padding: 0.3rem 0rem;
+    font-size: 0.8rem;
+  }
+  @media screen and (max-width: 320px) {
+    margin-top: 10px;
+    width: 50%;
+    padding: 0.3rem 0rem;
+    font-size: 0.8rem;
   }
 `;
