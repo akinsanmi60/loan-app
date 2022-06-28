@@ -1,14 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Input, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Text,
+} from "@chakra-ui/react";
+import CircularProgress from "@mui/material/CircularProgress";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import FormField from "../../../common/FormField";
-import SignupContainer, { FormContainer, SignupContainerForm } from "./style";
+import Container, { FormContainer, ContainerForm } from "../style";
 
 interface RegisterFormInputs {
   firstName: string;
@@ -36,13 +44,12 @@ const schema = yup
   .required();
 
 function RegisterForm() {
-  const [view, setView] = useState("register");
   const [loading, setLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<RegisterFormInputs>({
+  const [pshow, setPshow] = useState(false);
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const { register, handleSubmit } = useForm<RegisterFormInputs>({
     resolver: yupResolver(schema),
   });
 
@@ -53,6 +60,10 @@ function RegisterForm() {
     draggable: true,
     theme: "light",
   };
+
+  // to view password
+  const handleClickP = () => setPshow(!pshow);
+  const handleClick = () => setShow(!show);
 
   const submitForm = (data: any) => {
     console.log("data", data);
@@ -72,60 +83,78 @@ function RegisterForm() {
       <h1>Create Account</h1>
       <form onSubmit={handleSubmit(submitForm)}>
         <div className="form">
-          {!errors.firstName ? (
-            ""
-          ) : (
-            <p className="error_msg">{errors.firstName.message}</p>
-          )}
           <FormField label="First Name">
-            <Input {...register("firstName")} type="text" />
+            <Input {...register("firstName")} type="text" required />
           </FormField>
         </div>
         <div className="form">
-          {!errors.lastName ? (
-            ""
-          ) : (
-            <p className="error_msg">{errors.lastName.message}</p>
-          )}
           <FormField label="Last Name">
-            <Input {...register("lastName")} type="text" />
+            <Input {...register("lastName")} type="text" required />
           </FormField>
         </div>
         <div className="form">
-          {!errors.email ? (
-            ""
-          ) : (
-            <p className="error_msg">{errors.email.message}</p>
-          )}
           <FormField label="Email">
-            <Input {...register("email")} type="email" />
+            <Input {...register("email")} type="email" required />
           </FormField>
         </div>
         <div className="form">
-          {!errors.password ? (
-            ""
-          ) : (
-            <p className="error_msg">Password required</p>
-          )}
           <FormField label="Password">
-            <Input {...register("password")} type="password" />
+            <InputGroup>
+              <Input
+                {...register("password")}
+                type={pshow ? "text" : "password"}
+              />
+              <InputRightElement>
+                <Button className="btn-icon" onClick={handleClickP}>
+                  {pshow ? (
+                    <ViewIcon color=" #16194F" />
+                  ) : (
+                    <ViewOffIcon color=" #16194F" />
+                  )}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
           </FormField>
         </div>
         <div className="form">
           <FormField label="Confirm Password">
-            <Input {...register("confirmPassword")} type="password" />
+            <InputGroup>
+              <Input
+                {...register("confirmPassword")}
+                type={show ? "text" : "password"}
+              />
+              <InputRightElement>
+                <Button className="btn-icon" onClick={handleClick}>
+                  {show ? (
+                    <ViewIcon color=" #16194F" />
+                  ) : (
+                    <ViewOffIcon color=" #16194F" />
+                  )}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
           </FormField>
         </div>
-        <Text color="txt.muted" alignSelf="flex-start">
-          By clicking 'sign up' it means you agree with our{" "}
+        <Text color="txt.muted" alignSelf="flex-start" fontSize={10}>
+          By clicking 'register' it means you agree with our{" "}
           <Text as="a" textDecoration="underline" cursor="pointer">
             terms and conditions
           </Text>
         </Text>
-        <div className="form">
-          <Button type="submit" isLoading={loading}>
-            Register
+        <div className="btn">
+          <Button type="submit" className="green_btn">
+            {loading ? <CircularProgress /> : "Register"}
           </Button>
+        </div>
+        <div className="text">
+          <Text color="black" alignSelf="flex-start" fontSize={13}>
+            Already have an account?{" "}
+            <Link to="/login">
+              <Text color="txt.primary" fontWeight="700" as="button">
+                Log in
+              </Text>
+            </Link>
+          </Text>
         </div>
       </form>
     </FormContainer>
@@ -135,21 +164,21 @@ function RegisterForm() {
 function Register() {
   return (
     <>
-      <SignupContainer>
-        <SignupContainerForm>
+      <Container>
+        <ContainerForm>
           <div className="left">
             <h1>Welcome Back</h1>
             <Link to="/login">
               <button type="button" className="white_btn">
-                Sing in
+                Login
               </button>
             </Link>
           </div>
           <div className="right">
             <RegisterForm />
           </div>
-        </SignupContainerForm>
-      </SignupContainer>
+        </ContainerForm>
+      </Container>
       <ToastContainer />
     </>
   );

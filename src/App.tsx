@@ -13,7 +13,8 @@ import Press from "./pages/Press";
 import StudentQA from "./pages/Question/components/studentQA";
 import BusinessQA from "./pages/Question/components/businessQA";
 import StudentLoanForm from "./pages/Loan Signup/StudentLoanSign/UserForm";
-import Register from "./pages/Login&Register/StudentPage";
+import Register from "./pages/Login&Register/StudentPage/register";
+import Login from "./pages/Login&Register/StudentPage/login";
 
 function App() {
   return (
@@ -115,6 +116,7 @@ function App() {
           }
         />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

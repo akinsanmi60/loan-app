@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SignupContainer = styled.div`
+const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: var(--neutral-light);
@@ -9,9 +9,9 @@ const SignupContainer = styled.div`
   justify-content: center;
   padding: 20px;
 `;
-export default SignupContainer;
+export default Container;
 
-export const SignupContainerForm = styled.div`
+export const ContainerForm = styled.div`
   width: 900px;
   height: 700px;
   display: flex;
@@ -19,7 +19,8 @@ export const SignupContainerForm = styled.div`
   box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
 
-  .left {
+  .left,
+  .ram {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -31,14 +32,17 @@ export const SignupContainerForm = styled.div`
     padding: 20px;
   }
 
-  .left h1 {
+  .left h1,
+  .ram h1 {
     margin-top: 0;
     color: white;
     font-size: 30px;
     align-self: center;
+    margin-bottom: 9px;
   }
 
-  .right {
+  .right,
+  .rom {
     flex: 2;
     display: flex;
     flex-direction: column;
@@ -47,7 +51,7 @@ export const SignupContainerForm = styled.div`
     background-color: var(--neutral-light);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 50px;
+    padding: 30px;
   }
 
   .white_btn,
@@ -62,6 +66,21 @@ export const SignupContainerForm = styled.div`
     font-size: 14px;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 425px) {
+    flex-direction: column;
+    height: 100%;
+    .left,
+    .ram {
+      display: none;
+    }
+    .left h1 {
+      margin-top: 0;
+      color: white;
+      font-size: 30px;
+      align-self: center;
+    }
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -70,13 +89,19 @@ export const FormContainer = styled.div`
   align-items: center;
 
   h1 {
+    color: #16194f;
+    font-size: 40px;
+    margin-top: 0;
+  }
+  .hero {
+    color: #16194f;
     font-size: 40px;
     margin-top: 0;
   }
 
   Input {
     outline: none;
-    width: 40vw;
+    width: 100%;
     padding: 10px;
     border-radius: 6px;
     background-color: #edf5f3;
@@ -84,12 +109,51 @@ export const FormContainer = styled.div`
     font-size: 14px;
     border: 1px solid #ced4da;
   }
+  .btn {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+  }
 
-  .error_msg {
-    margin: 5px 0;
-    font-size: 8px;
-    color: #f34646;
-    border-radius: 5px;
-    text-align: center;
+  .green_btn {
+    background-color: var(--dark-primary);
+    color: white;
+  }
+  .form {
+    margin-bottom: 5px;
+    label {
+      font-size: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  .btn-icon {
+    margin-right: 2px;
+    border: none;
+    background: transparent;
+    margin-top: 15px;
+    width: 40px;
+    font-size: 20px;
+  }
+  .text {
+    display: none;
+  }
+  @media screen and (max-width: 425px) {
+    h1 {
+      font-size: 32px;
+    }
+    .hero {
+      font-size: 28px;
+    }
+    .text {
+      display: revert;
+      margin-top: 25px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    h1 {
+      font-size: 28px;
+    }
   }
 `;
