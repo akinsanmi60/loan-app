@@ -111,7 +111,12 @@ function LoginForm() {
           <Text color="black" alignSelf="flex-start" fontSize={13}>
             Don't have an account?{" "}
             <Link to="/register">
-              <Text color="txt.primary" fontWeight="700" as="button">
+              <Text
+                color="txt.primary"
+                fontWeight="700"
+                as="button"
+                padding={3}
+              >
                 Register
               </Text>
             </Link>
