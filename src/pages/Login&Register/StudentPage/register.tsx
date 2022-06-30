@@ -1,6 +1,8 @@
+/* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -17,6 +19,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import FormField from "../../../common/FormField";
 import Container, { FormContainer, ContainerForm } from "../style";
+import AuthContext from "../../../Context/AuthProvider";
 
 interface RegisterFormInputs {
   firstName: string;
@@ -65,13 +68,29 @@ function RegisterForm() {
   const handleClickP = () => setPshow(!pshow);
   const handleClick = () => setShow(!show);
 
-  const submitForm = (data: any) => {
-    console.log("data", data);
+  const submitForm = async (values: any) => {
+    console.log("value", values);
     setLoading(true);
     try {
-      if (data.password !== data.confirmPassword) {
+      if (values.password !== values.confirmPassword) {
         toast.error("passwords do not match", toastOptions);
       }
+      const { data } = await axios.post(
+        "http://localhost:5500/auth/student/register",
+        values,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        },
+      );
+      console.log("=========", data);
+      if (data.status === false) {
+        toast.error(data.message, toastOptions);
+      }
+      if (data.status === true) {
+        toast.success(data.message, toastOptions);
+      }
+      navigate("/verificationpage");
     } catch (e) {
       console.log(e);
     }

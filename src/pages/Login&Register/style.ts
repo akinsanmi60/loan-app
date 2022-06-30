@@ -20,7 +20,8 @@ export const ContainerForm = styled.div`
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
 
   .left,
-  .ram {
+  .ram,
+  .ver-left {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -31,6 +32,11 @@ export const ContainerForm = styled.div`
     border-bottom-left-radius: 10px;
     padding: 20px;
   }
+
+  .ver-left {
+    flex: 2;
+  }
+
   .ram {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -48,7 +54,8 @@ export const ContainerForm = styled.div`
   }
 
   .right,
-  .rom {
+  .rom,
+  .ver-right {
     flex: 2;
     display: flex;
     flex-direction: column;
@@ -77,7 +84,8 @@ export const ContainerForm = styled.div`
     flex-direction: column;
     height: 100%;
     .left,
-    .ram {
+    .ram,
+    .ver-left {
       display: none;
     }
     .left h1 {
@@ -94,17 +102,24 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  h1 {
+  h1,
+  h2 {
     color: #16194f;
     font-size: 40px;
     margin-top: 0;
   }
+
+  h2 {
+    font-size: 25px;
+  }
+
   .hero {
     color: #16194f;
     font-size: 40px;
     margin-top: 0;
   }
 
+  .ver-input,
   Input {
     outline: none;
     width: 100%;
@@ -115,6 +130,27 @@ export const FormContainer = styled.div`
     font-size: 14px;
     border: 1px solid #ced4da;
   }
+
+  .ver-input {
+    width: 25vw;
+    color: #16194f;
+    border-radius: 0px;
+    border: none;
+    font-size: 20px;
+    background-color: none;
+    border-bottom: 1px solid #16194f;
+    font-weight: 300;
+    margin-top: 40px;
+    padding-left: 80px;
+    padding-right: 50px;
+  }
+
+  .comp-text {
+    font-size: 14px;
+    text-align: justify;
+    color: #16194f;
+  }
+
   .btn {
     margin-top: 25px;
     display: flex;
@@ -145,10 +181,18 @@ export const FormContainer = styled.div`
   .text {
     display: none;
   }
+
+  @media screen and (max-width: 786px) {
+    .ver-input {
+      width: 30vw;
+    }
+  }
+
   @media screen and (max-width: 425px) {
     h1 {
       font-size: 32px;
     }
+
     .hero {
       font-size: 28px;
     }
@@ -156,11 +200,18 @@ export const FormContainer = styled.div`
       display: revert;
       margin-top: 25px;
     }
+    .ver-input {
+      width: 60vw;
+    }
   }
 
   @media screen and (max-width: 320px) {
     h1 {
       font-size: 28px;
+    }
+
+    .ver-input {
+      width: 60vw;
     }
   }
 `;

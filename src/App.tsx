@@ -19,6 +19,8 @@ import Business from "./pages/Loans/Business";
 import BusinessQA from "./pages/Question/components/businessQA";
 import BusinessRegister from "./pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "./pages/Login&Register/BusinessPage/loginIndex";
+// Common Route
+import VerificationPage from "./pages/Login&Register/component";
 
 function App() {
   return (
@@ -127,6 +129,9 @@ function App() {
         {/* {BusinessLogin} */}
         <Route path="/businessregister" element={<BusinessRegister />} />
         <Route path="/businesslogin" element={<BusinessLogin />} />
+
+        {/* {Common} */}
+        <Route path="/verificationpage" element={<VerificationPage />} />
       </Routes>
     </div>
   );

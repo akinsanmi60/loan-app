@@ -62,8 +62,8 @@ function LoginForm() {
       if (data.password !== data.confirmPassword) {
         toast.error("passwords do not match", toastOptions);
       }
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
     setLoading(false);
   };
