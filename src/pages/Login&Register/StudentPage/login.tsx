@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Theme, toast, ToastContainer, ToastPosition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -16,6 +17,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import FormField from "../../../common/FormField";
 import Container, { ContainerForm, FormContainer } from "../style";
+import AuthContext from "../../../Context/AuthProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -38,6 +40,8 @@ const schema = yup
   .required();
 
 function LoginForm() {
+  const { setAuthUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const { register, handleSubmit } = useForm<LoginFormInputs>({
@@ -55,13 +59,30 @@ function LoginForm() {
   // to view password
   const handleClickP = () => setPshow(!pshow);
 
-  const submitForm = (data: any) => {
-    console.log("data", data);
+  // handle login function
+  const submitForm = async (values: any) => {
     setLoading(true);
     try {
-      if (data.password !== data.confirmPassword) {
-        toast.error("passwords do not match", toastOptions);
+      const { data } = await axios.post(
+        "http://localhost:5500/auth/student/login",
+        values,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        },
+      );
+      console.log("=========", data);
+      if (data.status === false) {
+        toast.error(data?.message, toastOptions);
       }
+      if (data.status === true) {
+        toast.success(data?.message, toastOptions);
+        const token = data?.token;
+        const user = data?.user;
+        setAuthUser({ user, token });
+      }
+
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -104,7 +125,7 @@ function LoginForm() {
         </Text>
         <div className="btn">
           <Button type="submit" className="green_btn">
-            {loading ? <CircularProgress /> : "Login"}
+            {loading ? <CircularProgress size="22px" /> : "Login"}
           </Button>
         </div>
         <div className="text">

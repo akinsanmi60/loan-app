@@ -104,7 +104,7 @@ function LoginForm() {
         </Text>
         <div className="btn">
           <Button type="submit" className="green_btn">
-            {loading ? <CircularProgress /> : "Login"}
+            {loading ? <CircularProgress size="22px" /> : "Login"}
           </Button>
         </div>
         <div className="text">

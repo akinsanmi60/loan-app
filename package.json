@@ -20,6 +20,7 @@
     "@types/node": "^16.11.36",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
+    "antd": "^4.21.4",
     "aos": "^2.3.4",
     "axios": "^0.26.1",
     "babel-loader": "^8.2.5",

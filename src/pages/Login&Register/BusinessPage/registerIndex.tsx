@@ -135,7 +135,7 @@ function RegisterForm() {
         </Text>
         <div className="btn">
           <Button type="submit" className="green_btn">
-            {loading ? <CircularProgress /> : "Register"}
+            {loading ? <CircularProgress size="22px" /> : "Register"}
           </Button>
         </div>
         <div className="text">

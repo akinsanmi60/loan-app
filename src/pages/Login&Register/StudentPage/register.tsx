@@ -47,6 +47,7 @@ const schema = yup
   .required();
 
 function RegisterForm() {
+  const { setAuthUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const [show, setShow] = useState(false);
@@ -85,10 +86,12 @@ function RegisterForm() {
       );
       console.log("=========", data);
       if (data.status === false) {
-        toast.error(data.message, toastOptions);
+        toast.error(data?.message, toastOptions);
       }
       if (data.status === true) {
-        toast.success(data.message, toastOptions);
+        toast.success(data?.message, toastOptions);
+        const user = data?.user;
+        setAuthUser(user);
       }
       navigate("/verificationpage");
     } catch (e) {
@@ -162,7 +165,7 @@ function RegisterForm() {
         </Text>
         <div className="btn">
           <Button type="submit" className="green_btn">
-            {loading ? <CircularProgress /> : "Register"}
+            {loading ? <CircularProgress size="22px" /> : "Register"}
           </Button>
         </div>
         <div className="text">

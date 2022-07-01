@@ -35,6 +35,19 @@ export const ContainerForm = styled.div`
 
   .ver-left {
     flex: 2;
+    p {
+      margin-top: 35px;
+      color: white;
+    }
+    .var-text {
+      margin-top: -50px;
+      h3 {
+        color: white;
+        font-size: 60px;
+        text-align: center;
+        margin-bottom: -15px;
+      }
+    }
   }
 
   .ram {
@@ -78,6 +91,11 @@ export const ContainerForm = styled.div`
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
+  }
+
+  .input-con {
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (max-width: 425px) {
@@ -149,6 +167,16 @@ export const FormContainer = styled.div`
     font-size: 14px;
     text-align: justify;
     color: #16194f;
+  }
+
+  .action-text {
+    display: flex;
+    margin-top: 70px;
+    span {
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 
   .btn {

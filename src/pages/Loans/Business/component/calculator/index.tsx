@@ -35,7 +35,6 @@ export default function BusinessCalculator() {
 
   const calculate = (amount: number, month: number, rate: number) => {
     const loanAmount = new LoanJS.Loan(amount, month, rate);
-    console.log("=============", loanAmount);
     setLoan(loanAmount);
   };
   const handleSubmit = (event: any) => {
@@ -47,14 +46,6 @@ export default function BusinessCalculator() {
       values["interest-rate"],
     );
   };
-
-  //   const amountFormat = (amount: number) =>
-  //     new Intl.NumberFormat("en-gb", {
-  //       style: "currency",
-  //       currency: "GBP",
-  //     }).format(amount);
-
-  //   const d = new Date();
 
   return (
     <LoanContainer>
