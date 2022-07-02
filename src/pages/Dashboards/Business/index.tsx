@@ -2,10 +2,10 @@
 import React, { useContext } from "react";
 import AuthContext from "../../../Context/AuthProvider";
 
-function StudentBoard() {
+function BusinessBoard() {
   const { authUser } = useContext(AuthContext);
 
   return <div>Welcome {authUser?.user.firstName}</div>;
 }
 
-export default StudentBoard;
+export default BusinessBoard;

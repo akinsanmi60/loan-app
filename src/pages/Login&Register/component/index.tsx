@@ -28,7 +28,7 @@ function VerificationForm() {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState({ code: "" });
   const navigate = useNavigate();
-  const { authUser, setAuthUser } = useContext(AuthContext);
+  const { authUser } = useContext(AuthContext);
 
   const toastOptions: ToastProp = {
     position: "top-right",
@@ -48,7 +48,7 @@ function VerificationForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post(
+      const res = await axios.post(
         "http://localhost:5500/auth/student/verify",
         value,
         {
@@ -56,14 +56,11 @@ function VerificationForm() {
           withCredentials: true,
         },
       );
-      console.log("=========", data);
-      if (data.status === false) {
-        toast.error(data.message, toastOptions);
+      if (res?.data.status === false) {
+        toast.error(res?.data.message, toastOptions);
       }
-      if (data.status === true) {
-        toast.success(data.message, toastOptions);
-        const user = data?.user;
-        setAuthUser(user);
+      if (res?.data.status === true) {
+        toast.success(res?.data.message, toastOptions);
       }
       navigate("/studentlogin");
     } catch (err) {
@@ -78,7 +75,7 @@ function VerificationForm() {
       <h2>Please verify your account</h2>
       <p className="comp-text">
         Your account has been created successfully. To complete your process, we
-        have sent code to your email: {authUser?.user.email}
+        have sent code to your email: <b>{authUser?.user.email}</b>
       </p>
       <form onSubmit={handleSubmit}>
         <div className="form">
@@ -109,6 +106,8 @@ function VerificationForm() {
 }
 
 function Verification() {
+  const { authUser } = useContext(AuthContext);
+  console.log("<<<<>>>>>", authUser);
   return (
     <Container>
       <ContainerForm>
@@ -117,8 +116,9 @@ function Verification() {
             <h3>Welcome</h3>
             <h3>to</h3>
             <h3>Humoni</h3>
+
+            <p className="welname">{`${authUser?.user.firstName}  ${authUser?.user.lastName}`}</p>
           </div>
-          <p>Akintunde Akinsanmi</p>
         </div>
         <div className="ver-right">
           <VerificationForm />

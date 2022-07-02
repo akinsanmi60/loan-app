@@ -70,13 +70,12 @@ function RegisterForm() {
   const handleClick = () => setShow(!show);
 
   const submitForm = async (values: any) => {
-    console.log("value", values);
     setLoading(true);
     try {
       if (values.password !== values.confirmPassword) {
         toast.error("passwords do not match", toastOptions);
       }
-      const { data } = await axios.post(
+      const res = await axios.post(
         "http://localhost:5500/auth/student/register",
         values,
         {
@@ -84,15 +83,15 @@ function RegisterForm() {
           withCredentials: true,
         },
       );
-      console.log("=========", data);
-      if (data.status === false) {
-        toast.error(data?.message, toastOptions);
+
+      if (res.data.success === true) {
+        toast.success(res?.data?.message, toastOptions);
+        const user = res?.data?.user;
+        setAuthUser({ user });
+      } else {
+        toast.error(res?.data?.message, toastOptions);
       }
-      if (data.status === true) {
-        toast.success(data?.message, toastOptions);
-        const user = data?.user;
-        setAuthUser(user);
-      }
+
       navigate("/verificationpage");
     } catch (e) {
       console.log(e);

@@ -47,6 +47,11 @@ export const ContainerForm = styled.div`
         text-align: center;
         margin-bottom: -15px;
       }
+      .welname {
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 25px;
+      }
     }
   }
 

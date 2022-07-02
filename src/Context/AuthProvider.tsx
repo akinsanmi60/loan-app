@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react/jsx-filename-extension */
-import { createContext, useMemo, useState } from "react";
+import { createContext, useState } from "react";
 
 type AuthUserType = {
   user: {
@@ -8,7 +9,7 @@ type AuthUserType = {
     lastName: string;
     businessName: string;
   };
-  token: string;
+  token?: string;
 };
 
 type ContextType = {
@@ -24,12 +25,16 @@ const AuthContext = createContext({} as ContextType);
 export function AuthProvider({ children }: ProviderProps) {
   const [authUser, setAuthUser] = useState<AuthUserType | null>(null);
 
-  const value = useMemo(
-    () => ({ authUser, setAuthUser }),
-    [authUser, setAuthUser],
-  );
+  // const value = useMemo(
+  //   () => ({ authUser, setAuthUser }),
+  //   [authUser, setAuthUser],
+  // );
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ authUser, setAuthUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export default AuthContext;

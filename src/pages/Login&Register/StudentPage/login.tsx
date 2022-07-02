@@ -63,7 +63,7 @@ function LoginForm() {
   const submitForm = async (values: any) => {
     setLoading(true);
     try {
-      const { data } = await axios.post(
+      const res = await axios.post(
         "http://localhost:5500/auth/student/login",
         values,
         {
@@ -71,18 +71,16 @@ function LoginForm() {
           withCredentials: true,
         },
       );
-      console.log("=========", data);
-      if (data.status === false) {
-        toast.error(data?.message, toastOptions);
-      }
-      if (data.status === true) {
-        toast.success(data?.message, toastOptions);
-        const token = data?.token;
-        const user = data?.user;
+      if (res?.data?.success === true) {
+        toast.success(res?.data?.message, toastOptions);
+        const token = res?.data?.token;
+        const user = res?.data?.user;
         setAuthUser({ user, token });
+      } else {
+        toast.error(res?.data?.message, toastOptions);
       }
 
-      navigate("/");
+      navigate("/studentdashboard");
     } catch (err) {
       console.log(err);
     }

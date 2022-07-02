@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 import {
   Button,
   Input,
@@ -14,8 +15,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import AuthContext from "Context/AuthProvider";
 import * as yup from "yup";
-import FormField from "../../../common/FormField";
+import FormField from "common/FormField";
 import Container, { FormContainer, ContainerForm } from "../style";
 
 interface RegisterFormInputs {
@@ -42,9 +44,11 @@ const schema = yup
   .required();
 
 function RegisterForm() {
+  const { setAuthUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm<RegisterFormInputs>({
     resolver: yupResolver(schema),
@@ -62,13 +66,32 @@ function RegisterForm() {
   const handleClickP = () => setPshow(!pshow);
   const handleClick = () => setShow(!show);
 
-  const submitForm = (data: any) => {
-    console.log("data", data);
+  const submitForm = async (values: any) => {
+    console.log("values", values);
     setLoading(true);
     try {
-      if (data.password !== data.confirmPassword) {
+      if (values.password !== values.confirmPassword) {
         toast.error("passwords do not match", toastOptions);
       }
+
+      const res = await axios.post(
+        "http://localhost:5500/auth/business/register",
+        values,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        },
+      );
+
+      if (res.data.success === true) {
+        toast.success(res?.data?.message, toastOptions);
+        const user = res?.data?.user;
+        setAuthUser({ user });
+      } else {
+        toast.error(res?.data?.message, toastOptions);
+      }
+
+      navigate("/verificationpage");
     } catch (e) {
       console.log(e);
     }

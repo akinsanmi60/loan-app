@@ -1,26 +1,28 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import OuterLayout from "./styles/layout";
-import LayoutWrapper from "./utils/WebpageWrap";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Service from "./pages/Service";
-import About from "./pages/About";
-import Question from "./pages/Question";
-import Press from "./pages/Press";
+import Home from "pages/Home";
+import Contact from "pages/Contact";
+import Service from "pages/Service";
+import About from "pages/About";
+import Question from "pages/Question";
+import Press from "pages/Press";
 // Student-Routes
-import Student from "./pages/Loans/student";
-import StudentQA from "./pages/Question/components/studentQA";
-import StudentLoanForm from "./pages/Loan Signup/StudentLoanSign/UserForm";
-import StudentRegister from "./pages/Login&Register/StudentPage/register";
-import StudentLogin from "./pages/Login&Register/StudentPage/login";
+import Student from "pages/Loans/student";
+import StudentQA from "pages/Question/components/studentQA";
+import StudentLoanForm from "pages/Loan Signup/StudentLoanSign/UserForm";
+import StudentRegister from "pages/Login&Register/StudentPage/register";
+import StudentLogin from "pages/Login&Register/StudentPage/login";
+import StudentBoard from "pages/Dashboards/Student";
 // Business-Routes
-import Business from "./pages/Loans/Business";
-import BusinessQA from "./pages/Question/components/businessQA";
-import BusinessRegister from "./pages/Login&Register/BusinessPage/registerIndex";
-import BusinessLogin from "./pages/Login&Register/BusinessPage/loginIndex";
+import Business from "pages/Loans/Business";
+import BusinessQA from "pages/Question/components/businessQA";
+import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
+import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
+import BusinessBoard from "pages/Dashboards/Business";
 // Common Route
-import VerificationPage from "./pages/Login&Register/component";
+import VerificationPage from "pages/Login&Register/component";
+import OuterLayout from "styles/layout";
+import LayoutWrapper from "utils/WebpageWrap";
 
 function App() {
   return (
@@ -125,10 +127,12 @@ function App() {
         {/* {StudentLogin} */}
         <Route path="/studentregister" element={<StudentRegister />} />
         <Route path="/studentlogin" element={<StudentLogin />} />
+        <Route path="/studentdashboard" element={<StudentBoard />} />
 
         {/* {BusinessLogin} */}
         <Route path="/businessregister" element={<BusinessRegister />} />
         <Route path="/businesslogin" element={<BusinessLogin />} />
+        <Route path="/businessdashboard" element={<BusinessBoard />} />
 
         {/* {Common} */}
         <Route path="/verificationpage" element={<VerificationPage />} />

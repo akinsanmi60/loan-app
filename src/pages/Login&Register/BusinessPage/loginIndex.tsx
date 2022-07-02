@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Theme, toast, ToastContainer, ToastPosition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import AuthContext from "Context/AuthProvider";
 import {
   Button,
   Input,
@@ -14,7 +16,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import FormField from "../../../common/FormField";
+import FormField from "common/FormField";
 import Container, { ContainerForm, FormContainer } from "../style";
 
 interface LoginFormInputs {
@@ -38,6 +40,8 @@ const schema = yup
   .required();
 
 function LoginForm() {
+  const { setAuthUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const { register, handleSubmit } = useForm<LoginFormInputs>({
@@ -55,13 +59,28 @@ function LoginForm() {
   // to view password
   const handleClickP = () => setPshow(!pshow);
 
-  const submitForm = (data: any) => {
-    console.log("data", data);
+  const submitForm = async (values: any) => {
     setLoading(true);
     try {
-      if (data.password) {
-        toast.error("Login", toastOptions);
+      const res = await axios.post(
+        "http://localhost:5500/auth/business/login",
+        values,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        },
+      );
+
+      if (res?.data?.success === true) {
+        toast.success(res?.data?.message, toastOptions);
+        const token = res?.data?.token;
+        const user = res?.data?.user;
+        setAuthUser({ user, token });
+      } else {
+        toast.error(res?.data?.message, toastOptions);
       }
+
+      navigate("/studentdashboard");
     } catch (e) {
       console.log(e);
     }
