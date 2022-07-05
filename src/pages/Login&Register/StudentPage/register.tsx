@@ -25,6 +25,7 @@ interface RegisterFormInputs {
   firstName: string;
   lastName: string;
   email: string;
+  accountType: string;
   password: string;
   confirmPassword: string;
 }
@@ -43,6 +44,7 @@ const schema = yup
     lastName: yup.string().required(),
     email: yup.string().required(),
     password: yup.string().min(5).max(20).required(),
+    accountType: yup.string().default("student"),
   })
   .required();
 
@@ -70,6 +72,7 @@ function RegisterForm() {
   const handleClick = () => setShow(!show);
 
   const submitForm = async (values: any) => {
+    console.log("value", values);
     setLoading(true);
     try {
       if (values.password !== values.confirmPassword) {
@@ -116,6 +119,16 @@ function RegisterForm() {
         <div className="form">
           <FormField label="Email">
             <Input {...register("email")} type="email" required />
+          </FormField>
+        </div>
+        <div className="form">
+          <FormField label="Account Type">
+            <Input
+              {...register("accountType")}
+              type="text"
+              defaultValue="student"
+              disabled
+            />
           </FormField>
         </div>
         <div className="form">

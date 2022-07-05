@@ -5,7 +5,7 @@ import AuthContext from "../../../Context/AuthProvider";
 function BusinessBoard() {
   const { authUser } = useContext(AuthContext);
 
-  return <div>Welcome {authUser?.user.firstName}</div>;
+  return <div>Welcome {authUser?.user.businessName} to business</div>;
 }
 
 export default BusinessBoard;

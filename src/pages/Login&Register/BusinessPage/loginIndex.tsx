@@ -80,7 +80,7 @@ function LoginForm() {
         toast.error(res?.data?.message, toastOptions);
       }
 
-      navigate("/studentdashboard");
+      navigate("/businessdashboard");
     } catch (e) {
       console.log(e);
     }

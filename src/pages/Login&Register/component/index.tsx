@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -49,18 +50,18 @@ function VerificationForm() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:5500/auth/student/verify",
+        "http://localhost:5500/auth/user/verify",
         value,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         },
       );
-      if (res?.data.status === false) {
-        toast.error(res?.data.message, toastOptions);
-      }
+
       if (res?.data.status === true) {
         toast.success(res?.data.message, toastOptions);
+      } else {
+        toast.error(res?.data.message, toastOptions);
       }
       navigate("/studentlogin");
     } catch (err) {
@@ -107,7 +108,7 @@ function VerificationForm() {
 
 function Verification() {
   const { authUser } = useContext(AuthContext);
-  console.log("<<<<>>>>>", authUser);
+  console.log(authUser, "kkkkkkkkkkk");
   return (
     <Container>
       <ContainerForm>
@@ -116,8 +117,11 @@ function Verification() {
             <h3>Welcome</h3>
             <h3>to</h3>
             <h3>Humoni</h3>
-
-            <p className="welname">{`${authUser?.user.firstName}  ${authUser?.user.lastName}`}</p>
+            {authUser?.user.accountType === "business" ? (
+              <p className="welname"> {authUser?.user.businessName}</p>
+            ) : authUser?.user.accountType === "student" ? (
+              <p className="welname">{`${authUser?.user.firstName}  ${authUser?.user.lastName}`}</p>
+            ) : null}
           </div>
         </div>
         <div className="ver-right">

@@ -22,7 +22,9 @@ import Container, { FormContainer, ContainerForm } from "../style";
 
 interface RegisterFormInputs {
   businessName: string;
+  ownerName: string;
   email: string;
+  accountType: string;
   password: string;
   confirmPassword: string;
 }
@@ -38,8 +40,10 @@ type ToastProp = {
 const schema = yup
   .object({
     businessName: yup.string().required(),
+    ownerName: yup.string().required(),
     email: yup.string().required(),
     password: yup.string().min(5).max(20).required(),
+    accountType: yup.string().default("business"),
   })
   .required();
 
@@ -108,8 +112,23 @@ function RegisterForm() {
           </FormField>
         </div>
         <div className="form">
+          <FormField label="Owner's Name">
+            <Input {...register("ownerName")} type="text" required />
+          </FormField>
+        </div>
+        <div className="form">
           <FormField label="Email">
             <Input {...register("email")} type="email" required />
+          </FormField>
+        </div>
+        <div className="form">
+          <FormField label="Account Type">
+            <Input
+              {...register("accountType")}
+              type="text"
+              defaultValue="business"
+              disabled
+            />
           </FormField>
         </div>
         <div className="form">

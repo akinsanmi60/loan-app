@@ -23,6 +23,8 @@ import BusinessBoard from "pages/Dashboards/Business";
 import VerificationPage from "pages/Login&Register/component";
 import OuterLayout from "styles/layout";
 import LayoutWrapper from "utils/WebpageWrap";
+import ProtectedRoute from "hooks/RequireAuth";
+import Unauthorized from "pages/Error/unauthorized";
 
 function App() {
   return (
@@ -124,18 +126,29 @@ function App() {
           }
         />
 
+        {/* {Common} */}
+        <Route path="/verificationpage" element={<VerificationPage />} />
+
+        {/** Permission denied route */}
+        <Route path="/unauthorized" element={<Unauthorized />} />
+
         {/* {StudentLogin} */}
         <Route path="/studentregister" element={<StudentRegister />} />
         <Route path="/studentlogin" element={<StudentLogin />} />
-        <Route path="/studentdashboard" element={<StudentBoard />} />
+        {/* <Route path="/studentdashboard" element={<StudentBoard />} /> */}
 
         {/* {BusinessLogin} */}
         <Route path="/businessregister" element={<BusinessRegister />} />
         <Route path="/businesslogin" element={<BusinessLogin />} />
         <Route path="/businessdashboard" element={<BusinessBoard />} />
 
-        {/* {Common} */}
-        <Route path="/verificationpage" element={<VerificationPage />} />
+        {/** Protected routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/businessdashboard" element={<BusinessBoard />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
+          <Route path="/studentdashboard" element={<StudentBoard />} />
+        </Route>
       </Routes>
     </div>
   );

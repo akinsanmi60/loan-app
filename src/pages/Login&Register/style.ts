@@ -13,7 +13,7 @@ export default Container;
 
 export const ContainerForm = styled.div`
   width: 900px;
-  height: 700px;
+  height: 750px;
   display: flex;
   border-radius: 10px;
   box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
