@@ -1,8 +1,10 @@
-const host = "http://localhost:6000";
-const studentRegisterRoute = `${host}/auth/student/register`;
-const studentLoginRoute = `${host}/auth/student/login`;
-const businessRegisterRoute = `${host}/auth/business/register`;
-const businessLoginRoute = `${host}/auth/business/login`;
+import axios from "axios";
+
+const BASE_URL = "http://localhost:5500";
+const studentRegisterRoute = `${BASE_URL}/auth/student/register`;
+const studentLoginRoute = `${BASE_URL}/auth/student/login`;
+const businessRegisterRoute = `${BASE_URL}/auth/business/register`;
+const businessLoginRoute = `${BASE_URL}/auth/business/login`;
 
 export default {
   studentRegisterRoute,
@@ -10,3 +12,9 @@ export default {
   businessRegisterRoute,
   businessLoginRoute,
 };
+
+export const axiosPrivate = axios.create({
+  baseURL: BASE_URL,
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+});

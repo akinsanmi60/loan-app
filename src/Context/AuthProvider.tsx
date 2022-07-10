@@ -24,12 +24,9 @@ type ProviderProps = {
 const AuthContext = createContext({} as ContextType);
 
 export function AuthProvider({ children }: ProviderProps) {
-  const [authUser, setAuthUser] = useState<AuthUserType | null>(null);
-
-  // const value = useMemo(
-  //   () => ({ authUser, setAuthUser }),
-  //   [authUser, setAuthUser],
-  // );
+  const [authUser, setAuthUser] = useState(() => {
+    return JSON.parse(localStorage.getItem("getUserAvail")!);
+  });
 
   return (
     <AuthContext.Provider value={{ authUser, setAuthUser }}>

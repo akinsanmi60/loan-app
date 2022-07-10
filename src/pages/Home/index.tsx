@@ -1,12 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LoanCalculator from "../Loan Calculator";
-import IndexPage from "../Dashboards/Student";
 
 function Home() {
   return (
     <>
       <LoanCalculator />
-      <IndexPage />
+      <Link to="/businessdashboard">Go</Link>
     </>
   );
 }

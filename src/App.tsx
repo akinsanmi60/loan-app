@@ -7,14 +7,14 @@ import About from "pages/About";
 import Question from "pages/Question";
 import Press from "pages/Press";
 // Student-Routes
-import Student from "pages/Loans/student";
+import StudentPage from "pages/Loans/student";
 import StudentQA from "pages/Question/components/studentQA";
 import StudentLoanForm from "pages/Loan Signup/StudentLoanSign/UserForm";
 import StudentRegister from "pages/Login&Register/StudentPage/register";
 import StudentLogin from "pages/Login&Register/StudentPage/login";
 import StudentBoard from "pages/Dashboards/Student";
 // Business-Routes
-import Business from "pages/Loans/Business";
+import BusinessPage from "pages/Loans/Business";
 import BusinessQA from "pages/Question/components/businessQA";
 import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
@@ -22,9 +22,16 @@ import BusinessBoard from "pages/Dashboards/Business";
 // Common Route
 import VerificationPage from "pages/Login&Register/component";
 import OuterLayout from "styles/layout";
-import LayoutWrapper from "utils/WebpageWrap";
-import ProtectedRoute from "hooks/RequireAuth";
 import Unauthorized from "pages/Error/unauthorized";
+import LayoutWrapper from "utils/WebpageWrap";
+// protected Route
+import PrivateRoute from "hooks/privateRoute";
+
+enum Account {
+  Student = "student",
+  Admin = "admin",
+  Business = "business",
+}
 
 function App() {
   return (
@@ -75,7 +82,7 @@ function App() {
           element={
             <LayoutWrapper>
               <OuterLayout>
-                <Student />
+                <StudentPage />
               </OuterLayout>
             </LayoutWrapper>
           }
@@ -100,7 +107,7 @@ function App() {
           element={
             <LayoutWrapper>
               <OuterLayout>
-                <Business />
+                <BusinessPage />
               </OuterLayout>
             </LayoutWrapper>
           }
@@ -135,18 +142,17 @@ function App() {
         {/* {StudentLogin} */}
         <Route path="/studentregister" element={<StudentRegister />} />
         <Route path="/studentlogin" element={<StudentLogin />} />
-        {/* <Route path="/studentdashboard" element={<StudentBoard />} /> */}
 
         {/* {BusinessLogin} */}
         <Route path="/businessregister" element={<BusinessRegister />} />
         <Route path="/businesslogin" element={<BusinessLogin />} />
-        <Route path="/businessdashboard" element={<BusinessBoard />} />
 
         {/** Protected routes */}
-        <Route element={<ProtectedRoute />}>
+        <Route element={<PrivateRoute accounts={[Account.Business]} />}>
           <Route path="/businessdashboard" element={<BusinessBoard />} />
         </Route>
-        <Route element={<ProtectedRoute />}>
+
+        <Route element={<PrivateRoute accounts={[Account.Student]} />}>
           <Route path="/studentdashboard" element={<StudentBoard />} />
         </Route>
       </Routes>

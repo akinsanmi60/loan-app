@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext } from "react";
 import AuthContext from "../../../Context/AuthProvider";
 

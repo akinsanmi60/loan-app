@@ -3,7 +3,7 @@ import React from "react";
 import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/react";
 
 type FormFieldProp = {
-  label: string;
+  label?: string;
   error?: string;
   children: React.ReactNode;
 };

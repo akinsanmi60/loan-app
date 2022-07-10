@@ -76,11 +76,10 @@ function LoginForm() {
         const token = res?.data?.token;
         const user = res?.data?.user;
         setAuthUser({ user, token });
+        navigate("/studentdashboard");
       } else {
         toast.error(res?.data?.message, toastOptions);
       }
-
-      navigate("/studentdashboard");
     } catch (err) {
       console.log(err);
     }
