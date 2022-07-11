@@ -17,7 +17,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import FormField from "../../../common/FormField";
 import Container, { ContainerForm, FormContainer } from "../style";
-import AuthContext from "../../../Context/AuthProvider";
+import AuthContext, { pushToLocalStorage } from "../../../Context/AuthProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -72,10 +72,11 @@ function LoginForm() {
         },
       );
       if (res?.data?.success === true) {
-        toast.success(res?.data?.message, toastOptions);
+        toast.success(`${res?.data?.message}`, toastOptions);
         const token = res?.data?.token;
         const user = res?.data?.user;
-        setAuthUser({ user, token });
+        setAuthUser({ token, user });
+        pushToLocalStorage(token, user);
         navigate("/studentdashboard");
       } else {
         toast.error(res?.data?.message, toastOptions);

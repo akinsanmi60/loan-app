@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useState } from "react";
 
 type AuthUserType = {
@@ -23,10 +23,25 @@ type ProviderProps = {
 };
 const AuthContext = createContext({} as ContextType);
 
+export const pushToLocalStorage = (token: string, user: any) => {
+  localStorage.setItem("token", token);
+  localStorage.setItem("user", JSON.stringify(user));
+};
+
+const getUser = () => {
+  // const token = localStorage.getItem("token");
+  const userString = localStorage.getItem("user") as string;
+
+  return { userString };
+};
+
+const { userString } = getUser();
+const user = JSON.parse(userString);
+
 export function AuthProvider({ children }: ProviderProps) {
-  const [authUser, setAuthUser] = useState(() => {
-    return JSON.parse(localStorage.getItem("getUserAvail")!);
-  });
+  const [authUser, setAuthUser] = useState<AuthUserType | null>({ user });
+
+  console.log("<<+++++++++>>>>>", authUser);
 
   return (
     <AuthContext.Provider value={{ authUser, setAuthUser }}>

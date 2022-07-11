@@ -1,5 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+// Common Route
+import VerificationPage from "pages/Login&Register/component";
+import Unauthorized from "pages/Error/unauthorized";
+import Error from "pages/Error/error";
 import Home from "pages/Home";
 import Contact from "pages/Contact";
 import Service from "pages/Service";
@@ -19,13 +23,12 @@ import BusinessQA from "pages/Question/components/businessQA";
 import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
 import BusinessBoard from "pages/Dashboards/Business";
-// Common Route
-import VerificationPage from "pages/Login&Register/component";
-import OuterLayout from "styles/layout";
-import Unauthorized from "pages/Error/unauthorized";
-import LayoutWrapper from "utils/WebpageWrap";
 // protected Route
 import PrivateRoute from "hooks/privateRoute";
+// utils
+import LayoutWrapper from "utils/WebpageWrap";
+// style
+import OuterLayout from "styles/layout";
 
 enum Account {
   Student = "student",
@@ -138,6 +141,7 @@ function App() {
 
         {/** Permission denied route */}
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/errorpage" element={<Error />} />
 
         {/* {StudentLogin} */}
         <Route path="/studentregister" element={<StudentRegister />} />
