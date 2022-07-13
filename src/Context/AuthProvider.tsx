@@ -41,8 +41,6 @@ const user = JSON.parse(userString);
 export function AuthProvider({ children }: ProviderProps) {
   const [authUser, setAuthUser] = useState<AuthUserType | null>({ user });
 
-  console.log("<<+++++++++>>>>>", authUser);
-
   return (
     <AuthContext.Provider value={{ authUser, setAuthUser }}>
       {children}

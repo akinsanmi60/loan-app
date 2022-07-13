@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unneeded-ternary */
-import AuthContext from "Context/AuthProvider";
 import React, { useContext } from "react";
+import AuthContext from "Context/AuthProvider";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 enum Account {

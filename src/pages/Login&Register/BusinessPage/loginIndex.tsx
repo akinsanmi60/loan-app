@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Theme, toast, ToastContainer, ToastPosition } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import AuthContext from "Context/AuthProvider";
+import AuthContext, { pushToLocalStorage } from "Context/AuthProvider";
 import {
   Button,
   Input,
@@ -14,6 +14,7 @@ import {
 import CircularProgress from "@mui/material/CircularProgress";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useForm } from "react-hook-form";
+import toastOptions from "hooks/toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import FormField from "common/FormField";
@@ -23,14 +24,6 @@ interface LoginFormInputs {
   businessName: string;
   password: string;
 }
-
-type ToastProp = {
-  position: ToastPosition | undefined;
-  autoClose: number;
-  pauseOnHover: boolean;
-  draggable: boolean;
-  theme: Theme | undefined;
-};
 
 const schema = yup
   .object({
@@ -47,14 +40,6 @@ function LoginForm() {
   const { register, handleSubmit } = useForm<LoginFormInputs>({
     resolver: yupResolver(schema),
   });
-
-  const toastOptions: ToastProp = {
-    position: "top-right",
-    autoClose: 2000,
-    pauseOnHover: false,
-    draggable: true,
-    theme: "light",
-  };
 
   // to view password
   const handleClickP = () => setPshow(!pshow);
@@ -76,11 +61,11 @@ function LoginForm() {
         const token = res?.data?.token;
         const user = res?.data?.user;
         setAuthUser({ user, token });
+        pushToLocalStorage(token, user);
+        navigate("/businessdashboard");
       } else {
         toast.error(res?.data?.message, toastOptions);
       }
-
-      navigate("/businessdashboard");
     } catch (e) {
       console.log(e);
     }
@@ -142,30 +127,28 @@ function LoginForm() {
           </Text>
         </div>
       </form>
+      <ToastContainer />
     </FormContainer>
   );
 }
 
 function login() {
   return (
-    <>
-      <Container>
-        <ContainerForm>
-          <div className="rom">
-            <LoginForm />
-          </div>
-          <div className="ram">
-            <h1>New Here ?</h1>
-            <Link to="/businessregister">
-              <button type="button" className="white_btn">
-                Register
-              </button>
-            </Link>
-          </div>
-        </ContainerForm>
-      </Container>
-      <ToastContainer />
-    </>
+    <Container>
+      <ContainerForm>
+        <div className="rom">
+          <LoginForm />
+        </div>
+        <div className="ram">
+          <h1>New Here ?</h1>
+          <Link to="/businessregister">
+            <button type="button" className="white_btn">
+              Register
+            </button>
+          </Link>
+        </div>
+      </ContainerForm>
+    </Container>
   );
 }
 

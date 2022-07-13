@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import {
@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import toastOptions from "hooks/toast";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AuthContext from "Context/AuthProvider";
@@ -28,14 +29,6 @@ interface RegisterFormInputs {
   password: string;
   confirmPassword: string;
 }
-
-type ToastProp = {
-  position: ToastPosition | undefined;
-  autoClose: number;
-  pauseOnHover: boolean;
-  draggable: boolean;
-  theme: Theme | undefined;
-};
 
 const schema = yup
   .object({
@@ -57,14 +50,6 @@ function RegisterForm() {
   const { register, handleSubmit } = useForm<RegisterFormInputs>({
     resolver: yupResolver(schema),
   });
-
-  const toastOptions: ToastProp = {
-    position: "top-right",
-    autoClose: 2000,
-    pauseOnHover: false,
-    draggable: true,
-    theme: "light",
-  };
 
   // to view password
   const handleClickP = () => setPshow(!pshow);

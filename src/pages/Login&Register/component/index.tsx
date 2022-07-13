@@ -4,8 +4,9 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Input, Text } from "@chakra-ui/react";
+import toastOptions from "hooks/toast";
 import { CircularProgress } from "@mui/material";
-import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VerifyImg from "../../../assets/authentication.svg";
 import Container, { ContainerForm, FormContainer } from "../style";
@@ -18,26 +19,11 @@ const styles = {
   },
 };
 
-type ToastProp = {
-  position: ToastPosition | undefined;
-  autoClose: number;
-  pauseOnHover: boolean;
-  draggable: boolean;
-  theme: Theme | undefined;
-};
 function VerificationForm() {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState({ code: "" });
   const navigate = useNavigate();
   const { authUser } = useContext(AuthContext);
-
-  const toastOptions: ToastProp = {
-    position: "top-right",
-    autoClose: 2000,
-    pauseOnHover: false,
-    draggable: true,
-    theme: "light",
-  };
 
   const handleInputChange = (e: {
     target: { name: string; value: string };
@@ -128,6 +114,7 @@ function Verification() {
           <VerificationForm />
         </div>
       </ContainerForm>
+      <ToastContainer />
     </Container>
   );
 }

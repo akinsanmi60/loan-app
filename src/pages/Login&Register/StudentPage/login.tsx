@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Theme, toast, ToastContainer, ToastPosition } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Button,
@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import toastOptions from "hooks/toast";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -23,14 +24,6 @@ interface LoginFormInputs {
   email: string;
   password: string;
 }
-
-type ToastProp = {
-  position: ToastPosition | undefined;
-  autoClose: number;
-  pauseOnHover: boolean;
-  draggable: boolean;
-  theme: Theme | undefined;
-};
 
 const schema = yup
   .object({
@@ -48,14 +41,6 @@ function LoginForm() {
     resolver: yupResolver(schema),
   });
 
-  const toastOptions: ToastProp = {
-    position: "top-right",
-    autoClose: 2000,
-    pauseOnHover: false,
-    draggable: true,
-    theme: "light",
-  };
-
   // to view password
   const handleClickP = () => setPshow(!pshow);
 
@@ -72,12 +57,14 @@ function LoginForm() {
         },
       );
       if (res?.data?.success === true) {
-        toast.success(`${res?.data?.message}`, toastOptions);
+        toast.success(res?.data?.message, toastOptions);
+        console.log("<<<<<<<<<<>>>>>>>>>>>>>", res?.data?.message);
         const token = res?.data?.token;
         const user = res?.data?.user;
         setAuthUser({ token, user });
         pushToLocalStorage(token, user);
         navigate("/studentdashboard");
+        window.location.reload();
       } else {
         toast.error(res?.data?.message, toastOptions);
       }
@@ -142,6 +129,7 @@ function LoginForm() {
           </Text>
         </div>
       </form>
+      <ToastContainer />
     </FormContainer>
   );
 }

@@ -16,13 +16,13 @@ import StudentQA from "pages/Question/components/studentQA";
 import StudentLoanForm from "pages/Loan Signup/StudentLoanSign/UserForm";
 import StudentRegister from "pages/Login&Register/StudentPage/register";
 import StudentLogin from "pages/Login&Register/StudentPage/login";
-import StudentBoard from "pages/Dashboards/Student";
+import StudentBoard from "pages/Student Dashboard";
 // Business-Routes
 import BusinessPage from "pages/Loans/Business";
 import BusinessQA from "pages/Question/components/businessQA";
 import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
-import BusinessBoard from "pages/Dashboards/Business";
+import BusinessBoard from "pages/Business Dashboard";
 // protected Route
 import PrivateRoute from "hooks/privateRoute";
 // utils
