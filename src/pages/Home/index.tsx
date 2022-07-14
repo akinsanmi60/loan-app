@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import AppLayout from "pages/AppLayout";
 import LoanCalculator from "../Loan Calculator";
 
 function Home() {
   return (
     <>
       <LoanCalculator />
-      <Link to="/businessdashboard">Go</Link>
+      <AppLayout />
     </>
   );
 }

@@ -1,20 +1,10 @@
-import axios from "axios";
+// Student Routes
+export const STUDENT_REGISTER = `${process.env.REACT_APP_BACKEND_URL}/auth/student/register`;
+export const STUDENT_LOGIN = `${process.env.REACT_APP_BACKEND_URL}/auth/student/login`;
 
-const BASE_URL = "http://localhost:5500";
-const studentRegisterRoute = `${BASE_URL}/auth/student/register`;
-const studentLoginRoute = `${BASE_URL}/auth/student/login`;
-const businessRegisterRoute = `${BASE_URL}/auth/business/register`;
-const businessLoginRoute = `${BASE_URL}/auth/business/login`;
+// Business Routes
+export const BUSINESS_REGISTER = `${process.env.REACT_APP_BACKEND_URL}/auth/business/register`;
+export const BUSINESS_LOGIN = `${process.env.REACT_APP_BACKEND_URL}/auth/business/login`;
 
-export default {
-  studentRegisterRoute,
-  studentLoginRoute,
-  businessRegisterRoute,
-  businessLoginRoute,
-};
-
-export const axiosPrivate = axios.create({
-  baseURL: BASE_URL,
-  headers: { "Content-Type": "application/json" },
-  withCredentials: true,
-});
+// Authentications
+export const VERIFY_EMAIL = `${process.env.REACT_APP_BACKEND_URL}/auth/user/verify`;
