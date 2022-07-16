@@ -115,6 +115,8 @@ const Businesswrapper = styled.div`
   .journey {
     margin-bottom: 30px;
     background-color: var(--dark-primary);
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
     color: white;
     display: grid;
     // gap: 10px;

@@ -29,6 +29,9 @@ import LayoutWrapper from "utils/WebpageWrap";
 import OuterLayout from "styles/layout";
 import LoaderLayout from "common/LoaderLayout";
 import LoanCalculator from "pages/Loan Calculator";
+import RemittancePage from "pages/Remittance";
+import CarLoanPage from "pages/CarLoan";
+import MortgagePage from "pages/Mortgage";
 
 enum Account {
   Student = "student",
@@ -153,12 +156,16 @@ function App() {
             }
           />
 
+          <Route path="/remittance" element={<RemittancePage />} />
+          <Route path="/carloan" element={<CarLoanPage />} />
+          <Route path="/mortgage" element={<MortgagePage />} />
+
           {/* {Common} */}
           <Route path="/verificationpage" element={<VerificationPage />} />
 
           {/** Permission denied route */}
           <Route path="/unauthorized" element={<Unauthorized />} />
-          <Route path="/errorpage" element={<Error />} />
+          <Route path="/*" element={<Error />} />
 
           {/* {StudentLogin} */}
           <Route path="/studentregister" element={<StudentRegister />} />

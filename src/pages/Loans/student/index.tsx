@@ -103,14 +103,7 @@ function Student() {
       <div className="applybtn">
         <p>
           Are you ready to begin your application?{" "}
-          <Link
-            to="/studentloansignup"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Yes
-          </Link>{" "}
-          /No
+          <Link to="/studentregister">Yes</Link> /No
         </p>
       </div>
     </StudentWrapper>

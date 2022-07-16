@@ -18,3 +18,5 @@ declare module "*.jpg" {
 
 declare module "loanjs";
 declare module "@chakra-ui/icons";
+declare module "antd";
+declare module "@ant-design/icons";

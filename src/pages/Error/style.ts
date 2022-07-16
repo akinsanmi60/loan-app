@@ -21,7 +21,8 @@ const SectionWrapper = styled.section`
     }
   }
 
-  .errorcontainer {
+  .errorcontainer,
+  .con-container {
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -30,6 +31,7 @@ const SectionWrapper = styled.section`
     }
     .imgbox,
     .textcontainer,
+    .writecontainer,
     .btn {
       display: flex;
       justify-content: center;
@@ -37,6 +39,25 @@ const SectionWrapper = styled.section`
     .textcontainer {
       align-items: center;
       padding: 0px 50px;
+    }
+
+    .writecontainer {
+      align-items: center;
+      padding: 0px;
+      @media screen and (max-width: 425px) {
+        margin-top: 30px;
+      }
+    }
+
+    Input {
+      outline: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      background-color: #edf5f3;
+      margin: 10px 0;
+      font-size: 14px;
+      border: 1px solid #ced4da;
     }
   }
 `;
@@ -61,7 +82,7 @@ export const ButtonStyled = styled.button`
   min-width: 64px;
   @media screen and (max-width: 425px) {
     margin-top: 5px;
-    width: 30%;
+    width: 50%;
     padding: 0.3rem 0rem;
     font-size: 0.8rem;
   }

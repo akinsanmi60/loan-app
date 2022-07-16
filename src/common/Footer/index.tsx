@@ -44,19 +44,19 @@ function index() {
         </div>
         <div className="detail">
           <p>Products</p>
-          <Link to="/about" className="link">
+          <Link to="/student" className="link">
             Student Loan
           </Link>
-          <Link to="/contact" className="link">
-            Car Loan
-          </Link>
-          <Link to="/career" className="link">
+          <Link to="/business" className="link">
             Business Loan
           </Link>
-          <Link to="/press" className="link">
+          <Link to="/carloan" className="link">
+            Car Loan
+          </Link>
+          <Link to="/mortgage" className="link">
             Mortgage Loan
           </Link>
-          <Link to="/question" className="link">
+          <Link to="/remittance" className="link">
             Remittance
           </Link>
         </div>

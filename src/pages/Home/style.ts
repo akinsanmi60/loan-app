@@ -20,6 +20,7 @@ const HomeWrapper = styled.div`
     }
   }
 
+  h1,
   h2 {
     font-size: 26px;
     font-weight: 700;
@@ -34,7 +35,6 @@ const HomeWrapper = styled.div`
     }
   }
   .img {
-    background-size: contain;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
@@ -57,6 +57,7 @@ const HomeWrapper = styled.div`
   }
 
   .feedbtn,
+  .btn,
   .calculator {
     display: flex;
     justify-content: center;
@@ -66,7 +67,11 @@ const HomeWrapper = styled.div`
   }
 
   .calculator {
-    margin-top: 70px;
+    margin-top: 74px;
+  }
+
+  .trust {
+    margin-top: 40px;
   }
 `;
 export default HomeWrapper;

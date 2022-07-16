@@ -4,6 +4,9 @@ import { ButtonStyled } from "../Contact/style";
 import stud from "../../assets/savings.jpg";
 import HomeWrapper from "./style";
 import ReasonComp from "./component";
+import busimage from "../../assets/case3.jpg";
+
+// import ControlledCarousel from "./component/carousel";
 
 function Home() {
   return (
@@ -11,6 +14,7 @@ function Home() {
       <div>
         <img src={stud} alt="" className="img" />
       </div>
+
       <div className="who">
         <h2>Why Humoni?</h2>
         <p>
@@ -26,6 +30,10 @@ function Home() {
         <div>
           <ReasonComp />
         </div>
+      </div>
+
+      <div className="trust">
+        <img className="img" src={busimage} alt="Second slide" />
       </div>
 
       <div className="calculator">
