@@ -19,7 +19,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import AuthContext from "Context/AuthProvider";
 import * as yup from "yup";
 import FormField from "common/FormField";
-import Container, { FormContainer, ContainerForm } from "../style";
+import Container, { FormContainer, ContainerForm, Box } from "../style";
 
 interface RegisterFormInputs {
   businessName: string;
@@ -189,19 +189,21 @@ function Register() {
   return (
     <>
       <Container>
-        <ContainerForm>
-          <div className="left">
-            <h1>Welcome Back</h1>
-            <Link to="/businesslogin">
-              <button type="button" className="white_btn">
-                Login
-              </button>
-            </Link>
-          </div>
-          <div className="right">
-            <RegisterForm />
-          </div>
-        </ContainerForm>
+        <Box>
+          <ContainerForm>
+            <div className="left">
+              <h1>Welcome Back</h1>
+              <Link to="/businesslogin">
+                <button type="button" className="white_btn">
+                  Login
+                </button>
+              </Link>
+            </div>
+            <div className="right">
+              <RegisterForm />
+            </div>
+          </ContainerForm>
+        </Box>
       </Container>
       <ToastContainer />
     </>

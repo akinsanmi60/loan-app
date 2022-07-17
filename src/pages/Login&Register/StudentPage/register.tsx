@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import FormField from "../../../common/FormField";
-import Container, { FormContainer, ContainerForm } from "../style";
+import Container, { FormContainer, ContainerForm, Box } from "../style";
 import AuthContext from "../../../Context/AuthProvider";
 
 interface RegisterFormInputs {
@@ -189,19 +189,21 @@ function StudentRegister() {
   return (
     <>
       <Container>
-        <ContainerForm>
-          <div className="left">
-            <h1>Welcome Back</h1>
-            <Link to="/studentlogin">
-              <button type="button" className="white_btn">
-                Login
-              </button>
-            </Link>
-          </div>
-          <div className="right">
-            <RegisterForm />
-          </div>
-        </ContainerForm>
+        <Box>
+          <ContainerForm>
+            <div className="left">
+              <h1>Welcome Back</h1>
+              <Link to="/studentlogin">
+                <button type="button" className="white_btn">
+                  Login
+                </button>
+              </Link>
+            </div>
+            <div className="right">
+              <RegisterForm />
+            </div>
+          </ContainerForm>
+        </Box>
       </Container>
       <ToastContainer />
     </>

@@ -1,15 +1,19 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: var(--neutral-light);
+`;
+export default Container;
+
+export const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
 `;
-export default Container;
 
 export const ContainerForm = styled.div`
   width: 900px;
@@ -103,6 +107,20 @@ export const ContainerForm = styled.div`
     justify-content: center;
   }
 
+  .icon {
+    margin-top: 26px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 33px;
+    .iconstyle {
+      font-size: 50px;
+      color: #16194f;
+      margin-bottom: -30px;
+      @media screen and (max-width: 425px) {
+        font-size: 40px;
+      }
+    }
+  }
   @media screen and (max-width: 425px) {
     flex-direction: column;
     height: 100%;
@@ -125,20 +143,14 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  h1,
   h2 {
     color: #16194f;
-    font-size: 40px;
-    margin-top: 0;
-  }
-
-  h2 {
     font-size: 25px;
   }
 
   .hero {
     color: #16194f;
-    font-size: 40px;
+    font-size: 35px;
     margin-top: 0;
   }
 
@@ -227,17 +239,24 @@ export const FormContainer = styled.div`
     }
 
     .hero {
-      font-size: 28px;
+      font-size: 26px;
     }
+
     .text {
       display: revert;
       margin-top: 25px;
     }
+
     .ver-input {
       width: 60vw;
     }
   }
 
+  @media screen and (max-width: 375px) {
+    .hero {
+      font-size: 20px;
+    }
+  }
   @media screen and (max-width: 320px) {
     h1 {
       font-size: 28px;
@@ -247,4 +266,16 @@ export const FormContainer = styled.div`
       width: 60vw;
     }
   }
+`;
+
+export const NavLink = styled(Link)`
+  color: #16194f;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
 `;

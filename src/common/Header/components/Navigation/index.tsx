@@ -1,16 +1,18 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
+import DrawerExample from "../Drawer";
 import NavigationStyled, {
   NavMenu,
-  NavBtn,
+  // NavBtn,
   NavLink,
   Bars,
-  NavBtnLink,
+  // NavBtnLink,
   CloseBars,
 } from "./style";
 
 function HeaderNavigation() {
   const [showMenu, setShowMenu] = useState(false);
+
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -20,7 +22,6 @@ function HeaderNavigation() {
   return (
     <NavigationStyled>
       <NavLink to="/">
-        {/* <img src={logo} alt="" /> */}
         <h1>HUMONI</h1>
       </NavLink>
 
@@ -43,13 +44,17 @@ function HeaderNavigation() {
               FAQ
             </NavLink>
           </div>
-          <NavBtn>
+          {/* <NavBtn>
             <NavBtnLink to="/studentregister" onClick={hideMenu}>
-              <p>Get Started</p>
+            <p>Get Started</p>
             </NavBtnLink>
-          </NavBtn>
+          </NavBtn> */}
         </div>
       </NavMenu>
+
+      <div className="drawerbox">
+        <DrawerExample />
+      </div>
 
       <div onClick={toggleMenu}>
         {showMenu ? <CloseBars onClick={hideMenu} /> : <Bars />}

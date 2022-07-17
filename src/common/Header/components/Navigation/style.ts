@@ -9,6 +9,10 @@ const NavigationStyled = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 9999;
+
+  .drawerbox {
+    margin-top: 10px;
+  }
 `;
 export default NavigationStyled;
 

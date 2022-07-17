@@ -17,8 +17,9 @@ import { useForm } from "react-hook-form";
 import toastOptions from "hooks/toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { FaBuilding } from "react-icons/fa";
 import FormField from "common/FormField";
-import Container, { ContainerForm, FormContainer } from "../style";
+import Container, { ContainerForm, FormContainer, Box } from "../style";
 
 interface LoginFormInputs {
   businessName: string;
@@ -76,6 +77,9 @@ function LoginForm() {
     <FormContainer>
       <form onSubmit={handleSubmit(submitForm)}>
         <div className="form">
+          <div className="icon">
+            <FaBuilding className="iconstyle" />
+          </div>
           <h1 className="hero">Login to Your Account</h1>
           <FormField label="Business Name">
             <Input {...register("businessName")} type="text" required />
@@ -135,19 +139,21 @@ function LoginForm() {
 function login() {
   return (
     <Container>
-      <ContainerForm>
-        <div className="rom">
-          <LoginForm />
-        </div>
-        <div className="ram">
-          <h1>New Here ?</h1>
-          <Link to="/businessregister">
-            <button type="button" className="white_btn">
-              Register
-            </button>
-          </Link>
-        </div>
-      </ContainerForm>
+      <Box>
+        <ContainerForm>
+          <div className="rom">
+            <LoginForm />
+          </div>
+          <div className="ram">
+            <h1>New Here ?</h1>
+            <Link to="/businessregister">
+              <button type="button" className="white_btn">
+                Register
+              </button>
+            </Link>
+          </div>
+        </ContainerForm>
+      </Box>
     </Container>
   );
 }

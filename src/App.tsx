@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // Common Route
-import VerificationPage from "pages/Login&Register/component";
+import VerificationPage from "pages/Login&Register/Verify/verify";
 import Unauthorized from "pages/Error/unauthorized";
 import Error from "pages/Error/error";
 import Home from "pages/Home";
