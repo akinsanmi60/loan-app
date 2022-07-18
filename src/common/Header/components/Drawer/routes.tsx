@@ -24,5 +24,25 @@ const routesLinks = [
     path: "/remittance",
     icon: "remt",
   },
+  {
+    title: "Blog",
+    path: "/press",
+    icon: "press",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+    icon: "chat",
+  },
+  {
+    title: "Career",
+    path: "/career",
+    icon: "career",
+  },
+  {
+    title: "FAQ",
+    path: "/question",
+    icon: "ques",
+  },
 ];
 export default routesLinks;

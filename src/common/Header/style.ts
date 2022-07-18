@@ -6,5 +6,10 @@ const HeaderBox = styled.div`
   top: 0px;
   width: 100%;
   z-index: 2;
+  padding: 0 50px;
+  background: var(--neutral-light);
+  @media screen and (max-width: 425px) {
+    padding: 0 20px;
+  }
 `;
 export default HeaderBox;

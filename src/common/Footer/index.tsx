@@ -1,5 +1,10 @@
 import React from "react";
-import { FaFacebookSquare, FaLinkedin, FaWhatsappSquare } from "react-icons/fa";
+import {
+  FaFacebookSquare,
+  FaLinkedin,
+  FaTwitterSquare,
+  FaWhatsappSquare,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import FootWrapper from "./style";
 
@@ -40,6 +45,9 @@ function index() {
             <span>
               <FaWhatsappSquare />
             </span>
+            <span>
+              <FaTwitterSquare />
+            </span>
           </p>
         </div>
         <div className="detail">
@@ -71,7 +79,6 @@ function index() {
         <p>Legal Terms and Policies</p>
         <div className="copyright">
           <p>Copyright © Humoni 2022. All rights reserved</p>
-          {/* <img src="" alt="" /> */}
           <p>HUMONI</p>
         </div>
       </div>
