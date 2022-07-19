@@ -64,7 +64,7 @@ function LoginForm() {
         const user = res?.data?.user;
         setAuthUser({ token, user });
         pushToLocalStorage(token, user);
-        navigate("/studentdashboard");
+        navigate("/layout/studentdashboard");
         window.location.reload();
       } else {
         toast.error(res?.data?.message, toastOptions);

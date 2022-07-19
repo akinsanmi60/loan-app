@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ButtonStyled } from "../Contact/style";
-import stud from "../../assets/savings.jpg";
-import HomeWrapper from "./style";
 import ReasonComp from "./component";
 import busimage from "../../assets/case3.jpg";
-
-// import ControlledCarousel from "./component/carousel";
+import stud from "../../assets/savings.jpg";
+import { ButtonStyled } from "../Contact/style";
+import HomeWrapper from "./style";
 
 function Home() {
   return (

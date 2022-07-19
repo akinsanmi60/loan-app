@@ -4,6 +4,7 @@ import { Input } from "@chakra-ui/react";
 import FormField from "../../../../../common/FormField";
 import EduWrapper from "./style";
 import { ProEdu } from "./type";
+import { inputStyles } from "../../style";
 
 function EductionBio({ values, handleChange }: ProEdu) {
   return (
@@ -22,6 +23,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                 defaultValue={values.instName}
                 onChange={handleChange("instName")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -32,6 +35,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                   defaultValue={values.compDate}
                   onChange={handleChange("compDate")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -41,6 +46,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                   defaultValue={values.courseType}
                   onChange={handleChange("courseType")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -50,6 +57,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                   defaultValue={values.courseName}
                   onChange={handleChange("courseName")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -59,6 +68,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                   defaultValue={values.status}
                   onChange={handleChange("status")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -68,6 +79,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                   defaultValue={values.grade}
                   onChange={handleChange("grade")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -84,6 +97,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                 defaultValue={values.employer}
                 onChange={handleChange("employer")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -93,6 +108,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                 defaultValue={values.position}
                 onChange={handleChange("position")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -102,6 +119,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                 defaultValue={values.wkoCuntry}
                 onChange={handleChange("wkoCuntry")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -111,6 +130,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                 defaultValue={values.salary}
                 onChange={handleChange("salary")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -120,6 +141,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                 defaultValue={values.start}
                 onChange={handleChange("start")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -129,6 +152,8 @@ function EductionBio({ values, handleChange }: ProEdu) {
                 defaultValue={values.end}
                 onChange={handleChange("end")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>

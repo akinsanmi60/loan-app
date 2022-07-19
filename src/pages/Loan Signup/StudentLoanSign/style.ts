@@ -41,3 +41,15 @@ const FormWrapper = styled.div`
   }
 `;
 export default FormWrapper;
+
+export const inputStyles = {
+  borderRadius: "none",
+  border: "none",
+  outline: "none",
+  focusBorderColor: "none",
+};
+export const inputBoxStyles = {
+  borderRadius: "none",
+  outline: "none",
+  marginBottom: "3px",
+};

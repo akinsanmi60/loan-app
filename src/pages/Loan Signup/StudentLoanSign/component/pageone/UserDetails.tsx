@@ -3,6 +3,7 @@ import { Input } from "@chakra-ui/react";
 import FormField from "../../../../../common/FormField";
 import { ProUser } from "./type";
 import PersonalWrapper from "./style";
+import { inputStyles } from "../../style";
 
 function UserDetails({ values, handleChange }: ProUser) {
   return (
@@ -16,6 +17,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.firstName}
                 onChange={handleChange("firstName")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -25,6 +28,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.lastName}
                 onChange={handleChange("lastName")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -34,6 +39,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.email}
                 onChange={handleChange("email")}
                 type="email"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -43,6 +50,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.birthCountry}
                 onChange={handleChange("birthCountry")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -52,6 +61,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.nationality}
                 onChange={handleChange("nationality")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -61,6 +72,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.residence}
                 onChange={handleChange("residence")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -70,6 +83,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.title}
                 onChange={handleChange("title")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -79,6 +94,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.insurance}
                 onChange={handleChange("insurance")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -88,6 +105,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.phone}
                 onChange={handleChange("phone")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -97,6 +116,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.birth}
                 onChange={handleChange("birth")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -106,6 +127,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.marital}
                 onChange={handleChange("marital")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -115,6 +138,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.dependant}
                 onChange={handleChange("dependant")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -131,6 +156,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.address}
                 onChange={handleChange("address")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -141,6 +168,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                   defaultValue={values.countryCode}
                   onChange={handleChange("countryCode")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -150,6 +179,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                   defaultValue={values.landMark}
                   onChange={handleChange("landMark")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -159,6 +190,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                   defaultValue={values.movedate}
                   onChange={handleChange("movedate")}
                   type="text"
+                  focusBorderColor="none"
+                  sx={inputStyles}
                 />
               </FormField>
             </div>
@@ -175,6 +208,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.typeCourse}
                 onChange={handleChange("typeCourse")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -184,6 +219,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.study}
                 onChange={handleChange("study")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -193,6 +230,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.schoolName}
                 onChange={handleChange("schoolName")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -202,6 +241,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.degree}
                 onChange={handleChange("degree")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -211,6 +252,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.completeDate}
                 onChange={handleChange("completeDate")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -220,6 +263,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.endDate}
                 onChange={handleChange("endDate")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>
@@ -229,6 +274,8 @@ function UserDetails({ values, handleChange }: ProUser) {
                 defaultValue={values.courseDuration}
                 onChange={handleChange("courseDuration")}
                 type="text"
+                focusBorderColor="none"
+                sx={inputStyles}
               />
             </FormField>
           </div>

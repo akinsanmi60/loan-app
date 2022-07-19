@@ -2,6 +2,7 @@ import React from "react";
 import { Checkbox, Input } from "@chakra-ui/react";
 import { ProFin } from "./type";
 import FinWrapper from "./style";
+import { inputBoxStyles } from "../../style";
 
 function FinancePage({ values, handleChange }: ProFin) {
   return (
@@ -18,6 +19,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.tuition}
                   onChange={handleChange("tuition")}
                   type="text"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="labelinput">
@@ -26,6 +28,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.paidTuition}
                   onChange={handleChange("paidTuition")}
                   type="text"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="labelinput">
@@ -34,6 +37,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.totalTuition}
                   onChange={handleChange("totalTuition")}
                   type="email"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="labelinput">
@@ -42,6 +46,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.studyMat}
                   onChange={handleChange("studyMat")}
                   type="text"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="labelinput">
@@ -50,6 +55,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.utilities}
                   onChange={handleChange("utilities")}
                   type="text"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="labelinput">
@@ -58,6 +64,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.trans}
                   onChange={handleChange("trans")}
                   type="text"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="labelinput">
@@ -66,6 +73,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.other}
                   onChange={handleChange("other")}
                   type="text"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="labelinput">
@@ -74,6 +82,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.totalExp}
                   onChange={handleChange("totalExp")}
                   type="text"
+                  focusBorderColor="none"
                 />
               </div>
               <div className="totbudget">
@@ -90,6 +99,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                 defaultValue={values.ownFund}
                 onChange={handleChange("ownFund")}
                 type="text"
+                focusBorderColor="none"
               />
             </div>
             <div className="labelinput">
@@ -98,6 +108,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                 defaultValue={values.scholarship}
                 onChange={handleChange("scholarship")}
                 type="text"
+                focusBorderColor="none"
               />
             </div>
             <div className="labelinput">
@@ -106,6 +117,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                 defaultValue={values.govt}
                 onChange={handleChange("govt")}
                 type="text"
+                focusBorderColor="none"
               />
             </div>
             <div className="labelinput">
@@ -114,6 +126,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                 defaultValue={values.otherloans}
                 onChange={handleChange("otherloans")}
                 type="text"
+                focusBorderColor="none"
               />
             </div>
             <div className="totalcase">
@@ -138,6 +151,7 @@ function FinancePage({ values, handleChange }: ProFin) {
               defaultValue={values.totSaving}
               onChange={handleChange("totSaving")}
               type="text"
+              focusBorderColor="none"
             />
           </div>
           <div className="labelinput">
@@ -146,6 +160,7 @@ function FinancePage({ values, handleChange }: ProFin) {
               defaultValue={values.totNonCash}
               onChange={handleChange("totNonCash")}
               type="text"
+              focusBorderColor="none"
             />
           </div>
           <div className="labelinput">
@@ -154,6 +169,7 @@ function FinancePage({ values, handleChange }: ProFin) {
               defaultValue={values.prevLoans}
               onChange={handleChange("prevLoans")}
               type="text"
+              focusBorderColor="none"
             />
           </div>
           <div className="labelinput">
@@ -162,6 +178,7 @@ function FinancePage({ values, handleChange }: ProFin) {
               defaultValue={values.anyLoan}
               onChange={handleChange("anyLoan")}
               type="text"
+              focusBorderColor="none"
             />
           </div>
         </div>
@@ -181,6 +198,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.totSaving}
                   onChange={handleChange("totSaving")}
                   type="text"
+                  sx={inputBoxStyles}
                 >
                   Yes
                 </Checkbox>
@@ -191,16 +209,12 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.totSaving}
                   onChange={handleChange("totSaving")}
                   type="text"
+                  sx={inputBoxStyles}
                 >
                   No
                 </Checkbox>
               </div>
             </div>
-            <Checkbox
-              defaultValue={values.totSaving}
-              onChange={handleChange("totSaving")}
-              type="text"
-            />
           </div>
         </div>
         <div className="info">
@@ -216,6 +230,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.totSaving}
                   onChange={handleChange("totSaving")}
                   type="text"
+                  sx={inputBoxStyles}
                 >
                   Yes
                 </Checkbox>
@@ -226,6 +241,7 @@ function FinancePage({ values, handleChange }: ProFin) {
                   defaultValue={values.totSaving}
                   onChange={handleChange("totSaving")}
                   type="text"
+                  sx={inputBoxStyles}
                 >
                   No
                 </Checkbox>
@@ -239,6 +255,8 @@ function FinancePage({ values, handleChange }: ProFin) {
             defaultValue={values.optionTxt}
             onChange={handleChange("optionTxt")}
             type="text"
+            focusBorderColor="none"
+            sx={inputBoxStyles}
             className="optional"
           />
         </div>

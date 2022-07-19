@@ -96,7 +96,6 @@ const FinWrapper = styled.div`
   Input {
     width: 8vw;
     height: 30px;
-    // background: #16194f;
     color: #16194f;
     outline: none;
     line-height: 1em;

@@ -6,7 +6,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import stude from "../../assets/student.jpg";
-import ContactWrapper, { ButtonStyled, InnerLayout, TextArea } from "./style";
+import ContactWrapper, {
+  ButtonStyled,
+  InnerLayout,
+  inputStyles,
+  TextArea,
+} from "./style";
 import FormField from "../../common/FormField";
 
 type FormData = {
@@ -70,12 +75,19 @@ function Contact() {
             <form onSubmit={handleSubmit(submit)}>
               <div className="labelinput">
                 <FormField label="Name">
-                  <Input {...register("name")} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    {...register("name")}
+                    type="text"
+                  />
                 </FormField>
               </div>
               <div className="labelinput">
                 <FormField label="Email">
                   <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
                     {...register("email")}
                     // {...(errors.email && "Email is required")}
                     type="email"
@@ -84,12 +96,22 @@ function Contact() {
               </div>
               <div className="labelinput">
                 <FormField label="Phone">
-                  <Input {...register("phone")} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    {...register("phone")}
+                    type="text"
+                  />
                 </FormField>
               </div>
               <div className="labelinput">
                 <FormField label="Subject">
-                  <Input {...register("subject")} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    {...register("subject")}
+                    type="text"
+                  />
                 </FormField>
               </div>
               <div className="labelinput">

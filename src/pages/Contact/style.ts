@@ -152,3 +152,10 @@ export const ButtonStyled = styled.button`
     font-size: 0.8rem;
   }
 `;
+
+export const inputStyles = {
+  borderRadius: "none",
+  border: "none",
+  outline: "none",
+  focusBorderColor: "none",
+};

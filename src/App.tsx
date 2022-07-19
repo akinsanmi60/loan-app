@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+
 // Common Route
 import VerificationPage from "pages/Login&Register/Verify/verify";
 import Unauthorized from "pages/Error/unauthorized";
@@ -15,7 +16,7 @@ import StudentPage from "pages/Loans/student";
 import StudentLoanForm from "pages/Loan Signup/StudentLoanSign/UserForm";
 import StudentRegister from "pages/Login&Register/StudentPage/register";
 import StudentLogin from "pages/Login&Register/StudentPage/login";
-import StudentBoard from "pages/Student Dashboard";
+import StudentBoard from "pages/StudentDashboard";
 // Business-Routes
 import BusinessPage from "pages/Loans/Business";
 import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
@@ -32,11 +33,20 @@ import LoanCalculator from "pages/Loan Calculator";
 import RemittancePage from "pages/Remittance";
 import CarLoanPage from "pages/CarLoan";
 import MortgagePage from "pages/Mortgage";
+import AppLayout from "common/AppLayout";
 
 enum Account {
   Student = "student",
   Admin = "admin",
   Business = "business",
+}
+
+function Wrapper() {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return null;
 }
 
 function App() {
@@ -50,6 +60,7 @@ function App() {
 
   return (
     <div>
+      <Wrapper />
       {loading ? (
         <LoaderLayout loading />
       ) : (
@@ -181,7 +192,10 @@ function App() {
           </Route>
 
           <Route element={<PrivateRoute accounts={[Account.Student]} />}>
-            <Route path="/studentdashboard" element={<StudentBoard />} />
+            <Route path="/layout" element={<AppLayout />}>
+              <Route index element={<StudentBoard />} />
+              <Route path="studentdashboard" element={<StudentBoard />} />
+            </Route>
           </Route>
         </Routes>
       )}

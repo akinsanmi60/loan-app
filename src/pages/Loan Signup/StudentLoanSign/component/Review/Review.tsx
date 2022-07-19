@@ -1,6 +1,7 @@
 import { Checkbox, Input } from "@chakra-ui/react";
 import React from "react";
 import FormField from "../../../../../common/FormField";
+import { inputBoxStyles, inputStyles } from "../../style";
 import PersonalWrapper from "../pageone/style";
 import FinWrapper from "../pagethree/style";
 import EduWrapper from "../pagetwo/style";
@@ -15,22 +16,42 @@ function Review({ values }: ProRew) {
           <div className="details">
             <div className="labelinput">
               <FormField label="First Name">
-                <Input disabled defaultValue={values.firstName} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.firstName}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Last Name">
-                <Input disabled defaultValue={values.lastName} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.lastName}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Email">
-                <Input disabled defaultValue={values.email} type="email" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.email}
+                  type="email"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Birth Country">
                 <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
                   disabled
                   defaultValue={values.birthCountry}
                   type="text"
@@ -39,42 +60,90 @@ function Review({ values }: ProRew) {
             </div>
             <div className="labelinput">
               <FormField label="Nationality">
-                <Input disabled defaultValue={values.nationality} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.nationality}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Country of Residence">
-                <Input disabled defaultValue={values.residence} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.residence}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Title">
-                <Input disabled defaultValue={values.title} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.title}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Insurance Nos">
-                <Input disabled defaultValue={values.insurance} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.insurance}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Mobile Nos">
-                <Input disabled defaultValue={values.phone} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.phone}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Birth Date">
-                <Input disabled defaultValue={values.birth} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.birth}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Marital Status">
-                <Input disabled defaultValue={values.marital} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.marital}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Nos of Dependants">
-                <Input disabled defaultValue={values.dependant} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.dependant}
+                  type="text"
+                />
               </FormField>
             </div>
           </div>
@@ -86,6 +155,8 @@ function Review({ values }: ProRew) {
             <div className="addinput">
               <FormField label="Current Address">
                 <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
                   disabled
                   className="addput"
                   defaultValue={values.address}
@@ -97,6 +168,8 @@ function Review({ values }: ProRew) {
               <div className="labelinput">
                 <FormField label="Post Code">
                   <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
                     disabled
                     defaultValue={values.countryCode}
                     type="text"
@@ -105,12 +178,24 @@ function Review({ values }: ProRew) {
               </div>
               <div className="labelinput">
                 <FormField label="Land Mark">
-                  <Input disabled defaultValue={values.landMark} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    disabled
+                    defaultValue={values.landMark}
+                    type="text"
+                  />
                 </FormField>
               </div>
               <div className="labelinput">
                 <FormField label="Move in Date">
-                  <Input disabled defaultValue={values.movedate} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    disabled
+                    defaultValue={values.movedate}
+                    type="text"
+                  />
                 </FormField>
               </div>
             </div>
@@ -122,27 +207,53 @@ function Review({ values }: ProRew) {
           <div className="course">
             <div className="labelinput">
               <FormField label="Type of Course">
-                <Input disabled defaultValue={values.typeCourse} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.typeCourse}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Mode of Study">
-                <Input disabled defaultValue={values.study} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.study}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="School">
-                <Input disabled defaultValue={values.schoolName} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.schoolName}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Degree">
-                <Input disabled defaultValue={values.degree} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.degree}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Commencement Date">
                 <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
                   disabled
                   defaultValue={values.completeDate}
                   type="text"
@@ -151,12 +262,20 @@ function Review({ values }: ProRew) {
             </div>
             <div className="labelinput">
               <FormField label="Course finishes">
-                <Input disabled defaultValue={values.endDate} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.endDate}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Course Duration">
                 <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
                   disabled
                   defaultValue={values.courseDuration}
                   type="text"
@@ -178,6 +297,8 @@ function Review({ values }: ProRew) {
             <div className="addinput">
               <FormField label="Instituion">
                 <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
                   disabled
                   className="addput"
                   defaultValue={values.instName}
@@ -188,12 +309,20 @@ function Review({ values }: ProRew) {
             <div className="add-details">
               <div className="labelinput">
                 <FormField label="Completion Date">
-                  <Input disabled defaultValue={values.compDate} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    disabled
+                    defaultValue={values.compDate}
+                    type="text"
+                  />
                 </FormField>
               </div>
               <div className="labelinput">
                 <FormField label="Course Type">
                   <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
                     disabled
                     defaultValue={values.courseType}
                     type="text"
@@ -203,6 +332,8 @@ function Review({ values }: ProRew) {
               <div className="labelinput">
                 <FormField label="Course Name">
                   <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
                     disabled
                     defaultValue={values.courseName}
                     type="text"
@@ -211,12 +342,24 @@ function Review({ values }: ProRew) {
               </div>
               <div className="labelinput">
                 <FormField label="Status">
-                  <Input disabled defaultValue={values.status} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    disabled
+                    defaultValue={values.status}
+                    type="text"
+                  />
                 </FormField>
               </div>
               <div className="labelinput">
                 <FormField label="Grade">
-                  <Input disabled defaultValue={values.grade} type="text" />
+                  <Input
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    disabled
+                    defaultValue={values.grade}
+                    type="text"
+                  />
                 </FormField>
               </div>
             </div>
@@ -228,32 +371,68 @@ function Review({ values }: ProRew) {
           <div className="details">
             <div className="labelinput">
               <FormField label="Employer">
-                <Input disabled defaultValue={values.employer} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.employer}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Position">
-                <Input disabled defaultValue={values.position} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.position}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Country">
-                <Input disabled defaultValue={values.wkoCuntry} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.wkoCuntry}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Salary">
-                <Input disabled defaultValue={values.salary} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.salary}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="Start Date">
-                <Input disabled defaultValue={values.start} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.start}
+                  type="text"
+                />
               </FormField>
             </div>
             <div className="labelinput">
               <FormField label="End Date">
-                <Input disabled defaultValue={values.end} type="text" />
+                <Input
+                  focusBorderColor="none"
+                  sx={inputStyles}
+                  disabled
+                  defaultValue={values.end}
+                  type="text"
+                />
               </FormField>
             </div>
           </div>
@@ -269,11 +448,17 @@ function Review({ values }: ProRew) {
               <div className="details">
                 <div className="labelinput">
                   <p> Tuition fees for your course</p>
-                  <Input disabled defaultValue={values.tuition} type="text" />
+                  <Input
+                    sx={inputBoxStyles}
+                    disabled
+                    defaultValue={values.tuition}
+                    type="text"
+                  />
                 </div>
                 <div className="labelinput">
                   <p>Tuition fees already paid</p>
                   <Input
+                    sx={inputBoxStyles}
                     disabled
                     defaultValue={values.paidTuition}
                     type="text"
@@ -282,6 +467,7 @@ function Review({ values }: ProRew) {
                 <div className="labelinput">
                   <p>Total tuition</p>
                   <Input
+                    sx={inputBoxStyles}
                     disabled
                     defaultValue={values.totalTuition}
                     type="email"
@@ -289,27 +475,52 @@ function Review({ values }: ProRew) {
                 </div>
                 <div className="labelinput">
                   <p>Books / Study material</p>
-                  <Input disabled defaultValue={values.studyMat} type="text" />
+                  <Input
+                    sx={inputBoxStyles}
+                    disabled
+                    defaultValue={values.studyMat}
+                    type="text"
+                  />
                 </div>
                 <div className="labelinput">
                   <p>Rents / Utilities</p>
-                  <Input disabled defaultValue={values.utilities} type="text" />
+                  <Input
+                    sx={inputBoxStyles}
+                    disabled
+                    defaultValue={values.utilities}
+                    type="text"
+                  />
                 </div>
                 <div className="labelinput">
                   <p>Transportation</p>
-                  <Input disabled defaultValue={values.trans} type="text" />
+                  <Input
+                    sx={inputBoxStyles}
+                    disabled
+                    defaultValue={values.trans}
+                    type="text"
+                  />
                 </div>
                 <div className="labelinput">
                   <p>Other</p>
-                  <Input disabled defaultValue={values.other} type="text" />
+                  <Input
+                    sx={inputBoxStyles}
+                    disabled
+                    defaultValue={values.other}
+                    type="text"
+                  />
                 </div>
                 <div className="labelinput">
                   <p>Total living expenses</p>
-                  <Input disabled defaultValue={values.totalExp} type="text" />
+                  <Input
+                    sx={inputBoxStyles}
+                    disabled
+                    defaultValue={values.totalExp}
+                    type="text"
+                  />
                 </div>
                 <div className="totbudget">
                   <p>Total budget needed</p>
-                  <Input disabled />
+                  <Input sx={inputBoxStyles} disabled />
                 </div>
               </div>
             </div>
@@ -317,24 +528,44 @@ function Review({ values }: ProRew) {
               <h4>Funding from other sources</h4>
               <div className="labelinput">
                 <p>Own funds / Family contributions</p>
-                <Input disabled defaultValue={values.ownFund} type="text" />
+                <Input
+                  sx={inputBoxStyles}
+                  disabled
+                  defaultValue={values.ownFund}
+                  type="text"
+                />
               </div>
               <div className="labelinput">
                 <p>Scholarships</p>
-                <Input disabled defaultValue={values.scholarship} type="text" />
+                <Input
+                  sx={inputBoxStyles}
+                  disabled
+                  defaultValue={values.scholarship}
+                  type="text"
+                />
               </div>
               <div className="labelinput">
                 <p>Government Masters/Doctoral loans</p>
-                <Input disabled defaultValue={values.govt} type="text" />
+                <Input
+                  sx={inputBoxStyles}
+                  disabled
+                  defaultValue={values.govt}
+                  type="text"
+                />
               </div>
               <div className="labelinput">
                 <p>Other loans towards this course</p>
-                <Input disabled defaultValue={values.otherloans} type="text" />
+                <Input
+                  sx={inputBoxStyles}
+                  disabled
+                  defaultValue={values.otherloans}
+                  type="text"
+                />
               </div>
               <div className="totalcase">
                 <div className="totfunding">
                   <p>Total funding</p>
-                  <Input disabled />
+                  <Input sx={inputBoxStyles} disabled />
                 </div>
               </div>
             </div>
@@ -349,19 +580,39 @@ function Review({ values }: ProRew) {
           <div className="asslib">
             <div className="labelinput">
               <p>Total Savings</p>
-              <Input disabled defaultValue={values.totSaving} type="text" />
+              <Input
+                sx={inputBoxStyles}
+                disabled
+                defaultValue={values.totSaving}
+                type="text"
+              />
             </div>
             <div className="labelinput">
               <p>Total Non-Cash Investments/Assets</p>
-              <Input disabled defaultValue={values.totNonCash} type="text" />
+              <Input
+                sx={inputBoxStyles}
+                disabled
+                defaultValue={values.totNonCash}
+                type="text"
+              />
             </div>
             <div className="labelinput">
               <p>Total Previous Student Loans Outstanding</p>
-              <Input defaultValue={values.prevLoans} disabled type="text" />
+              <Input
+                sx={inputBoxStyles}
+                defaultValue={values.prevLoans}
+                disabled
+                type="text"
+              />
             </div>
             <div className="labelinput">
               <p>Any other Loans </p>
-              <Input defaultValue={values.anyLoan} disabled type="text" />
+              <Input
+                sx={inputBoxStyles}
+                defaultValue={values.anyLoan}
+                disabled
+                type="text"
+              />
             </div>
           </div>
         </div>
@@ -385,7 +636,6 @@ function Review({ values }: ProRew) {
                   </Checkbox>
                 </div>
               </div>
-              <Checkbox defaultValue={values.totSaving} disabled type="text" />
             </div>
           </div>
           <div className="info">
@@ -426,6 +676,8 @@ function Review({ values }: ProRew) {
               disabled
               type="text"
               className="optional"
+              focusBorderColor="none"
+              sx={inputStyles}
             />
           </div>
         </div>

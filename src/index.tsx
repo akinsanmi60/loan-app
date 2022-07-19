@@ -5,7 +5,11 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { AuthProvider } from "Context/AuthProvider";
 import { ChakraProvider } from "@chakra-ui/react";
+import { ConfigProvider } from "antd";
+
 import App from "./App";
+
+import "antd/dist/antd.less";
 import GlobalStyle from "./global";
 
 const queryClient = new QueryClient();
@@ -15,16 +19,18 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <BrowserRouter>
-        <AuthProvider>
-          <QueryClientProvider client={queryClient}>
-            <GlobalStyle />
-            <App />
-            <ReactQueryDevtools initialIsOpen={false} />
-          </QueryClientProvider>
-        </AuthProvider>
-      </BrowserRouter>
-    </ChakraProvider>
+    <ConfigProvider>
+      <ChakraProvider>
+        <BrowserRouter>
+          <AuthProvider>
+            <QueryClientProvider client={queryClient}>
+              <GlobalStyle />
+              <App />
+              <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
+          </AuthProvider>
+        </BrowserRouter>
+      </ChakraProvider>
+    </ConfigProvider>
   </React.StrictMode>,
 );
