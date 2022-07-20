@@ -12,16 +12,16 @@ import About from "pages/About";
 import Question from "pages/Question";
 import Press from "pages/Press";
 // Student-Routes
-import StudentPage from "pages/Loans/student";
-import StudentLoanForm from "pages/Loan Signup/StudentLoanSign/UserForm";
+import StudentPage from "pages/LoansPage/student";
+import StudentLoanForm from "pages/StudentLoanSign/UserForm";
 import StudentRegister from "pages/Login&Register/StudentPage/register";
 import StudentLogin from "pages/Login&Register/StudentPage/login";
 import StudentBoard from "pages/StudentDashboard";
 // Business-Routes
-import BusinessPage from "pages/Loans/Business";
+import BusinessPage from "pages/LoansPage/Business";
 import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
-import BusinessBoard from "pages/Business Dashboard";
+import BusinessBoard from "pages/BusinessDashboard";
 // protected Route
 import PrivateRoute from "hooks/privateRoute";
 // utils
@@ -29,7 +29,7 @@ import LayoutWrapper from "utils/WebpageWrap";
 // style
 import OuterLayout from "styles/layout";
 import LoaderLayout from "common/LoaderLayout";
-import LoanCalculator from "pages/Loan Calculator";
+import LoanCalculator from "pages/LoanCalculator";
 import RemittancePage from "pages/Remittance";
 import CarLoanPage from "pages/CarLoan";
 import MortgagePage from "pages/Mortgage";
@@ -156,16 +156,6 @@ function App() {
               </LayoutWrapper>
             }
           />
-          <Route
-            path="/studentloansignup"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <StudentLoanForm />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
 
           <Route path="/remittance" element={<RemittancePage />} />
           <Route path="/carloan" element={<CarLoanPage />} />
@@ -195,6 +185,7 @@ function App() {
             <Route path="/layout" element={<AppLayout />}>
               <Route index element={<StudentBoard />} />
               <Route path="studentdashboard" element={<StudentBoard />} />
+              <Route path="studentapplication" element={<StudentLoanForm />} />
             </Route>
           </Route>
         </Routes>

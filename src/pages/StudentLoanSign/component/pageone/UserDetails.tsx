@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "@chakra-ui/react";
-import FormField from "../../../../../common/FormField";
+import FormField from "../../../../common/FormField";
 import { ProUser } from "./type";
 import PersonalWrapper from "./style";
 import { inputStyles } from "../../style";

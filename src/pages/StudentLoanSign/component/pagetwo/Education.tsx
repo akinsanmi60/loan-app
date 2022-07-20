@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from "react";
 import { Input } from "@chakra-ui/react";
-import FormField from "../../../../../common/FormField";
+import FormField from "../../../../common/FormField";
 import EduWrapper from "./style";
 import { ProEdu } from "./type";
 import { inputStyles } from "../../style";

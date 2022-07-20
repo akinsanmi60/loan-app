@@ -10,7 +10,7 @@ const AppContainer = styled.div`
     flex: 6;
 
     .inner-content {
-      padding: 0 3rem;
+      padding: 0 1rem;
       width: 100%;
       overflow-x: hidden;
       height: calc(100vh - 100px);

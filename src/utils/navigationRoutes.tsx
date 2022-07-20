@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import {
+  FaBuilding,
   FaCalendarCheck,
   FaHome,
   FaMoneyBill,
@@ -14,7 +15,7 @@ export const studentNavigation = [
     title: "home",
   },
   {
-    path: "application",
+    path: "studentapplication",
     icon: <FaPenAlt />,
     title: "Application",
   },
@@ -24,7 +25,7 @@ export const studentNavigation = [
     title: "Loan Schedule",
   },
   {
-    path: "studentpayment",
+    path: "payment",
     icon: <FaMoneyBill />,
     title: "Loan Payment",
   },
@@ -39,5 +40,25 @@ export const businessNavigation = [
     path: "businessdashboard",
     icon: <FaHome />,
     title: "home",
+  },
+  {
+    path: "businessapplication",
+    icon: <FaPenAlt />,
+    title: "Application",
+  },
+  {
+    path: "businessschedule",
+    icon: <FaCalendarCheck />,
+    title: "Loan Schedule",
+  },
+  {
+    path: "payment",
+    icon: <FaMoneyBill />,
+    title: "Loan Payment",
+  },
+  {
+    path: "businessprofile",
+    icon: <FaBuilding />,
+    title: "Profile",
   },
 ];

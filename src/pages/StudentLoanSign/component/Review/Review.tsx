@@ -1,6 +1,6 @@
 import { Checkbox, Input } from "@chakra-ui/react";
 import React from "react";
-import FormField from "../../../../../common/FormField";
+import FormField from "../../../../common/FormField";
 import { inputBoxStyles, inputStyles } from "../../style";
 import PersonalWrapper from "../pageone/style";
 import FinWrapper from "../pagethree/style";
