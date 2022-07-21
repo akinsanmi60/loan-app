@@ -5,12 +5,12 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Button,
+  CircularProgress,
   Input,
   InputGroup,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
-import CircularProgress from "@mui/material/CircularProgress";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import toastOptions from "hooks/toast";
 import { useForm } from "react-hook-form";
@@ -64,7 +64,7 @@ function LoginForm() {
         const user = res?.data?.user;
         setAuthUser({ token, user });
         pushToLocalStorage(token, user);
-        navigate("/layout/studentdashboard");
+        navigate("/auth/studentdashboard");
         window.location.reload();
       } else {
         toast.error(res?.data?.message, toastOptions);

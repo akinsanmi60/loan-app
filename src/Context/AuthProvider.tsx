@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type AuthUserType = {
   user: {
@@ -16,6 +17,7 @@ type AuthUserType = {
 type ContextType = {
   authUser: AuthUserType | null;
   setAuthUser: React.Dispatch<React.SetStateAction<AuthUserType | null>>;
+  logout: () => void;
 };
 
 type ProviderProps = {
@@ -40,9 +42,17 @@ const user = JSON.parse(userString);
 
 export function AuthProvider({ children }: ProviderProps) {
   const [authUser, setAuthUser] = useState<AuthUserType | null>({ user });
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.clear();
+    setAuthUser(null);
+    navigate("/");
+    window.location.reload();
+  };
 
   return (
-    <AuthContext.Provider value={{ authUser, setAuthUser }}>
+    <AuthContext.Provider value={{ authUser, setAuthUser, logout }}>
       {children}
     </AuthContext.Provider>
   );

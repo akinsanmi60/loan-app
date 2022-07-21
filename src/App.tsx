@@ -33,7 +33,7 @@ import LoanCalculator from "pages/LoanCalculator";
 import RemittancePage from "pages/Remittance";
 import CarLoanPage from "pages/CarLoan";
 import MortgagePage from "pages/Mortgage";
-import AppLayout from "common/AppLayout";
+import AppLayout from "pages/App";
 
 enum Account {
   Student = "student",
@@ -182,7 +182,7 @@ function App() {
           </Route>
 
           <Route element={<PrivateRoute accounts={[Account.Student]} />}>
-            <Route path="/layout" element={<AppLayout />}>
+            <Route path="/auth" element={<AppLayout />}>
               <Route index element={<StudentBoard />} />
               <Route path="studentdashboard" element={<StudentBoard />} />
               <Route path="studentapplication" element={<StudentLoanForm />} />

@@ -13,8 +13,8 @@ const AppContainer = styled.div`
       padding: 0 1rem;
       width: 100%;
       overflow-x: hidden;
-      height: calc(100vh - 100px);
-      background-color: yellow;
+      height: calc(100vh - 70px);
+      background: var(--neutral-light);
     }
   }
 `;

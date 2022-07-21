@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import AuthContext from "Context/AuthProvider";
+import React, { useContext, useState } from "react";
 import { FaBars, FaPowerOff } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { studentNavigation } from "utils/navigationRoutes";
@@ -7,6 +8,7 @@ import SideWrapper from "./style";
 function SideNav() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const { logout } = useContext(AuthContext);
 
   return (
     <SideWrapper style={{ width: isOpen ? "200px" : "60px" }}>
@@ -34,7 +36,7 @@ function SideNav() {
       ))}
       <hr />
       <div className="btnlogout">
-        <button type="submit">
+        <button type="submit" onClick={logout}>
           <FaPowerOff />
         </button>
       </div>

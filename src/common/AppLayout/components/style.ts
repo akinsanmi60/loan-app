@@ -4,7 +4,9 @@ const SideWrapper = styled.div`
   //   flex: 1;
   border-right: 0.5px solid rgb(230, 227, 227);
   min-height: 100vh;
-  background-color: white;
+  background: var(--purple-primary);
+  color: white;
+
   .top_section {
     height: 50px;
     display: flex;
@@ -20,7 +22,7 @@ const SideWrapper = styled.div`
     .logo {
       font-size: 20px;
       font-weight: bold;
-      color: #6439ff;
+      color: white;
     }
     hr {
       height: 0;
@@ -65,12 +67,13 @@ const SideWrapper = styled.div`
 export default SideWrapper;
 
 export const TopWrapper = styled.div`
+  background: var(--purple-primary);
   height: 51px;
-  border-bottom: 0.5px solid rgb(231, 228, 228);
+  border-bottom: 1.5px solid rgb(231, 228, 228);
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #555;
+  color: white;
   .wrapper {
     width: 100%;
     padding: 20px;
