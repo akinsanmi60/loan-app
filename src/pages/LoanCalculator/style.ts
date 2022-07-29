@@ -68,51 +68,12 @@ export default LoanContainer;
 
 export const InnerLayout = styled.section`
   padding: 0 5rem;
-  table {
-    width: 100%;
-    border-spacing: 0;
-  }
 
-  thead {
-    background: #16194f;
-    color: white;
-  }
-
-  th {
-    font-size: 12px;
-    font-weight: 700;
-    padding: 10px;
-    text-align: left;
-    text-transform: uppercase;
-    border-bottom: 1px solid #e6e6e6;
-  }
-  .right,
-  .right-hidden {
-    text-align: right;
-  }
-
-  @media screen and (max-width: 720px) {
-    .right-hidden {
-      display: none;
-    }
-    .right {
-      text-align: center;
-    }
-  }
-
-  td {
-    border-bottom: 1px solid #e6e6e6;
-    padding: 5px 0;
-    font-size: 15px;
-  }
-  tr {
-    text-align: left;
-  }
   @media screen and (max-width: 768px) {
     padding: 0 2rem;
   }
   @media screen and (max-width: 425px) {
-    padding: 0 0.8rem;
+    padding: 0 0.3rem;
   }
 `;
 

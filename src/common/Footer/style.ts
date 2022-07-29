@@ -4,7 +4,7 @@ const FootWrapper = styled.footer`
   background-color: var(--dark-primary);
   color: "white";
   .footercase {
-    padding: 80px 24px;
+    padding: 60px 24px;
     display: grid;
     .detail {
       display: flex;

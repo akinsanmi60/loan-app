@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router";
 import BusinessFaq from "./component/faq";
 import Businesstimeline from "./component/timeline";
+import Worldimg from "../../../assets/Container.png";
 import eligibilty from "./data";
 import biz from "../../../assets/business-5816293.jpg";
 import Businesswrapper, { ButtonStyled, InnerLayout } from "./style";
@@ -78,12 +79,10 @@ function Business() {
 
       <div className="journey">
         <div className="journeyText">
-          <h1 className="heroin">
+          <h1>
             Grow and expand your business with us. A range of easily accessible
             loans
           </h1>
-        </div>
-        <div className="journeybth">
           <div className="begin-btn">
             <ButtonStyled
               type="submit"
@@ -92,6 +91,9 @@ function Business() {
               begin
             </ButtonStyled>
           </div>
+        </div>
+        <div className="journeybth">
+          <img src={Worldimg} alt="" />
         </div>
       </div>
 

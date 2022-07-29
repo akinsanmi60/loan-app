@@ -58,14 +58,14 @@ function LoginForm() {
       );
 
       if (res?.data?.success === true) {
-        toast.success(res?.data?.message, toastOptions);
+        toast.success(`${res?.data?.message}`, toastOptions);
         const token = res?.data?.token;
         const user = res?.data?.user;
         setAuthUser({ user, token });
         pushToLocalStorage(token, user);
         navigate("/businessdashboard");
       } else {
-        toast.error(res?.data?.message, toastOptions);
+        toast.error(`${res?.data?.message}`, toastOptions);
       }
     } catch (e) {
       console.log(e);
@@ -131,7 +131,6 @@ function LoginForm() {
           </Text>
         </div>
       </form>
-      <ToastContainer />
     </FormContainer>
   );
 }
@@ -139,6 +138,7 @@ function LoginForm() {
 function login() {
   return (
     <Container>
+      <ToastContainer />
       <Box>
         <ContainerForm>
           <div className="rom">

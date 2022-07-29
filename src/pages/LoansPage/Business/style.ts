@@ -109,37 +109,46 @@ const Businesswrapper = styled.div`
   .application,
   .calculator,
   .studfaq {
-    margin-bottom: 60px;
+    margin-bottom: 70px;
   }
 
   .journey {
-    margin-bottom: 30px;
-    background-color: var(--dark-primary);
+    margin-bottom: 90px;
     border-top-right-radius: 60px;
     border-bottom-left-radius: 60px;
-    color: white;
     display: grid;
-    // gap: 10px;
     grid-template-columns: 1fr 1fr;
-    padding: 30px;
     .heroin {
       margin-top: 0px;
     }
-    .begin-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+    .journeyText h1 {
+      text-align: left;
     }
-    @media screen and (max-width: 786px) {
-      .begin-btn {
-        margin-top: 40px;
+    // .begin-btn {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    // }
+
+    @media screen and (max-width: 768px) {
+      .journeyText h1 {
+        font-size: 26px;
       }
     }
     @media screen and (max-width: 425px) {
       grid-template-columns: 1fr;
-      padding: 18px;
       .begin-btn {
-        margin-top: 18px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .journeyText h1 {
+        text-align: center;
+      }
+      .journeybth {
+        margin-top: 30px;
       }
     }
   }
@@ -158,16 +167,13 @@ export const InnerLayout = styled.section`
     }
   }
   @media screen and (max-width: 768px) {
-    padding: 0 2rem;
-  }
-  @media screen and (max-width: 425px) {
-    padding: 0 0.8rem;
+    padding: 0 1rem;
   }
 `;
 
 export const ButtonStyled = styled.button`
   background-color: #6ab165;
-  padding: 0.7rem 1rem;
+  padding: 0.5rem 1rem;
   color: white;
   box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
     0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
@@ -181,8 +187,8 @@ export const ButtonStyled = styled.button`
   line-height: 1.75;
   letter-spacing: 0.02857em;
   text-transform: uppercase;
-  min-width: 70%;
-  height: 60px;
+  min-width: 30%;
+  height: 40px;
   @media screen and (max-width: 425px) {
     margin-top: 10px;
     width: 35%;

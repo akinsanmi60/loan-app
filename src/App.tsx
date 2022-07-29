@@ -7,7 +7,7 @@ import Unauthorized from "pages/Error/unauthorized";
 import Error from "pages/Error/error";
 import Home from "pages/Home";
 import Contact from "pages/Contact";
-import Service from "pages/Service";
+import Service from "pages/ServicesPage";
 import About from "pages/About";
 import Question from "pages/Question";
 import Press from "pages/Press";

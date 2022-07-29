@@ -57,7 +57,6 @@ function RegisterForm() {
   const handleClick = () => setShow(!show);
 
   const submitForm = async (values: any) => {
-    console.log("value", values);
     setLoading(true);
     try {
       if (values.password !== values.confirmPassword) {
@@ -73,13 +72,12 @@ function RegisterForm() {
       );
 
       if (res.data.success === true) {
-        toast.success(res?.data?.message, toastOptions);
+        toast.success(`${res?.data?.message}`, toastOptions);
         const user = res?.data?.user;
         setAuthUser({ user });
       } else {
-        toast.error(res?.data?.message, toastOptions);
+        toast.error(`${res?.data?.message}`, toastOptions);
       }
-
       navigate("/verificationpage");
     } catch (e) {
       console.log(e);
@@ -187,8 +185,9 @@ function RegisterForm() {
 
 function StudentRegister() {
   return (
-    <>
+    <div>
       <Container>
+        <ToastContainer />
         <Box>
           <ContainerForm>
             <div className="left">
@@ -205,8 +204,7 @@ function StudentRegister() {
           </ContainerForm>
         </Box>
       </Container>
-      <ToastContainer />
-    </>
+    </div>
   );
 }
 

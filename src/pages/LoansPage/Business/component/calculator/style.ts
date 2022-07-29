@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
 const LoanContainer = styled.div`
-  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25),
-    0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) !important;
-  padding: 1rem 0.8em !important;
   color: #16194f;
   .loan-container {
-    margin-bottom: 70px;
     h1 {
       text-align: center;
       margin-bottom: 28px;
@@ -75,7 +71,7 @@ const LoanContainer = styled.div`
 export default LoanContainer;
 
 export const InnerLayout = styled.section`
-  padding: 0 5rem;
+  padding: 0 2rem;
   @media screen and (max-width: 768px) {
     padding: 0 2rem;
   }

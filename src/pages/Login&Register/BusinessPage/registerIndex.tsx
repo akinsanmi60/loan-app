@@ -73,11 +73,11 @@ function RegisterForm() {
       );
 
       if (res.data.success === true) {
-        toast.success(res?.data?.message, toastOptions);
+        toast.success(`${res?.data?.message}`, toastOptions);
         const user = res?.data?.user;
         setAuthUser({ user });
       } else {
-        toast.error(res?.data?.message, toastOptions);
+        toast.error(`${res?.data?.message}`, toastOptions);
       }
 
       navigate("/verificationpage");
@@ -187,26 +187,24 @@ function RegisterForm() {
 
 function Register() {
   return (
-    <>
-      <Container>
-        <Box>
-          <ContainerForm>
-            <div className="left">
-              <h1>Welcome Back</h1>
-              <Link to="/businesslogin">
-                <button type="button" className="white_btn">
-                  Login
-                </button>
-              </Link>
-            </div>
-            <div className="right">
-              <RegisterForm />
-            </div>
-          </ContainerForm>
-        </Box>
-      </Container>
+    <Container>
+      <Box>
+        <ContainerForm>
+          <div className="left">
+            <h1>Welcome Back</h1>
+            <Link to="/businesslogin">
+              <button type="button" className="white_btn">
+                Login
+              </button>
+            </Link>
+          </div>
+          <div className="right">
+            <RegisterForm />
+          </div>
+        </ContainerForm>
+      </Box>
       <ToastContainer />
-    </>
+    </Container>
   );
 }
 

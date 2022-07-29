@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import { useState } from "react";
 import LoanJS from "loanjs";
+import ScheduleTable from "common/ScheduleTable";
 import LoanContainer, { ButtonStyled, InnerLayout } from "./style";
 
 type LoanProp = {
@@ -54,8 +55,6 @@ export default function LoanCalculator() {
       currency: "GBP",
     }).format(amount);
 
-  const d = new Date();
-
   return (
     <LoanContainer>
       <div className="loan-container">
@@ -65,7 +64,7 @@ export default function LoanCalculator() {
           <div className="form-item">
             <div className="details">
               <label htmlFor="loan-amount">Loan Amount</label>
-              <p className="values">£{values["loan-amount"]}</p>
+              <p className="values">{values["loan-amount"]}</p>
             </div>
             <div className="form-input">
               <input
@@ -135,56 +134,24 @@ export default function LoanCalculator() {
           <div className="summary">
             <p className="monthly">Monthly</p>
             <p className="monthly">
-              £
-              {!loan?.installments[0].installment
-                ? "0"
-                : loan?.installments[0].installment}
+              {amountFormat(
+                !loan?.installments[0].installment
+                  ? 0
+                  : loan?.installments[0].installment,
+              )}
             </p>
           </div>
           <div className="summary">
             <p>Total Interest</p>
-            <p>
-              £{!loan?.interestSum ? "0" : loan?.interestSum.toLocaleString()}
-            </p>
+            <p>{amountFormat(!loan?.interestSum ? 0 : loan?.interestSum)}</p>
           </div>
           <div className="summary">
             <p>Total Amount</p>
-            <p> £{!loan?.sum ? "0" : loan?.sum.toLocaleString()}</p>{" "}
+            <p> {amountFormat(!loan?.sum ? 0 : loan?.sum)}</p>
           </div>
         </div>
         <InnerLayout>
-          {!!loan?.installments?.length && (
-            <table>
-              <thead>
-                <tr>
-                  <th>Month</th>
-                  <th className="right-hidden">Amount</th>
-                  <th className="right">Interest</th>
-                  <th className="right-hidden">Principal</th>
-                  <th className="right">Balance</th>
-                </tr>
-              </thead>
-              {loan.installments.map((item, index: number) => {
-                const nextDate = new Date();
-                nextDate.setMonth(d.getMonth() + (index + 1));
-                return (
-                  <tbody key={index}>
-                    <tr>
-                      <td>{nextDate.toDateString()}</td>
-                      <td className="right-hidden">
-                        {amountFormat(item.installment)}
-                      </td>
-                      <td className="right">{amountFormat(item.interest)}</td>
-                      <td className="right-hidden">
-                        {amountFormat(item.capital)}
-                      </td>
-                      <td className="right">{amountFormat(item.remain)}</td>
-                    </tr>
-                  </tbody>
-                );
-              })}
-            </table>
-          )}
+          {!!loan?.installments?.length && <ScheduleTable loan={loan} />}
         </InnerLayout>
       </div>
     </LoanContainer>

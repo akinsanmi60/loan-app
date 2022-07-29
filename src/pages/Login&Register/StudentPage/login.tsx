@@ -58,8 +58,7 @@ function LoginForm() {
         },
       );
       if (res?.data?.success === true) {
-        toast.success(res?.data?.message, toastOptions);
-        console.log("<<<<<<<<<<>>>>>>>>>>>>>", res?.data?.message);
+        toast.success(`${res?.data?.message}`, toastOptions);
         const token = res?.data?.token;
         const user = res?.data?.user;
         setAuthUser({ token, user });
@@ -133,15 +132,15 @@ function LoginForm() {
           </Text>
         </div>
       </form>
-      <ToastContainer />
     </FormContainer>
   );
 }
 
 function login() {
   return (
-    <>
+    <div>
       <Container>
+        <ToastContainer />
         <Box>
           <ContainerForm>
             <div className="rom">
@@ -158,8 +157,7 @@ function login() {
           </ContainerForm>
         </Box>
       </Container>
-      <ToastContainer />
-    </>
+    </div>
   );
 }
 
