@@ -25,7 +25,7 @@ export const studentNavigation = [
     title: "Loan Schedule",
   },
   {
-    path: "payment",
+    path: "userpayment",
     icon: <FaMoneyBill />,
     title: "Loan Payment",
   },
