@@ -68,8 +68,8 @@ const PersonalWrapper = styled.div`
     .addinput {
       margin-top: 20px;
       .addput {
-        width: 78.5vw;
-        @media screen and (min-width: 1025px) {
+        width: 83.5vw;
+        @media screen and (min-width: 1024px) {
           width: 83.5vw;
         }
       }

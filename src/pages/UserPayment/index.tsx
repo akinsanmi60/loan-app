@@ -1,7 +1,12 @@
 import React from "react";
+import PaystackIntegration from "./component";
 
-function UserPaymentPage() {
-  return <div>UserPaymentPage</div>;
+function UserPaymentPagej() {
+  return (
+    <div>
+      <PaystackIntegration />
+    </div>
+  );
 }
 
-export default UserPaymentPage;
+export default UserPaymentPagej;

@@ -55,6 +55,10 @@ export default function LoanCalculator() {
       currency: "GBP",
     }).format(amount);
 
+  localStorage.setItem("loan", JSON.stringify(loan));
+
+  console.log("=======<><><><>====", loan);
+
   return (
     <LoanContainer>
       <div className="loan-container">

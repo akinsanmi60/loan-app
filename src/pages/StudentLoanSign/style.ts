@@ -30,6 +30,7 @@ const FormWrapper = styled.div`
     text-transform: uppercase;
     min-width: 64px;
     @media screen and (max-width: 425px) {
+      height: 35px;
       margin-top: 5px;
       width: 30%;
       padding: 0.3rem 0rem;

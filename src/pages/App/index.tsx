@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import SideNav from "../../common/AppLayout/components/sideNav";
-import TopNav from "../../common/AppLayout/components/topNav";
+// import TopNav from "../../common/AppLayout/components/topNav";
 import AppContainer from "./style";
 
 function AppLayout() {
@@ -10,7 +10,7 @@ function AppLayout() {
       <div className="container">
         <SideNav />
         <div className="AppContentBox">
-          <TopNav />
+          {/* <TopNav /> */}
           <div className="inner-content">
             <Outlet />
           </div>

@@ -11,7 +11,7 @@ function SideNav() {
   const { logout } = useContext(AuthContext);
 
   return (
-    <SideWrapper style={{ width: isOpen ? "200px" : "60px" }}>
+    <SideWrapper style={{ width: isOpen ? "230px" : "60px" }}>
       <div className="top_section">
         <div className="top">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
@@ -34,10 +34,12 @@ function SideNav() {
           </div>
         </Link>
       ))}
-      <hr />
       <div className="btnlogout">
-        <button type="submit" onClick={logout}>
-          <FaPowerOff />
+        <button type="submit" onClick={logout} className="btn">
+          <span>
+            <FaPowerOff className="icon" />
+          </span>
+          <span style={{ display: isOpen ? "block" : "none" }}>Logout</span>
         </button>
       </div>
     </SideWrapper>
