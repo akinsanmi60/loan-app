@@ -48,6 +48,7 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.3",
     "react-toastify": "^8.2.0",
+    "react-transition-group": "^4.4.5",
     "react-vertical-timeline-component": "^3.5.2",
     "styled-components": "^5.3.5",
     "uuid": "^8.3.2",
@@ -59,7 +60,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .ts"
   },
   "eslintConfig": {
     "extends": [

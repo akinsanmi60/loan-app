@@ -112,9 +112,9 @@ function LoginForm() {
           </Text>
         </Text>
         <div className="btn">
-          <Button type="submit" className="green_btn">
+          <button type="submit" className="green_btn">
             {loading ? <CircularProgress size="22px" /> : "Login"}
-          </Button>
+          </button>
         </div>
         <div className="text">
           <Text color="black" alignSelf="flex-start" fontSize={13}>

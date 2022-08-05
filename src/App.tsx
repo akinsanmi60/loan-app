@@ -34,6 +34,7 @@ import RemittancePage from "pages/Remittance";
 import CarLoanPage from "pages/CarLoan";
 import MortgagePage from "pages/Mortgage";
 import AppLayout from "pages/App";
+import UserPaymentPage from "pages/UserPayment";
 
 enum Account {
   Student = "student",
@@ -168,24 +169,24 @@ function App() {
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/*" element={<Error />} />
 
-          {/* {StudentLogin} */}
-          <Route path="/studentregister" element={<StudentRegister />} />
-          <Route path="/studentlogin" element={<StudentLogin />} />
-
           {/* {BusinessLogin} */}
           <Route path="/businessregister" element={<BusinessRegister />} />
           <Route path="/businesslogin" element={<BusinessLogin />} />
-
           {/** Protected routes */}
           <Route element={<PrivateRoute accounts={[Account.Business]} />}>
             <Route path="/businessdashboard" element={<BusinessBoard />} />
           </Route>
 
+          {/* {StudentLogin} */}
+          <Route path="/studentregister" element={<StudentRegister />} />
+          <Route path="/studentlogin" element={<StudentLogin />} />
+          {/** Protected routes */}
           <Route element={<PrivateRoute accounts={[Account.Student]} />}>
             <Route path="/auth" element={<AppLayout />}>
               <Route index element={<StudentBoard />} />
               <Route path="studentdashboard" element={<StudentBoard />} />
               <Route path="studentapplication" element={<StudentLoanForm />} />
+              <Route path="userpayment" element={<UserPaymentPage />} />
             </Route>
           </Route>
         </Routes>

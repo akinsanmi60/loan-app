@@ -14,7 +14,7 @@ export default LinkItem;
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 0.3fr 1fr;
+  // grid-template-columns: 0.3fr 1fr;
   .text {
     padding-right: 40px;
   }
