@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthProvider";
 import DashWrapper, {
   ButtonStyled,
@@ -9,6 +10,7 @@ import DashWrapper, {
 
 function StudentBoard() {
   const { authUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <DashWrapper>
@@ -76,7 +78,9 @@ function StudentBoard() {
           </p>
 
           <div className="pay-btn">
-            <ButtonStyled type="submit">Pay Now</ButtonStyled>
+            <ButtonStyled onClick={() => navigate("/auth/userpayment")}>
+              Pay Now
+            </ButtonStyled>
           </div>
         </div>
       </WrapperDetail>

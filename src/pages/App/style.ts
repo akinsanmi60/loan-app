@@ -10,11 +10,17 @@ const AppContainer = styled.div`
     flex: 6;
 
     .inner-content {
-      padding: 0 1rem;
+      padding: 2rem 1rem;
       width: 100%;
       overflow-x: hidden;
-      height: calc(100vh - 70px);
+      height: calc(100vh - 2px);
       background: var(--neutral-light);
+    }
+
+    @media screen and (max-width: 425px) {
+      .inner-content {
+        height: calc(100vh - 0px);
+      }
     }
   }
 `;

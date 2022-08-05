@@ -4,7 +4,7 @@ const SideWrapper = styled.div`
   //   flex: 1;
   border-right: 0.5px solid rgb(230, 227, 227);
   min-height: 100vh;
-  background: var(--purple-primary);
+  background: var(--dark-primary);
   color: white;
 
   .top_section {
@@ -37,6 +37,7 @@ const SideWrapper = styled.div`
   }
 
   .link {
+    margin-top: 15px;
     display: flex;
     padding: 10px 15px;
     gap: 15px;
@@ -54,14 +55,20 @@ const SideWrapper = styled.div`
     color: #000;
   }
 
+  .icon {
+    margin-top: 4px;
+  }
   .icon,
   .link_text {
-    font-size: 20px;
+    font-size: 18px;
   }
   .btnlogout {
+    margin-top: 200px;
     padding: 10px 15px;
+  }
+  .btn {
     display: flex;
-    justify-content: center;
+    gap: 15px;
   }
 `;
 export default SideWrapper;

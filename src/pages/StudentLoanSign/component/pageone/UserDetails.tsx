@@ -247,7 +247,7 @@ function UserDetails({ values, handleChange }: ProUser) {
             </FormField>
           </div>
           <div className="labelinput">
-            <FormField label="Commencement Date">
+            <FormField label="Course Date">
               <Input
                 defaultValue={values.completeDate}
                 onChange={handleChange("completeDate")}
