@@ -46,6 +46,11 @@ const HomeWrapper = styled.div`
       padding-left: 19px;
       border-left: 8px solid #16194f;
     }
+    @media screen and (max-width: 425px) {
+      p {
+        text-align: center;
+      }
+    }
   }
 
   .coy-value {

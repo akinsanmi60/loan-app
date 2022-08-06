@@ -9,7 +9,7 @@ export const StudentWrapper = styled.div`
     width: 100%;
   }
    p {
-    font-size: 15px;
+    font-size: 18px;
     @media screen and (min-width: 1025px) {
       font-size: 18px;
     }
@@ -45,9 +45,6 @@ export const StudentWrapper = styled.div`
       display: grid;
       justify-items: center;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      p {
-        
-      }
       .hero {
         display: flex;
         max-width: 284px;
@@ -77,14 +74,20 @@ export const StudentWrapper = styled.div`
   }
   .focus {
     display: flex;
-    img {
-      width: 450px;
+    .image {
+      display: flex;   
+      align-items: center;
+      flex: 5;
+      img {
+      width: 100vw;
       height: 346px;
+      }
     }
     .text {
+      flex: 5;
       padding-right: 16px;
       p {
-        font-size: 14px;
+        font-size: 16px;
         text-align: justify;
         margin-top: 5px;
       }

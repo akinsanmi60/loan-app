@@ -10,16 +10,19 @@ const FootWrapper = styled.footer`
       display: flex;
       flex-direction: column;
       color: var(--neutral-light);
-      P {
-        margin: 0px 0px 32px;
+      h4 {
+        margin-bottom: 20px;
+      }
+      p {
+        margin: 0px 0px 6px;
         letter-spacing: -0.01em;
         font-size: 1.125rem;
         line-height: 1.32;
         font-weight: 700;
       }
-      .link {
-        margin-bottom: 0.5rem;
-      }
+      // .link {
+      //   margin-bottom: 0.5rem;
+      // }
       .linklogo {
         margin-bottom: 0.5rem;
         display: flex;
@@ -51,8 +54,7 @@ const FootWrapper = styled.footer`
     }
     @media screen and (max-width: 425px) {
       grid-template-columns: 1fr;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 24px 20px;
     }
   }
   .foottext {
