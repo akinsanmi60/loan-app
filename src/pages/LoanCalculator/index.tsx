@@ -27,7 +27,6 @@ export default function LoanCalculator() {
 
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
-
     setValues({
       ...values,
       [name]: value,
@@ -36,12 +35,10 @@ export default function LoanCalculator() {
 
   const calculate = (amount: number, month: number, rate: number) => {
     const loanAmount = new LoanJS.Loan(amount, month, rate);
-    console.log("=============", loanAmount);
     setLoan(loanAmount);
   };
   const handleSubmit = (event: any) => {
     event.preventDefault();
-
     calculate(
       values["loan-amount"],
       values["loan-term"],
@@ -56,8 +53,6 @@ export default function LoanCalculator() {
     }).format(amount);
 
   localStorage.setItem("loan", JSON.stringify(loan));
-
-  console.log("=======<><><><>====", loan);
 
   return (
     <LoanContainer>
@@ -130,7 +125,7 @@ export default function LoanCalculator() {
             </div>
           </div>
           <div className="form-action">
-            <ButtonStyled type="submit"> Calculate </ButtonStyled>
+            <ButtonStyled type="submit">Calculate</ButtonStyled>
           </div>
         </form>
 

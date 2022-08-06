@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import SideNav from "../../common/AppLayout/components/sideNav";
-// import TopNav from "../../common/AppLayout/components/topNav";
+import SideNav from "../../common/AppLayout/sideNav";
+// import TopNav from "../../common/AppLayout/topNav";
 import AppContainer from "./style";
 
 function AppLayout() {

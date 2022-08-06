@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const Box = styled.div`
   .req-contain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     .box {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -33,6 +35,9 @@ const Box = styled.div`
           text-align: center;
         }
       }
+    }
+    @media screen and (max-width: 375px) {
+      grid-template-columns: 1fr;
     }
   }
 `;
