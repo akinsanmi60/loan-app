@@ -11,7 +11,7 @@ const routesLinks = [
   },
   {
     title: "Car Loan",
-    path: "/car",
+    path: "/carloan",
     icon: "moto",
   },
   {

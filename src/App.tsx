@@ -5,20 +5,13 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import VerificationPage from "pages/Login&Register/Verify/verify";
 import Unauthorized from "pages/Error/unauthorized";
 import Error from "pages/Error/error";
-import Home from "pages/Home";
-import Contact from "pages/Contact";
-import Service from "pages/ServicesPage";
-import About from "pages/About";
-import Question from "pages/Question";
-import Press from "pages/Press";
 // Student-Routes
-import StudentPage from "pages/LoansPage/student";
 import StudentLoanForm from "pages/StudentLoanSign/UserForm";
 import StudentRegister from "pages/Login&Register/StudentPage/register";
 import StudentLogin from "pages/Login&Register/StudentPage/login";
 import StudentBoard from "pages/StudentDashboard";
 // Business-Routes
-import BusinessPage from "pages/LoansPage/Business";
+// import BusinessPage from "pages/LoansPage/Business";
 import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
 import BusinessBoard from "pages/BusinessDashboard";
@@ -29,13 +22,11 @@ import LayoutWrapper from "utils/WebpageWrap";
 // style
 import OuterLayout from "styles/layout";
 import LoaderLayout from "common/LoaderLayout";
-import LoanCalculator from "pages/LoanCalculator";
-import RemittancePage from "pages/Remittance";
-import CarLoanPage from "pages/CarLoan";
-import MortgagePage from "pages/Mortgage";
+
 import AppLayout from "pages/App";
 import UserPaymentPage from "pages/UserPayment";
 import LoanSchedule from "pages/StudentSchedule";
+import { ROUTESWITHLAYER } from "Routes";
 
 enum Account {
   Student = "student",
@@ -67,104 +58,32 @@ function App() {
         <LoaderLayout loading />
       ) : (
         <Routes>
-          <Route
-            path="/"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <Home />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <Contact />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-          <Route
-            path="/service"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <Service />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <About />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-          <Route
-            path="/calculator"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <LoanCalculator />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-          <Route
-            path="/student"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <StudentPage />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-          <Route
-            path="/question"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <Question />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-
-          <Route
-            path="/business"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <BusinessPage />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-          <Route
-            path="/press"
-            element={
-              <LayoutWrapper>
-                <OuterLayout>
-                  <Press />
-                </OuterLayout>
-              </LayoutWrapper>
-            }
-          />
-
-          <Route path="/remittance" element={<RemittancePage />} />
-          <Route path="/carloan" element={<CarLoanPage />} />
-          <Route path="/mortgage" element={<MortgagePage />} />
+          {Object.entries(ROUTESWITHLAYER).map(itemRoute => {
+            const [key, value] = itemRoute;
+            const RouteComponent = value.element;
+            return (
+              <Route
+                key={key}
+                path={value.path}
+                element={
+                  <LayoutWrapper>
+                    <OuterLayout>
+                      <RouteComponent />
+                    </OuterLayout>
+                  </LayoutWrapper>
+                }
+              />
+            );
+          })}
 
           {/* {Common} */}
-          <Route path="/verificationpage" element={<VerificationPage />} />
+          <Route
+            element={
+              <PrivateRoute accounts={[Account.Business, Account.Student]} />
+            }
+          >
+            <Route path="/verificationpage" element={<VerificationPage />} />
+          </Route>
 
           {/** Permission denied route */}
           <Route path="/unauthorized" element={<Unauthorized />} />

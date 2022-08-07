@@ -3,13 +3,12 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Button, Input, Text } from "@chakra-ui/react";
+import { Button, CircularProgress, Input, Text } from "@chakra-ui/react";
 import toastOptions from "hooks/toast";
-import { CircularProgress } from "@mui/material";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VerifyImg from "../../../assets/authentication.svg";
-import Container, { ContainerForm, FormContainer } from "../style";
+import Container, { Box, ContainerForm, FormContainer } from "../style";
 import AuthContext from "../../../Context/AuthProvider";
 
 const styles = {
@@ -35,17 +34,13 @@ function VerificationForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post(
-        "http://localhost:5500/auth/user/verify",
-        value,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        },
-      );
+      const res = await axios.post("http://localhost:5500/user/verify", value, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
 
       if (res?.data.status === true) {
-        toast.success(res?.data.message, toastOptions);
+        toast.success(`${res?.data.message}`, toastOptions);
       } else {
         toast.error(res?.data.message, toastOptions);
       }
@@ -76,9 +71,9 @@ function VerificationForm() {
           </div>
         </div>
         <div className="btn">
-          <Button type="submit" className="green_btn">
+          <button type="submit" className="green_btn">
             {loading ? <CircularProgress size="22px" /> : "Verify"}
-          </Button>
+          </button>
         </div>
 
         <div className="action-text">
@@ -97,23 +92,25 @@ function Verification() {
   console.log(authUser, "kkkkkkkkkkk");
   return (
     <Container>
-      <ContainerForm>
-        <div className="ver-left">
-          <div className="var-text">
-            <h3>Welcome</h3>
-            <h3>to</h3>
-            <h3>Humoni</h3>
-            {authUser?.user.accountType === "business" ? (
-              <p className="welname"> {authUser?.user.businessName}</p>
-            ) : authUser?.user.accountType === "student" ? (
-              <p className="welname">{`${authUser?.user.firstName}  ${authUser?.user.lastName}`}</p>
-            ) : null}
+      <Box>
+        <ContainerForm>
+          <div className="ver-left">
+            <div className="var-text">
+              <h3>Welcome</h3>
+              <h3>to</h3>
+              <h3>Humoni</h3>
+              {authUser?.user.accountType === "business" ? (
+                <p className="welname"> {authUser?.user.businessName}</p>
+              ) : authUser?.user.accountType === "student" ? (
+                <p className="welname">{`${authUser?.user.firstName}  ${authUser?.user.lastName}`}</p>
+              ) : null}
+            </div>
           </div>
-        </div>
-        <div className="ver-right">
-          <VerificationForm />
-        </div>
-      </ContainerForm>
+          <div className="ver-right">
+            <VerificationForm />
+          </div>
+        </ContainerForm>
+      </Box>
       <ToastContainer />
     </Container>
   );
