@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StudentWrapper = styled.div`
   color: #16194f;
+ 
+
   .img {
     background-size: contain;
     background-repeat: no-repeat;

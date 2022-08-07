@@ -7,12 +7,12 @@ import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Button,
+  CircularProgress,
   Input,
   InputGroup,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
-import CircularProgress from "@mui/material/CircularProgress";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import toastOptions from "hooks/toast";
 import { useForm } from "react-hook-form";
@@ -160,7 +160,16 @@ function RegisterForm() {
         </Text>
         <div className="btn">
           <button type="submit" className="green_btn">
-            {loading ? <CircularProgress size="22px" /> : "Register"}
+            {loading ? (
+              <CircularProgress
+                size="22px"
+                value={30}
+                color="orange.400"
+                thickness="50px"
+              />
+            ) : (
+              "Register"
+            )}
           </button>
         </div>
         <div className="text">
