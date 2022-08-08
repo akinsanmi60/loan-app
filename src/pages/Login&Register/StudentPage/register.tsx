@@ -1,12 +1,8 @@
-/* eslint-disable consistent-return */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
-  Button,
   CircularProgress,
   Input,
   InputGroup,
@@ -18,9 +14,13 @@ import toastOptions from "hooks/toast";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useMutation } from "react-query";
+import { STUDENT_REGISTER } from "utils/Api-Routes";
+import { postRequest } from "utils/apiCall";
 import FormField from "../../../common/FormField";
 import Container, { FormContainer, ContainerForm, Box } from "../style";
 import AuthContext from "../../../Context/AuthProvider";
+import { ErrorProp } from "./type";
 
 interface RegisterFormInputs {
   firstName: string;
@@ -43,7 +43,6 @@ const schema = yup
 
 function RegisterForm() {
   const { setAuthUser } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -56,39 +55,30 @@ function RegisterForm() {
   const handleClickP = () => setPshow(!pshow);
   const handleClick = () => setShow(!show);
 
-  const submitForm = async (values: any) => {
-    setLoading(true);
-    try {
-      if (values.password !== values.confirmPassword) {
-        toast.error("passwords do not match", toastOptions);
-      }
-      const res = await axios.post(
-        "http://localhost:5500/auth/student/register",
-        values,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        },
-      );
-
-      if (res.data.success === true) {
-        toast.success(`${res?.data?.message}`, toastOptions);
-        const user = res?.data?.user;
-        setAuthUser({ user });
-      } else {
-        toast.error(`${res?.data?.message}`, toastOptions);
-      }
+  // handle register function
+  const { mutate, isLoading } = useMutation(postRequest, {
+    onSuccess(res) {
+      toast.success(res?.message, toastOptions);
+      const user = res?.user;
+      setAuthUser({ user });
       navigate("/verificationpage");
-    } catch (e) {
-      console.log(e);
+    },
+    onError(err: ErrorProp) {
+      toast.error(err?.message, toastOptions);
+    },
+  });
+
+  const onSubmit = (valueInput: any) => {
+    if (valueInput.password !== valueInput.confirmPassword) {
+      return toast.error("passwords do not match", toastOptions);
     }
-    setLoading(false);
+    return mutate({ data: valueInput, url: STUDENT_REGISTER });
   };
 
   return (
     <FormContainer>
       <h1>Create Account</h1>
-      <form onSubmit={handleSubmit(submitForm)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form">
           <FormField label="First Name">
             <Input {...register("firstName")} type="text" required />
@@ -122,13 +112,13 @@ function RegisterForm() {
                 type={pshow ? "text" : "password"}
               />
               <InputRightElement>
-                <Button className="btn-icon" onClick={handleClickP}>
+                <p className="btn-icon" onClick={handleClickP}>
                   {pshow ? (
                     <ViewIcon color=" #16194F" />
                   ) : (
                     <ViewOffIcon color=" #16194F" />
                   )}
-                </Button>
+                </p>
               </InputRightElement>
             </InputGroup>
           </FormField>
@@ -141,13 +131,13 @@ function RegisterForm() {
                 type={show ? "text" : "password"}
               />
               <InputRightElement>
-                <Button className="btn-icon" onClick={handleClick}>
+                <p className="btn-icon" onClick={handleClick}>
                   {show ? (
                     <ViewIcon color=" #16194F" />
                   ) : (
                     <ViewOffIcon color=" #16194F" />
                   )}
-                </Button>
+                </p>
               </InputRightElement>
             </InputGroup>
           </FormField>
@@ -160,13 +150,8 @@ function RegisterForm() {
         </Text>
         <div className="btn">
           <button type="submit" className="green_btn">
-            {loading ? (
-              <CircularProgress
-                size="22px"
-                value={30}
-                color="orange.400"
-                thickness="50px"
-              />
+            {isLoading ? (
+              <CircularProgress size="22px" value={30} color="orange.400" />
             ) : (
               "Register"
             )}
@@ -196,7 +181,6 @@ function StudentRegister() {
   return (
     <div>
       <Container>
-        <ToastContainer />
         <Box>
           <ContainerForm>
             <div className="left">

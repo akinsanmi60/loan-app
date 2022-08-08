@@ -1,25 +1,26 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 import {
-  Button,
+  CircularProgress,
   Input,
   InputGroup,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
-import CircularProgress from "@mui/material/CircularProgress";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import toastOptions from "hooks/toast";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AuthContext from "Context/AuthProvider";
 import * as yup from "yup";
+import { useMutation } from "react-query";
+import { postRequest } from "utils/apiCall";
+import { BUSINESS_REGISTER } from "utils/Api-Routes";
 import FormField from "common/FormField";
 import Container, { FormContainer, ContainerForm, Box } from "../style";
+import { ErrorProp } from "./type";
 
 interface RegisterFormInputs {
   businessName: string;
@@ -42,7 +43,6 @@ const schema = yup
 
 function RegisterForm() {
   const { setAuthUser } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -55,42 +55,29 @@ function RegisterForm() {
   const handleClickP = () => setPshow(!pshow);
   const handleClick = () => setShow(!show);
 
-  const submitForm = async (values: any) => {
-    console.log("values", values);
-    setLoading(true);
-    try {
-      if (values.password !== values.confirmPassword) {
-        toast.error("passwords do not match", toastOptions);
-      }
-
-      const res = await axios.post(
-        "http://localhost:5500/auth/business/register",
-        values,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        },
-      );
-
-      if (res.data.success === true) {
-        toast.success(`${res?.data?.message}`, toastOptions);
-        const user = res?.data?.user;
-        setAuthUser({ user });
-      } else {
-        toast.error(`${res?.data?.message}`, toastOptions);
-      }
-
+  // handle register function
+  const { mutate, isLoading } = useMutation(postRequest, {
+    onSuccess(res) {
+      toast.success(res?.message, toastOptions);
+      const user = res?.user;
+      setAuthUser({ user });
       navigate("/verificationpage");
-    } catch (e) {
-      console.log(e);
-    }
-    setLoading(false);
-  };
+    },
+    onError(err: ErrorProp) {
+      toast.error(err?.message, toastOptions);
+    },
+  });
 
+  const onSubmit = (valueInput: any) => {
+    if (valueInput.password !== valueInput.confirmPassword) {
+      return toast.error("passwords do not match", toastOptions);
+    }
+    return mutate({ data: valueInput, url: BUSINESS_REGISTER });
+  };
   return (
     <FormContainer>
       <h1>Create Account</h1>
-      <form onSubmit={handleSubmit(submitForm)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form">
           <FormField label="Business Name">
             <Input {...register("businessName")} type="text" required />
@@ -124,13 +111,13 @@ function RegisterForm() {
                 type={pshow ? "text" : "password"}
               />
               <InputRightElement>
-                <Button className="btn-icon" onClick={handleClickP}>
+                <p className="btn-icon" onClick={handleClickP}>
                   {pshow ? (
                     <ViewIcon color=" #16194F" />
                   ) : (
                     <ViewOffIcon color=" #16194F" />
                   )}
-                </Button>
+                </p>
               </InputRightElement>
             </InputGroup>
           </FormField>
@@ -143,13 +130,13 @@ function RegisterForm() {
                 type={show ? "text" : "password"}
               />
               <InputRightElement>
-                <Button className="btn-icon" onClick={handleClick}>
+                <p className="btn-icon" onClick={handleClick}>
                   {show ? (
                     <ViewIcon color=" #16194F" />
                   ) : (
                     <ViewOffIcon color=" #16194F" />
                   )}
-                </Button>
+                </p>
               </InputRightElement>
             </InputGroup>
           </FormField>
@@ -161,9 +148,9 @@ function RegisterForm() {
           </Text>
         </Text>
         <div className="btn">
-          <Button type="submit" className="green_btn">
-            {loading ? <CircularProgress size="22px" /> : "Register"}
-          </Button>
+          <button type="submit" className="green_btn">
+            {isLoading ? <CircularProgress size="22px" /> : "Register"}
+          </button>
         </div>
         <div className="text">
           <Text color="black" alignSelf="flex-start" fontSize={13}>
@@ -203,7 +190,6 @@ function Register() {
           </div>
         </ContainerForm>
       </Box>
-      <ToastContainer />
     </Container>
   );
 }

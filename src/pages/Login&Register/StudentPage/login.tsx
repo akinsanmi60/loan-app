@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
-  Button,
   CircularProgress,
   Input,
   InputGroup,
@@ -17,9 +16,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FaUserGraduate } from "react-icons/fa";
+import { useMutation } from "react-query";
+import { postRequest } from "utils/apiCall";
+import { STUDENT_LOGIN } from "utils/Api-Routes";
 import FormField from "../../../common/FormField";
 import Container, { ContainerForm, FormContainer, Box } from "../style";
 import AuthContext, { pushToLocalStorage } from "../../../Context/AuthProvider";
+import { ErrorProp } from "./type";
 
 interface LoginFormInputs {
   email: string;
@@ -36,7 +39,6 @@ const schema = yup
 function LoginForm() {
   const { setAuthUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
   const [pshow, setPshow] = useState(false);
   const { register, handleSubmit } = useForm<LoginFormInputs>({
     resolver: yupResolver(schema),
@@ -46,37 +48,32 @@ function LoginForm() {
   const handleClickP = () => setPshow(!pshow);
 
   // handle login function
-  const submitForm = async (values: any) => {
-    setLoading(true);
-    try {
-      const res = await axios.post(
-        "http://localhost:5500/auth/student/login",
-        values,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        },
-      );
-      if (res?.data?.success === true) {
-        toast.success(`${res?.data?.message}`, toastOptions);
-        const token = res?.data?.token;
-        const user = res?.data?.user;
-        setAuthUser({ token, user });
-        pushToLocalStorage(token, user);
+  const { mutate, isLoading } = useMutation(postRequest, {
+    onSuccess(res) {
+      toast.success(res?.message, toastOptions);
+      const token = res?.token;
+      const user = res?.user;
+      setAuthUser({ token, user });
+      pushToLocalStorage(token, user);
+      const { isEmailVerified } = user;
+      if (isEmailVerified === true) {
         navigate("/auth/studentdashboard");
-        window.location.reload();
+        // window.location.reload();
       } else {
-        toast.error(res?.data?.message, toastOptions);
+        navigate("/verificationpage");
       }
-    } catch (err) {
-      console.log(err);
-    }
-    setLoading(false);
-  };
+    },
+    onError(err: ErrorProp) {
+      toast.error(err?.message, toastOptions);
+    },
+  });
 
+  const onSubmit = (valueInput: any) => {
+    mutate({ data: valueInput, url: STUDENT_LOGIN });
+  };
   return (
     <FormContainer>
-      <form onSubmit={handleSubmit(submitForm)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form">
           <div className="icon">
             <FaUserGraduate className="iconstyle" />
@@ -94,13 +91,13 @@ function LoginForm() {
                 type={pshow ? "text" : "password"}
               />
               <InputRightElement>
-                <Button className="btn-icon" onClick={handleClickP}>
+                <p className="btn-icon" onClick={handleClickP}>
                   {pshow ? (
                     <ViewIcon color=" #16194F" />
                   ) : (
                     <ViewOffIcon color=" #16194F" />
                   )}
-                </Button>
+                </p>
               </InputRightElement>
             </InputGroup>
           </FormField>
@@ -113,7 +110,7 @@ function LoginForm() {
         </Text>
         <div className="btn">
           <button type="submit" className="green_btn">
-            {loading ? <CircularProgress size="22px" /> : "Login"}
+            {isLoading ? <CircularProgress size="22px" /> : "Login"}
           </button>
         </div>
         <div className="text">
@@ -132,6 +129,7 @@ function LoginForm() {
           </Text>
         </div>
       </form>
+      <ToastContainer />
     </FormContainer>
   );
 }
@@ -140,7 +138,6 @@ function login() {
   return (
     <div>
       <Container>
-        <ToastContainer />
         <Box>
           <ContainerForm>
             <div className="rom">

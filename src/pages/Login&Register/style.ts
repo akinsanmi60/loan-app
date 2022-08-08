@@ -160,7 +160,6 @@ export const FormContainer = styled.div`
     width: 100%;
     padding: 10px;
     border-radius: 6px;
-    background-color: #edf5f3;
     margin: 5px 0;
     font-size: 14px;
     border: 1px solid #ced4da;
@@ -172,7 +171,6 @@ export const FormContainer = styled.div`
     border-radius: 0px;
     border: none;
     font-size: 20px;
-    background-color: none;
     border-bottom: 1px solid #16194f;
     font-weight: 300;
     margin-top: 40px;
@@ -218,10 +216,10 @@ export const FormContainer = styled.div`
   .btn-icon {
     margin-right: 2px;
     border: none;
-    background: transparent;
-    margin-top: 15px;
+    margin-top: 10px;
     width: 40px;
     font-size: 20px;
+    outline: none;
   }
   .text {
     display: none;

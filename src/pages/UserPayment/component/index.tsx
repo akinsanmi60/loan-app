@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useContext, useState } from "react";
 import PaystackPop from "@paystack/inline-js";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import toastOptions from "hooks/toast";
 import AuthContext from "Context/AuthProvider";
@@ -93,7 +93,6 @@ function PaystackIntegration() {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </WrapperAll>
   );
 }

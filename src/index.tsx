@@ -5,11 +5,9 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { AuthProvider } from "Context/AuthProvider";
 import { ChakraProvider } from "@chakra-ui/react";
-
-import App from "./App";
-
-import "antd/dist/antd.less";
+import { ToastContainer } from "react-toastify";
 import GlobalStyle from "./global";
+import App from "./App";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +22,7 @@ root.render(
           <QueryClientProvider client={queryClient}>
             <GlobalStyle />
             <App />
+            <ToastContainer />
             <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
           </QueryClientProvider>
         </AuthProvider>

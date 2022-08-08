@@ -1,12 +1,11 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Button, CircularProgress, Input, Text } from "@chakra-ui/react";
+import { CircularProgress, Input, Text } from "@chakra-ui/react";
 import toastOptions from "hooks/toast";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { VERIFY_EMAIL } from "utils/Api-Routes";
 import VerifyImg from "../../../assets/authentication.svg";
 import Container, { Box, ContainerForm, FormContainer } from "../style";
 import AuthContext from "../../../Context/AuthProvider";
@@ -19,7 +18,7 @@ const styles = {
 };
 
 function VerificationForm() {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState({ code: "" });
   const navigate = useNavigate();
   const { authUser } = useContext(AuthContext);
@@ -30,25 +29,38 @@ function VerificationForm() {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    setLoading(true);
+  const checkLength = () => {
+    if (value?.code.length === 0) {
+      return toast.error("Enter the six digits code", toastOptions);
+    }
+    if (value?.code.length < 6) {
+      return toast.error("You entered less than six digits code", toastOptions);
+    }
+    if (value?.code.length > 6) {
+      return toast.error("You entered more than six digits code", toastOptions);
+    }
+    return null;
+  };
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:5500/user/verify", value, {
+      checkLength();
+      const res = await axios.post(VERIFY_EMAIL, value, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
+      toast.success(`${res?.data.message}`, toastOptions);
 
-      if (res?.data.status === true) {
-        toast.success(`${res?.data.message}`, toastOptions);
-      } else {
-        toast.error(res?.data.message, toastOptions);
+      if (authUser?.user?.accountType === "student") {
+        navigate("/studentlogin");
+      } else if (authUser?.user?.accountType === "business") {
+        navigate("/businesslogin");
       }
-      navigate("/studentlogin");
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
     }
-    setLoading(false);
+    setIsLoading(false);
   };
 
   return (
@@ -72,7 +84,7 @@ function VerificationForm() {
         </div>
         <div className="btn">
           <button type="submit" className="green_btn">
-            {loading ? <CircularProgress size="22px" /> : "Verify"}
+            {isLoading ? <CircularProgress size="22px" /> : "Verify"}
           </button>
         </div>
 
@@ -89,7 +101,6 @@ function VerificationForm() {
 
 function Verification() {
   const { authUser } = useContext(AuthContext);
-  console.log(authUser, "kkkkkkkkkkk");
   return (
     <Container>
       <Box>
@@ -111,7 +122,6 @@ function Verification() {
           </div>
         </ContainerForm>
       </Box>
-      <ToastContainer />
     </Container>
   );
 }
