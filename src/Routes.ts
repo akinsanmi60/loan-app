@@ -1,10 +1,3 @@
-// import StudentLoanForm from "pages/Loan Signup/StudentLoanSign/UserForm";
-// import StudentRegister from "pages/Login&Register/StudentPage/register";
-// import StudentRegister from "pages/Login&Register/StudentPage/register";
-// import StudentLogin from "pages/Login&Register/StudentPage/login";
-// import StudentBoard from "pages/StudentDashboard";
-// import PrivateRoute from "hooks/privateRoute";
-
 import VerificationPage from "pages/Login&Register/Verify/verify";
 import Unauthorized from "pages/Error/unauthorized";
 import Error from "pages/Error/error";
@@ -20,6 +13,8 @@ import LoanCalculator from "pages/LoanCalculator";
 import RemittancePage from "pages/Remittance";
 import CarLoanPage from "pages/CarLoan";
 import MortgagePage from "pages/Mortgage";
+import CryptoHome from "pages/CryptoPage/featurePages/Home";
+import CoinPage from "pages/CryptoPage/featurePages/CoinPage";
 
 const ROUTESWITHOUTLAYER = {
   VerificationPage: {
@@ -102,5 +97,15 @@ export const ROUTESWITHLAYER = {
     id: "12",
     element: MortgagePage,
     path: "/mortgage",
+  },
+  CryptoHome: {
+    id: "12",
+    element: CryptoHome,
+    path: "/cryptohome",
+  },
+  CoinPage: {
+    id: "12",
+    element: CoinPage,
+    path: "/coins/:id",
   },
 };

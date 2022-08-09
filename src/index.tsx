@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { AuthProvider } from "Context/AuthProvider";
+import { CryptoProvider } from "Context/Currencycontext";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ToastContainer } from "react-toastify";
 import GlobalStyle from "./global";
@@ -18,14 +19,19 @@ root.render(
   <React.StrictMode>
     <ChakraProvider>
       <BrowserRouter>
-        <AuthProvider>
-          <QueryClientProvider client={queryClient}>
-            <GlobalStyle />
-            <App />
-            <ToastContainer />
-            <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-          </QueryClientProvider>
-        </AuthProvider>
+        <CryptoProvider>
+          <AuthProvider>
+            <QueryClientProvider client={queryClient}>
+              <GlobalStyle />
+              <App />
+              <ToastContainer />
+              <ReactQueryDevtools
+                initialIsOpen={false}
+                position="bottom-right"
+              />
+            </QueryClientProvider>
+          </AuthProvider>
+        </CryptoProvider>
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>,
