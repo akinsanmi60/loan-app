@@ -6,6 +6,7 @@ const FootWrapper = styled.footer`
   .footercase {
     padding: 50px 24px;
     display: grid;
+    justify-items: start;
     .detail {
       display: flex;
       flex-direction: column;

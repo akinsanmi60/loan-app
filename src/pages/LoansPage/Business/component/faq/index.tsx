@@ -18,7 +18,7 @@ function Questioncard({ question }: QProp) {
     setToggle(!toggle);
   };
   return (
-    <QuestionStyled>
+    <QuestionStyled toggle={toggle}>
       <div className="q-con">
         <div className="toggle-title" onClick={btnToggler}>
           <h4>{question.title}</h4>

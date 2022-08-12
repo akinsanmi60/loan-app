@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type QuestionStyledProps = {
+  toggle: boolean;
+};
+
 const LinkItem = styled.li`
   color: #16194f;
   font-weight: 500;
@@ -29,14 +33,16 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const QuestionStyled = styled.div`
-  background-color: #fff;
+export const QuestionStyled = styled.div<QuestionStyledProps>`
+  background: ${props => (props.toggle ? "#16194f" : "#fff")};
+  color: ${props => (props.toggle ? "#fff" : "#16194f")};
   width: 100%;
   margin: 1rem 0;
-  padding: 1.8rem 2.8rem;
+  padding: 1.8rem;
   border-radius: 24px;
   transition: all 0.4s ease-in-out;
-  box-shadow: 0px 25px 50px rgba(22, 25, 79, 0.05);
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25),
+    0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) !important;
 
   p {
     transition: all 0.4s ease-in-out;
@@ -44,7 +50,7 @@ export const QuestionStyled = styled.div`
     text-align: justify;
   }
   h4 {
-    color: #16194f;
+    color: ${props => (props.toggle ? "#fff" : "#16194f")};
     transition: all 0.4s ease-in-out;
     font-size: 1.3rem;
     margin-bottom: 12px;

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+type QuestionStyledProps = {
+  toggle: boolean;
+};
+
 export const StudentWrapper = styled.div`
   color: #16194f;
- 
-
   .img {
     background-size: contain;
     background-repeat: no-repeat;
@@ -136,11 +138,12 @@ export const StudentWrapper = styled.div`
 
 `;
 
-const QuestionStyled = styled.div`
-  background-color: #fff;
+const QuestionStyled = styled.div<QuestionStyledProps>`
+  background: ${props => (props.toggle ? "#16194f" : "#fff")};
+  color: ${props => (props.toggle ? "#fff" : "#16194f")};
   width: 100%;
   margin: 1rem 0;
-  padding: 1.8rem 2.8rem;
+  padding: 1rem 2rem;
   border-radius: 24px;
   transition: all 0.4s ease-in-out;
   box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25),
@@ -154,7 +157,7 @@ const QuestionStyled = styled.div`
     text-align: justify;
   }
   h4 {
-    color: #16194f;
+    color: ${props => (props.toggle ? "#fff" : "#16194f")};
     transition: all 0.4s ease-in-out;
     font-size: 1.3rem;
     margin-bottom: 12px;
@@ -173,7 +176,7 @@ const QuestionStyled = styled.div`
   }
 
   @media screen and (max-width: 425px) {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem;
     width: 100%;
     h4 {
       font-size: 16px;
