@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { CircularProgress, Input, Text } from "@chakra-ui/react";
+import { Spinner, Input, Text } from "@chakra-ui/react";
 import toastOptions from "hooks/toast";
 import { toast } from "react-toastify";
 import { VERIFY_EMAIL } from "utils/Api-Routes";
@@ -84,7 +84,7 @@ function VerificationForm() {
         </div>
         <div className="btn">
           <button type="submit" className="green_btn">
-            {isLoading ? <CircularProgress size="22px" /> : "Verify"}
+            {isLoading ? <Spinner size="sm" /> : "Verify"}
           </button>
         </div>
 

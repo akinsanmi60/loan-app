@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
-  CircularProgress,
+  Spinner,
   Input,
   InputGroup,
   InputRightElement,
   Text,
+  useDisclosure,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import toastOptions from "hooks/toast";
@@ -23,6 +24,7 @@ import FormField from "../../../common/FormField";
 import Container, { ContainerForm, FormContainer, Box } from "../style";
 import AuthContext, { pushToLocalStorage } from "../../../Context/AuthProvider";
 import { ErrorProp } from "./type";
+import ResetPasswordModal from "../ForgotPassword";
 
 interface LoginFormInputs {
   email: string;
@@ -36,7 +38,22 @@ const schema = yup
   })
   .required();
 
+function OverlayTwo() {
+  return (
+    <ModalOverlay
+      bg="blackAlpha.300"
+      backdropFilter="blur(10px) hue-rotate(90deg)"
+      // bg="none"
+      // backdropFilter="auto"
+      // backdropInvert="80%"
+      // backdropBlur="2px"
+    />
+  );
+}
+
 function LoginForm() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [overlay, setOverlay] = useState(<OverlayTwo />);
   const { setAuthUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [pshow, setPshow] = useState(false);
@@ -58,7 +75,7 @@ function LoginForm() {
       const { isEmailVerified } = user;
       if (isEmailVerified === true) {
         navigate("/auth/studentdashboard");
-        // window.location.reload();
+        window.location.reload();
       } else {
         navigate("/verificationpage");
       }
@@ -102,15 +119,23 @@ function LoginForm() {
             </InputGroup>
           </FormField>
         </div>
-        <Text color="txt.muted" alignSelf="flex-start" fontSize={10}>
+        <Text color="txt.muted" alignSelf="flex-start" fontSize={12}>
           Forget password?
-          <Text as="a" textDecoration="underline" cursor="pointer">
+          <Text
+            as="a"
+            textDecoration="underline"
+            cursor="pointer"
+            onClick={() => {
+              setOverlay(<OverlayTwo />);
+              onOpen();
+            }}
+          >
             Click to reset password
           </Text>
         </Text>
         <div className="btn">
           <button type="submit" className="green_btn">
-            {isLoading ? <CircularProgress size="22px" /> : "Login"}
+            {isLoading ? <Spinner size="sm" /> : "Login"}
           </button>
         </div>
         <div className="text">
@@ -129,7 +154,7 @@ function LoginForm() {
           </Text>
         </div>
       </form>
-      <ToastContainer />
+      <ResetPasswordModal onClose={onClose} isOpen={isOpen} overlay={overlay} />
     </FormContainer>
   );
 }

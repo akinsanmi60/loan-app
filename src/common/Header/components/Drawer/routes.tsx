@@ -25,6 +25,11 @@ const routesLinks = [
     icon: "remt",
   },
   {
+    title: "Crypto Tracker",
+    path: "/cryptohome",
+    icon: "crypto",
+  },
+  {
     title: "Blog",
     path: "/press",
     icon: "press",

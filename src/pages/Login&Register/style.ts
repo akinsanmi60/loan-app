@@ -93,7 +93,7 @@ export const ContainerForm = styled.div`
   .green_btn {
     border: none;
     outline: none;
-    padding: 12px 0;
+    padding: 8px 0;
     background-color: white;
     border-radius: 20px;
     width: 180px;
@@ -160,7 +160,7 @@ export const FormContainer = styled.div`
     width: 100%;
     padding: 10px;
     border-radius: 6px;
-    margin: 5px 0;
+    margin-bottom: 5px;
     font-size: 14px;
     border: 1px solid #ced4da;
   }
@@ -210,14 +210,15 @@ export const FormContainer = styled.div`
       color: #16194f;
       font-size: 15px;
       margin-top: 15px;
+      margin-bottom: 2px;
     }
   }
 
   .btn-icon {
     margin-right: 2px;
     border: none;
-    margin-top: 10px;
-    width: 40px;
+    // margin-top: 3px;
+    // width: 40px;
     font-size: 20px;
     outline: none;
   }
@@ -266,6 +267,37 @@ export const FormContainer = styled.div`
   }
 `;
 
+export const ModalWrapper = styled.div`
+  color: #16194f;
+  padding: 15px;
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  p {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+
+  .btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .reset_btn {
+    outline: none;
+    padding: 8px 0;
+    background-color: #16194f;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+  }
+`;
 export const NavLink = styled(Link)`
   color: #16194f;
   margin-top: 10px;

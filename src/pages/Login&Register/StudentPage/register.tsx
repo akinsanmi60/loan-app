@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
-  CircularProgress,
+  Spinner,
   Input,
   InputGroup,
   InputRightElement,
@@ -150,11 +150,7 @@ function RegisterForm() {
         </Text>
         <div className="btn">
           <button type="submit" className="green_btn">
-            {isLoading ? (
-              <CircularProgress size="22px" value={30} color="orange.400" />
-            ) : (
-              "Register"
-            )}
+            {isLoading ? <Spinner size="sm" /> : "Register"}
           </button>
         </div>
         <div className="text">

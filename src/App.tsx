@@ -27,6 +27,7 @@ import AppLayout from "pages/App";
 import UserPaymentPage from "pages/UserPayment";
 import LoanSchedule from "pages/StudentSchedule";
 import { ROUTESWITHLAYER } from "Routes";
+import ResetFormPage from "pages/Login&Register/ResetPassword";
 
 enum Account {
   Student = "student",
@@ -88,6 +89,7 @@ function App() {
           {/** Permission denied route */}
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/*" element={<Error />} />
+          <Route path="/resetpassword" element={<ResetFormPage />} />
 
           {/* {BusinessLogin} */}
           <Route path="/businessregister" element={<BusinessRegister />} />
