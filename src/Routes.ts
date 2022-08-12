@@ -15,6 +15,7 @@ import CarLoanPage from "pages/CarLoan";
 import MortgagePage from "pages/Mortgage";
 import CryptoHome from "pages/CryptoPage/featurePages/Home";
 import CoinPage from "pages/CryptoPage/featurePages/CoinPage";
+import ResetFormPage from "pages/Login&Register/ResetPassword";
 
 const ROUTESWITHOUTLAYER = {
   VerificationPage: {
@@ -32,6 +33,11 @@ const ROUTESWITHOUTLAYER = {
     id: "3",
     element: Error,
     path: "/*",
+  },
+  ResetFormPage: {
+    id: "4",
+    element: ResetFormPage,
+    path: "/resetpassword",
   },
 };
 
@@ -99,12 +105,12 @@ export const ROUTESWITHLAYER = {
     path: "/mortgage",
   },
   CryptoHome: {
-    id: "12",
+    id: "13",
     element: CryptoHome,
     path: "/cryptohome",
   },
   CoinPage: {
-    id: "12",
+    id: "14",
     element: CoinPage,
     path: "/coins/:id",
   },

@@ -87,7 +87,7 @@ function index() {
 
           <div className="detail">
             <div className="marbox">
-              <h4>Mobile</h4>
+              <h4>Mobile Download</h4>
               <div className="google">
                 <a
                   href="https://play.google.com/store/games"

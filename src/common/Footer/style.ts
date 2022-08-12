@@ -4,7 +4,7 @@ const FootWrapper = styled.footer`
   background-color: var(--dark-primary);
   color: "white";
   .footercase {
-    padding: 60px 24px;
+    padding: 50px 24px;
     display: grid;
     .detail {
       display: flex;
@@ -22,7 +22,7 @@ const FootWrapper = styled.footer`
       }
 
       .marbox {
-        padding-left: 2rem;
+        padding-left: 1rem;
       }
 
       .google {
@@ -34,6 +34,11 @@ const FootWrapper = styled.footer`
         span {
           font-size: 2rem;
           margin-right: 8px;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .marbox {
+          padding-left: 0rem;
         }
       }
     }
@@ -63,10 +68,14 @@ const FootWrapper = styled.footer`
     }
   }
   .foottext {
-    padding: 0px 56px;
+    padding: 0px 30px;
     color: var(--neutral-light);
     p {
       margin-bottom: 0.5rem;
+    }
+
+    @media screen and (min-width: 1025px) {
+      padding: 0px 30px;
     }
     .copyright {
       display: flex;
