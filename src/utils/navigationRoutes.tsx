@@ -22,17 +22,17 @@ export const studentNavigation = [
   {
     path: "studentschedule",
     icon: <FaCalendarCheck />,
-    title: "Loan Schedule",
+    title: "Schedule",
   },
   {
     path: "userpayment",
     icon: <FaMoneyBill />,
-    title: "Loan Payment",
+    title: "Payment",
   },
   {
-    path: "studentprofile",
+    path: "setting",
     icon: <FaUserGraduate />,
-    title: "Profile",
+    title: "Settings",
   },
 ];
 export const businessNavigation = [
@@ -49,16 +49,16 @@ export const businessNavigation = [
   {
     path: "businessschedule",
     icon: <FaCalendarCheck />,
-    title: "Loan Schedule",
+    title: "Schedule",
   },
   {
     path: "payment",
     icon: <FaMoneyBill />,
-    title: "Loan Payment",
+    title: "Payment",
   },
   {
-    path: "businessprofile",
+    path: "setting",
     icon: <FaBuilding />,
-    title: "Profile",
+    title: "Settings",
   },
 ];

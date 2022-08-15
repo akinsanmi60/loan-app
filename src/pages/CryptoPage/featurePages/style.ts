@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  // padding: 15px;
   .coin-container .content {
     max-width: 740px;
     margin: 1rem auto;
@@ -128,7 +127,25 @@ const Wrapper = styled.div`
         display: none;
       }
     }
+    @media screen and (max-width: 375px) {
+      #belong {
+        display: none;
+      }
+    }
+
     @media screen and (max-width: 320px) {
+      .info {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .info .coin-price {
+        p {
+          text-align: center;
+          margin-top: -15px;
+          font-weight: 800;
+        }
+      }
+
       .coin-name_hide {
         display: none;
       }
@@ -136,11 +153,9 @@ const Wrapper = styled.div`
       th {
         padding: 0px;
       }
-      .stats .row {
-        display: flex;
-        justify-content: flex-start;
-        gap: 12px;
-        border-bottom: none;
+
+      .stats .right {
+        display: none;
       }
     }
   }
@@ -152,6 +167,9 @@ export const ButtonStyled = styled.button`
   border: none;
   cursor: pointer;
   font-weight: 500;
-  margin-top: 10px;
+  // margin-top: 10px;
   font-size: 15px;
+`;
+export const HomeWrapper = styled.div`
+  min-height: 100vh;
 `;

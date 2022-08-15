@@ -28,6 +28,7 @@ import UserPaymentPage from "pages/UserPayment";
 import LoanSchedule from "pages/StudentSchedule";
 import { ROUTESWITHLAYER } from "Routes";
 import ResetFormPage from "pages/Login&Register/ResetPassword";
+import SettingsPage from "pages/SettingsPage";
 
 enum Account {
   Student = "student",
@@ -49,7 +50,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 900);
   }, []);
 
   return (
@@ -111,6 +112,7 @@ function App() {
               <Route path="studentapplication" element={<StudentLoanForm />} />
               <Route path="userpayment" element={<UserPaymentPage />} />
               <Route path="studentschedule" element={<LoanSchedule />} />
+              <Route path="setting" element={<SettingsPage />} />
             </Route>
           </Route>
         </Routes>

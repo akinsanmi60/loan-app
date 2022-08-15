@@ -17,11 +17,9 @@ const AppContainer = styled.div`
       background: var(--neutral-light);
     }
 
-    // @media screen and (max-width: 425px) {
-    //   .inner-content {
-    //     height: calc(100vh - -10px);
-    //   }
-    // }
+    @media screen and (max-width: 786px) {
+      flex-direction: column;
+    }
   }
 `;
 export default AppContainer;

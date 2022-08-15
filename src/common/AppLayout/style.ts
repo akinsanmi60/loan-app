@@ -70,6 +70,26 @@ const SideWrapper = styled.div`
     display: flex;
     gap: 15px;
   }
+  @media screen and (min-width: 1025px) {
+    min-height: 50vh;
+    height: auto !important;
+
+    .top_section {
+      height: 70px;
+      .top h1 {
+        font-size: 30px;
+      }
+    }
+    .link {
+      .link_text,
+      .icon {
+        font-size: 22px;
+      }
+    }
+    .btnlogout {
+      margin-top: 400px;
+    }
+  }
 `;
 export default SideWrapper;
 

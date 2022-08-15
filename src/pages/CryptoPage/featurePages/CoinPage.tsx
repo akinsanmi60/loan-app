@@ -67,7 +67,6 @@ function CoinPage() {
     coin?.market_data?.price_change_percentage_1y_in_currency?.[
       currency.toLowerCase()
     ] >= 0;
-  console.log("ljkfkfnkfnfkf", coin);
   return (
     <Wrapper>
       <div>
@@ -106,7 +105,9 @@ function CoinPage() {
                 <th>24h</th>
                 <th>7d</th>
                 <th>14d</th>
-                <th className="coin-name_hide">30d</th>
+                <th className="coin-name_hide" id="belong">
+                  30d
+                </th>
                 <th className="coin-year_hide">1yr</th>
               </tr>
             </thead>
@@ -171,6 +172,7 @@ function CoinPage() {
                 <td>
                   <p
                     className="coin-name_hide"
+                    id="belong"
                     style={{
                       color: profit30d ? "rgb(14, 203, 129)" : "red",
                       fontWeight: 500,

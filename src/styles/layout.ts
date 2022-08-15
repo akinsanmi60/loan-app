@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const OuterLayout = styled.section`
-  padding: 2rem 4rem;
+  padding: 0rem 4rem;
   @media screen and (max-width: 1347px) {
     padding: 0rem 8rem;
   }
