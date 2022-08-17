@@ -10,6 +10,7 @@ export const BUSINESS_LOGIN = "http://localhost:5500/auth/business/login";
 export const VERIFY_EMAIL = "http://localhost:5500/user/verify";
 export const FORGET_PASSWORD = "http://localhost:5500/user/forgotpassword";
 export const RESET_PASSWORD = "http://localhost:5500/user/resetpassword";
+export const CHANGE_PASSWORD = "http://localhost:5500/user/changepassword";
 
 // Third Party API
 export const CoinList = (currency: string) =>

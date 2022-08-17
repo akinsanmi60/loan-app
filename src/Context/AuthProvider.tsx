@@ -10,6 +10,8 @@ type AuthUserType = {
     lastName: string;
     businessName: string;
     accountType: string;
+    _id: string;
+    userIdNos: string;
   };
   token?: string;
 };

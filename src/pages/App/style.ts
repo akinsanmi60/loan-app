@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const AppContainer = styled.div`
-  height: 100%;
   .container {
     display: flex;
+    overflow-y: hidden;
   }
 
   .AppContentBox {
@@ -13,12 +13,9 @@ const AppContainer = styled.div`
       padding: 2rem 1rem;
       width: 100%;
       overflow-x: hidden;
+      overflow-y: unset;
       height: calc(100vh - 2px);
       background: var(--neutral-light);
-    }
-
-    @media screen and (max-width: 786px) {
-      flex-direction: column;
     }
   }
 `;

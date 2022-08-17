@@ -86,9 +86,9 @@ const SideWrapper = styled.div`
         font-size: 22px;
       }
     }
-    .btnlogout {
-      margin-top: 400px;
-    }
+    // .btnlogout {
+    //   margin-top: 400px;
+    // }
   }
 `;
 export default SideWrapper;
