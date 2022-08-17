@@ -57,6 +57,7 @@ function VerificationForm() {
       } else if (authUser?.user?.accountType === "business") {
         navigate("/businesslogin");
       }
+      window.location.reload();
     } catch (err: any) {
       console.log(err);
     }

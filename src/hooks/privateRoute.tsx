@@ -34,3 +34,18 @@ function PrivateRoute({ accounts }: { accounts: Array<Account | string> }) {
 }
 
 export default PrivateRoute;
+
+export function CommonPrivateRoute() {
+  const { authUser } = useContext(AuthContext);
+  const location = useLocation();
+
+  // checks on authUser
+  if (!authUser?.user) {
+    return <Navigate to="/unauthorized" state={{ from: location }} replace />;
+  }
+  return authUser?.user ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/" state={{ from: location }} replace />
+  );
+}

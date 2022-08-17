@@ -16,7 +16,7 @@ import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
 import BusinessBoard from "pages/BusinessDashboard";
 // protected Route
-import PrivateRoute from "hooks/privateRoute";
+import PrivateRoute, { CommonPrivateRoute } from "hooks/privateRoute";
 // utils
 import LayoutWrapper from "utils/WebpageWrap";
 // style
@@ -79,11 +79,7 @@ function App() {
           })}
 
           {/* {Common} */}
-          <Route
-            element={
-              <PrivateRoute accounts={[Account.Business, Account.Student]} />
-            }
-          >
+          <Route element={<CommonPrivateRoute />}>
             <Route path="/verificationpage" element={<VerificationPage />} />
           </Route>
 

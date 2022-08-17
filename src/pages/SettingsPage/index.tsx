@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable no-underscore-dangle */
 import React, { useContext } from "react";
 // import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +11,6 @@ import ChangePasswordModal from "./component";
 function SettingsPage() {
   const { authUser } = useContext(AuthContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const _id = authUser?.user._id;
   const lastname = authUser?.user.lastName;
   const firstname = authUser?.user.firstName;
   const acct = authUser?.user.accountType;
@@ -114,7 +111,7 @@ function SettingsPage() {
           <ButtonStyled type="submit">Save Changes</ButtonStyled>
         </div>
       </form>
-      <ChangePasswordModal onClose={onClose} isOpen={isOpen} _id={_id} />
+      <ChangePasswordModal onClose={onClose} isOpen={isOpen} />
     </SettingWrapper>
   );
 }

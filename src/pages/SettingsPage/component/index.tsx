@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/naming-convention */
+import React, { useContext } from "react";
 import {
   Input,
   Modal,
@@ -18,11 +20,11 @@ import { CHANGE_PASSWORD } from "utils/Api-Routes";
 import FormField from "common/FormField";
 import { ModalWrapper } from "pages/Login&Register/style";
 import { ErrorProp } from "pages/Login&Register/StudentPage/type";
+import AuthContext from "Context/AuthProvider";
 
 type ChangeProps = {
   isOpen: boolean;
   onClose: () => void;
-  _id: string | undefined;
 };
 interface PasswordFormInputs {
   oldPassword: string;
@@ -37,11 +39,13 @@ const schema = yup
   })
   .required();
 
-function ChangePasswordModal({ isOpen, onClose, _id }: ChangeProps) {
+function ChangePasswordModal({ isOpen, onClose }: ChangeProps) {
+  const { authUser } = useContext(AuthContext);
+  const _id = authUser?.user._id;
+
   const { register, handleSubmit } = useForm<PasswordFormInputs>({
     resolver: yupResolver(schema),
   });
-  console.log(_id);
 
   const { isLoading, mutate } = useMutation(patchRequest, {
     onSuccess(res) {
@@ -61,7 +65,6 @@ function ChangePasswordModal({ isOpen, onClose, _id }: ChangeProps) {
       return toast.error("passwords do not match", toastOptions);
     }
     mutate({ data: payload, url: CHANGE_PASSWORD });
-    onClose();
   };
 
   return (
