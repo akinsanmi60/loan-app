@@ -13,9 +13,13 @@ import { ButtonStyled, WrapperAll } from "./styled";
 function PaystackIntegration() {
   const { authUser } = useContext(AuthContext);
 
-  const lastname = authUser?.user.lastName;
-  const firstname = authUser?.user.firstName;
+  const lastName = authUser?.user.lastName || authUser?.user.ownerName;
+  const firstName = authUser?.user.firstName || authUser?.user.businessName;
+  const userLastname = authUser?.user.lastName;
+  const userFirstname = authUser?.user.firstName;
   const email = authUser?.user.email;
+  const businessName = authUser?.user.businessName;
+  const ownerName = authUser?.user.ownerName;
 
   const [amount, setAmount] = useState("5000");
 
@@ -25,8 +29,8 @@ function PaystackIntegration() {
     paystack.newTransaction({
       key: "pk_test_fa5805e84c03c63dbe51460e8b6add4fca372aa6",
       amount: (amount as any) * 100,
-      lastname,
-      firstname,
+      lastName,
+      firstName,
       email,
       onSuccess(transaction: { reference: any }) {
         toast.success(
@@ -44,30 +48,60 @@ function PaystackIntegration() {
     <WrapperAll>
       <div>
         <form onSubmit={submitForm}>
+          {authUser && authUser?.user.firstName ? (
+            <>
+              <div className="labelinput">
+                <FormField label="First name">
+                  <Input
+                    value={userFirstname}
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    type="text"
+                    readOnly
+                  />
+                </FormField>
+              </div>
+              <div className="labelinput">
+                <FormField label="Last name">
+                  <Input
+                    value={userLastname}
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    type="text"
+                    readOnly
+                  />
+                </FormField>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="labelinput">
+                <FormField label="Business Name">
+                  <Input
+                    value={ownerName}
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    type="text"
+                    readOnly
+                  />
+                </FormField>
+              </div>
+              <div className="labelinput">
+                <FormField label="Business Name">
+                  <Input
+                    value={businessName}
+                    focusBorderColor="none"
+                    sx={inputStyles}
+                    type="text"
+                    readOnly
+                  />
+                </FormField>
+              </div>
+            </>
+          )}
+
           <div className="labelinput">
-            <FormField label="First name">
-              <Input
-                value={firstname}
-                focusBorderColor="none"
-                sx={inputStyles}
-                type="text"
-                readOnly
-              />
-            </FormField>
-          </div>
-          <div className="labelinput">
-            <FormField label="Last name">
-              <Input
-                value={lastname}
-                focusBorderColor="none"
-                sx={inputStyles}
-                type="text"
-                readOnly
-              />
-            </FormField>
-          </div>
-          <div className="labelinput">
-            <FormField label="Last name">
+            <FormField label="Email">
               <Input
                 value={email}
                 focusBorderColor="none"
@@ -78,7 +112,7 @@ function PaystackIntegration() {
             </FormField>
           </div>
           <div className="labelinput">
-            <FormField label="Last name">
+            <FormField label="Amount">
               <Input
                 value={amount}
                 focusBorderColor="none"

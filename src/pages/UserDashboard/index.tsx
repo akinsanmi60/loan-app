@@ -16,7 +16,10 @@ function StudentBoard() {
     <DashWrapper>
       <WrapperOverview>
         <div>
-          <h3>Hi {authUser?.user.firstName}, Welcome back!</h3>
+          <h3>
+            Hi {authUser?.user.firstName || authUser?.user.businessName},
+            Welcome back!
+          </h3>
         </div>
         <div className="loanbalance">
           <div className="loanAmount">

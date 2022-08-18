@@ -13,6 +13,7 @@ import * as yup from "yup";
 import { UPDATE_USER } from "utils/Api-Routes";
 import FormField from "common/FormField";
 import { Input, Spinner, useDisclosure } from "@chakra-ui/react";
+import { FaUserCircle } from "react-icons/fa";
 import SettingWrapper, { ButtonStyled, inputStyles } from "./style";
 import ChangePasswordModal from "./component";
 import { ErrorProp } from "./type";
@@ -75,8 +76,8 @@ function SettingsPage() {
       <form onSubmit={handleSubmit(forSubmit)}>
         <div className="box">
           <div className="img-box">
-            <div className="img">
-              <span>fifif</span>
+            <div>
+              <FaUserCircle className="img" />
             </div>
           </div>
           <div className="details">

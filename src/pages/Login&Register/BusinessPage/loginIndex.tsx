@@ -75,7 +75,8 @@ function LoginForm() {
       const { isEmailVerified } = user;
       if (isEmailVerified === true) {
         navigate("/auth/businessdashboard");
-        window.location.reload();
+      } else {
+        navigate("/verificationpage");
       }
     },
     onError(err: ErrorProp) {

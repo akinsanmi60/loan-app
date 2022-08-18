@@ -18,6 +18,7 @@ const SettingWrapper = styled.div`
     justify-content: center;
     .img {
       background-color: #16194f;
+      color: white;
       width: 150px;
       height: 150px;
       border-radius: 100px;

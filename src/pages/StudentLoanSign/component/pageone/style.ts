@@ -46,6 +46,7 @@ const PersonalWrapper = styled.div`
       font-size: 18px;
     }
     @media screen and (max-width: 425px) {
+      gap: 10px;
       padding-left: 15px;
       font-size: 12px;
       grid-template-columns: 1fr 1fr;

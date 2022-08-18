@@ -10,54 +10,54 @@ import {
 
 export const studentNavigation = [
   {
-    path: "studentdashboard",
+    path: "student_dashboard",
     icon: <FaHome />,
     title: "home",
   },
   {
-    path: "studentapplication",
+    path: "sstudent_application",
     icon: <FaPenAlt />,
     title: "Application",
   },
   {
-    path: "studentschedule",
+    path: "student_schedule",
     icon: <FaCalendarCheck />,
     title: "Schedule",
   },
   {
-    path: "userpayment",
+    path: "student_payment",
     icon: <FaMoneyBill />,
     title: "Payment",
   },
   {
-    path: "setting",
+    path: "student_setting",
     icon: <FaUserGraduate />,
     title: "Settings",
   },
 ];
 export const businessNavigation = [
   {
-    path: "businessdashboard",
+    path: "business_dashboard",
     icon: <FaHome />,
     title: "home",
   },
   {
-    path: "businessapplication",
+    path: "business_application",
     icon: <FaPenAlt />,
     title: "Application",
   },
   {
-    path: "businessschedule",
+    path: "business_schedule",
     icon: <FaCalendarCheck />,
     title: "Schedule",
   },
   {
-    path: "payment",
+    path: "business_payment",
     icon: <FaMoneyBill />,
     title: "Payment",
   },
   {
-    path: "setting",
+    path: "business_setting",
     icon: <FaBuilding />,
     title: "Settings",
   },

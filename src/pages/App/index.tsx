@@ -1,14 +1,23 @@
-import React from "react";
+import AuthContext from "Context/AuthProvider";
+import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { businessNavigation, studentNavigation } from "utils/navigationRoutes";
 import SideNav from "../../common/AppLayout/sideNav";
 // import TopNav from "../../common/AppLayout/topNav";
 import AppContainer from "./style";
 
 function AppLayout() {
+  const { authUser } = useContext(AuthContext);
+  const userNavigations =
+    authUser?.user.accountType[0] === "student"
+      ? studentNavigation
+      : businessNavigation;
+  const navigationModel = [...userNavigations];
+
   return (
     <AppContainer>
       <div className="container">
-        <SideNav />
+        <SideNav navigationModel={navigationModel} />
         <div className="AppContentBox">
           {/* <TopNav /> */}
           <div className="inner-content">

@@ -2,10 +2,17 @@ import AuthContext from "Context/AuthProvider";
 import React, { useContext, useState } from "react";
 import { FaBars, FaPowerOff } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { studentNavigation } from "utils/navigationRoutes";
+// import { studentNavigation } from "utils/navigationRoutes";
 import SideWrapper from "./style";
 
-function SideNav() {
+type SideProp = {
+  navigationModel: {
+    path: string;
+    icon: JSX.Element;
+    title: string;
+  }[];
+};
+function SideNav({ navigationModel }: SideProp) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const { logout } = useContext(AuthContext);
@@ -23,7 +30,7 @@ function SideNav() {
         </div>
       </div>
       <hr />
-      {studentNavigation.map(item => (
+      {navigationModel.map(item => (
         <Link to={item.path} key={item.title} className="link">
           <div className="icon">{item.icon}</div>
           <div

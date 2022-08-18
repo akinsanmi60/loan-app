@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 const SideWrapper = styled.div`
-  //   flex: 1;
   border-right: 0.5px solid rgb(230, 227, 227);
-  min-height: 100vh;
+  // min-height: 50vh;
   background: var(--dark-primary);
   color: white;
 

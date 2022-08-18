@@ -9,6 +9,7 @@ type AuthUserType = {
     firstName: string;
     lastName: string;
     businessName: string;
+    ownerName: string;
     accountType: string;
     _id: string;
     userIdNos: string;

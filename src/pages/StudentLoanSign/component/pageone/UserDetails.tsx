@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Input } from "@chakra-ui/react";
+import AuthContext from "Context/AuthProvider";
 import FormField from "../../../../common/FormField";
 import { ProUser } from "./type";
 import PersonalWrapper from "./style";
 import { inputStyles } from "../../style";
 
 function UserDetails({ values, handleChange }: ProUser) {
+  const { authUser } = useContext(AuthContext);
+
+  const lastname = authUser?.user.lastName;
+  const firstname = authUser?.user.firstName;
+  const email = authUser?.user.email;
+
   return (
     <PersonalWrapper>
       <div className="box">
@@ -14,7 +21,7 @@ function UserDetails({ values, handleChange }: ProUser) {
           <div className="labelinput">
             <FormField label="First Name">
               <Input
-                defaultValue={values.firstName}
+                defaultValue={values.firstName || firstname}
                 onChange={handleChange("firstName")}
                 type="text"
                 focusBorderColor="none"
@@ -25,7 +32,7 @@ function UserDetails({ values, handleChange }: ProUser) {
           <div className="labelinput">
             <FormField label="Last Name">
               <Input
-                defaultValue={values.lastName}
+                defaultValue={values.lastName || lastname}
                 onChange={handleChange("lastName")}
                 type="text"
                 focusBorderColor="none"
@@ -36,7 +43,7 @@ function UserDetails({ values, handleChange }: ProUser) {
           <div className="labelinput">
             <FormField label="Email">
               <Input
-                defaultValue={values.email}
+                defaultValue={values.email || email}
                 onChange={handleChange("email")}
                 type="email"
                 focusBorderColor="none"

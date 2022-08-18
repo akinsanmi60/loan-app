@@ -9,12 +9,11 @@ import Error from "pages/Error/error";
 import StudentLoanForm from "pages/StudentLoanSign/UserForm";
 import StudentRegister from "pages/Login&Register/StudentPage/register";
 import StudentLogin from "pages/Login&Register/StudentPage/login";
-import StudentBoard from "pages/StudentDashboard";
+import Board from "pages/UserDashboard";
 // Business-Routes
 // import BusinessPage from "pages/LoansPage/Business";
 import BusinessRegister from "pages/Login&Register/BusinessPage/registerIndex";
 import BusinessLogin from "pages/Login&Register/BusinessPage/loginIndex";
-import BusinessBoard from "pages/BusinessDashboard";
 // protected Route
 import PrivateRoute from "hooks/privateRoute";
 // utils
@@ -25,7 +24,7 @@ import LoaderLayout from "common/LoaderLayout";
 
 import AppLayout from "pages/App";
 import UserPaymentPage from "pages/UserPayment";
-import LoanSchedule from "pages/StudentSchedule";
+import LoanSchedule from "pages/UserSchedule";
 import { ROUTESWITHLAYER } from "Routes";
 import ResetFormPage from "pages/Login&Register/ResetPassword";
 import SettingsPage from "pages/SettingsPage";
@@ -97,8 +96,17 @@ function App() {
           <Route path="/businesslogin" element={<BusinessLogin />} />
           {/** Protected routes */}
           <Route element={<PrivateRoute accounts={[Account.Business]} />}>
-            <Route path="/businessdashboard" element={<BusinessBoard />} />
-            <Route path="userpayment" element={<UserPaymentPage />} />
+            <Route path="/auth" element={<AppLayout />}>
+              <Route index element={<Board />} />
+              <Route path="business_dashboard" element={<Board />} />
+              <Route path="business_payment" element={<UserPaymentPage />} />
+              <Route
+                path="business_application"
+                element={<StudentLoanForm />}
+              />
+              <Route path="business_schedule" element={<LoanSchedule />} />
+              <Route path="business_setting" element={<SettingsPage />} />
+            </Route>
           </Route>
 
           {/* {StudentLogin} */}
@@ -107,12 +115,12 @@ function App() {
           {/** Protected routes */}
           <Route element={<PrivateRoute accounts={[Account.Student]} />}>
             <Route path="/auth" element={<AppLayout />}>
-              <Route index element={<StudentBoard />} />
-              <Route path="studentdashboard" element={<StudentBoard />} />
-              <Route path="studentapplication" element={<StudentLoanForm />} />
-              <Route path="userpayment" element={<UserPaymentPage />} />
-              <Route path="studentschedule" element={<LoanSchedule />} />
-              <Route path="setting" element={<SettingsPage />} />
+              <Route index element={<Board />} />
+              <Route path="student_dashboard" element={<Board />} />
+              <Route path="student_application" element={<StudentLoanForm />} />
+              <Route path="student_payment" element={<UserPaymentPage />} />
+              <Route path="student_schedule" element={<LoanSchedule />} />
+              <Route path="student_setting" element={<SettingsPage />} />
             </Route>
           </Route>
         </Routes>
