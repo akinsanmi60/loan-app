@@ -12,6 +12,7 @@ import google from "../../assets/google_play_badge.svg";
 import apple from "../../assets/app_store_badge.svg";
 
 function index() {
+  const newYear = new Date().getFullYear();
   return (
     <>
       <div>
@@ -110,7 +111,7 @@ function index() {
         <div className="foottext">
           <h4>Legal Terms and Policies</h4>
           <div className="copyright">
-            <p>Copyright © Humoni 2022. All rights reserved</p>
+            <p>Copyright © Humoni {newYear}. All rights reserved</p>
             <h4>HUMONI</h4>
           </div>
         </div>

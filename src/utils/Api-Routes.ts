@@ -11,6 +11,7 @@ export const VERIFY_EMAIL = "http://localhost:5500/user/verify";
 export const FORGET_PASSWORD = "http://localhost:5500/user/forgotpassword";
 export const RESET_PASSWORD = "http://localhost:5500/user/resetpassword";
 export const CHANGE_PASSWORD = "http://localhost:5500/user/changepassword";
+export const UPDATE_USER = "http://localhost:5500/user/updateuser";
 
 // Third Party API
 export const CoinList = (currency: string) =>

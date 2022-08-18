@@ -75,7 +75,6 @@ function LoginForm() {
       const { isEmailVerified } = user;
       if (isEmailVerified === true) {
         navigate("/auth/studentdashboard");
-        window.location.reload();
       } else {
         navigate("/verificationpage");
       }
