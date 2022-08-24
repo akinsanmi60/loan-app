@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import styled from "styled-components";
 
 export const WrapperAll = styled.div`
@@ -45,3 +44,56 @@ export const ButtonStyled = styled.button`
     font-size: 0.8rem;
   }
 `;
+const CardWrapper = styled.div`
+  .cardForm {
+    margin: auto;
+    margin-top: 3rem;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardForm input {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid #16194f;
+    border-radius: 4px;
+    outline: none;
+    color: #16194f;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .cardForm input:focus,
+  .cardForm input:active {
+    border-color: rgb(0, 207, 0);
+  }
+
+  .cardForm .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .bottom input[name="expiry"] {
+    flex: 1;
+  }
+
+  .bottom input[name="cvc"] {
+    width: 100px;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+`;
+export default CardWrapper;

@@ -1,10 +1,10 @@
 import React from "react";
-import PaystackIntegration from "./component";
+import TabNav from "./component/tabnav";
 
 function UserPaymentPagej() {
   return (
     <div>
-      <PaystackIntegration />
+      <TabNav />
     </div>
   );
 }

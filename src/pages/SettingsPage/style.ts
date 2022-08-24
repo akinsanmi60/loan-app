@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 const SettingWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-
+  .setbox {
+    display: flex;
+    justify-content: center;
+  }
   .box {
     width: 100%;
     margin-top: 25px;

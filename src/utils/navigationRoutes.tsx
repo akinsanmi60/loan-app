@@ -15,7 +15,7 @@ export const studentNavigation = [
     title: "home",
   },
   {
-    path: "sstudent_application",
+    path: "student_application",
     icon: <FaPenAlt />,
     title: "Application",
   },

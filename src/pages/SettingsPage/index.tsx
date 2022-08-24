@@ -73,117 +73,131 @@ function SettingsPage() {
 
   return (
     <SettingWrapper>
-      <form onSubmit={handleSubmit(forSubmit)}>
-        <div className="box">
-          <div className="img-box">
-            <div>
-              <FaUserCircle className="img" />
+      <div className="setbox">
+        <form onSubmit={handleSubmit(forSubmit)}>
+          <div className="box">
+            <div className="img-box">
+              <div>
+                <FaUserCircle className="img" />
+              </div>
             </div>
-          </div>
-          <div className="details">
-            <div className="userdetails">
-              <div className="labelinput">
-                <FormField label="First name">
-                  <Input
-                    defaultValue={firstname}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                    readOnly
-                  />
-                </FormField>
-              </div>
-              <div className="labelinput">
-                <FormField label="Last name">
-                  <Input
-                    defaultValue={lastname}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                    readOnly
-                  />
-                </FormField>
-              </div>
-              <div className="labelinput">
-                <FormField label="Account Type">
-                  <Input
-                    defaultValue={acct}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                    readOnly
-                  />
-                </FormField>
-              </div>
+            <div className="details">
+              <div className="userdetails">
+                <div className="labelinput">
+                  <FormField label="First name">
+                    <Input
+                      defaultValue={firstname}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                      readOnly
+                    />
+                  </FormField>
+                </div>
+                <div className="labelinput">
+                  <FormField label="Last name">
+                    <Input
+                      defaultValue={lastname}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                      readOnly
+                    />
+                  </FormField>
+                </div>
+                <div className="labelinput">
+                  <FormField label="Account Type">
+                    <Input
+                      defaultValue={acct}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                      readOnly
+                    />
+                  </FormField>
+                </div>
 
-              <div className="labelinput">
-                <FormField label="Email">
-                  <Input
-                    defaultValue={email}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                  />
-                </FormField>
+                <div className="labelinput">
+                  <FormField label="Email">
+                    <Input
+                      defaultValue={email}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                    />
+                  </FormField>
+                </div>
+                <div className="passbtn">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onOpen();
+                    }}
+                  >
+                    Change Password
+                  </button>
+                </div>
               </div>
-              <div className="passbtn">
-                <button
-                  type="button"
-                  onClick={() => {
-                    onOpen();
-                  }}
-                >
-                  Change Password
-                </button>
-              </div>
-            </div>
-            <div className="countrydetails">
-              <div className="labelinput">
-                <FormField label="Phone Number">
-                  <Input
-                    {...register("phoneNumber")}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                  />
-                </FormField>
-              </div>
-              <div className="labelinput">
-                <FormField label="Nationality">
-                  <Input
-                    {...register("nationality")}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                  />
-                </FormField>
-              </div>
+              <div className="countrydetails">
+                <div className="labelinput">
+                  <FormField label="Phone Number">
+                    <Input
+                      {...register("phoneNumber")}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                    />
+                  </FormField>
+                </div>
+                <div className="labelinput">
+                  <FormField label="Nationality">
+                    <Input
+                      {...register("nationality")}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                    />
+                  </FormField>
+                </div>
 
-              <div className="labelinput">
-                <FormField label="Country of Residence">
-                  <Input
-                    {...register("country")}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                  />
-                </FormField>
+                <div className="labelinput">
+                  <FormField label="Country of Residence">
+                    <Input
+                      {...register("country")}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                    />
+                  </FormField>
+                </div>
+                <div className="labelinput">
+                  <FormField label="State of Residence">
+                    <Input
+                      {...register("state")}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                    />
+                  </FormField>
+                </div>
+                <div className="labelinput">
+                  <FormField label="Move in Date">
+                    <Input
+                      {...register("moveIn")}
+                      focusBorderColor="none"
+                      sx={inputStyles}
+                      type="text"
+                    />
+                  </FormField>
+                </div>
               </div>
+            </div>
+            <div className="box-address">
               <div className="labelinput">
-                <FormField label="State of Residence">
+                <FormField label="Address">
                   <Input
-                    {...register("state")}
-                    focusBorderColor="none"
-                    sx={inputStyles}
-                    type="text"
-                  />
-                </FormField>
-              </div>
-              <div className="labelinput">
-                <FormField label="Move in Date">
-                  <Input
-                    {...register("moveIn")}
-                    focusBorderColor="none"
+                    {...register("address")}
+                    className="address"
                     sx={inputStyles}
                     type="text"
                   />
@@ -191,25 +205,13 @@ function SettingsPage() {
               </div>
             </div>
           </div>
-          <div className="box-address">
-            <div className="labelinput">
-              <FormField label="Address">
-                <Input
-                  {...register("address")}
-                  className="address"
-                  sx={inputStyles}
-                  type="text"
-                />
-              </FormField>
-            </div>
+          <div className="agreementbtn">
+            <ButtonStyled type="submit">
+              {isLoading ? <Spinner size="sm" /> : "Save"}
+            </ButtonStyled>
           </div>
-        </div>
-        <div className="agreementbtn">
-          <ButtonStyled type="submit">
-            {isLoading ? <Spinner size="sm" /> : "Save"}
-          </ButtonStyled>
-        </div>
-      </form>
+        </form>
+      </div>
       <ChangePasswordModal onClose={onClose} isOpen={isOpen} />
     </SettingWrapper>
   );

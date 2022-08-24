@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaPenFancy, FaSearch, FaWpforms } from "react-icons/fa";
 import ReasonComp from "./component";
-import busimage from "../../assets/case3.jpg";
+import busimage from "../../assets/briefcase09.jpg";
 import stud from "../../assets/savings.jpg";
+import allstud from "../../assets/student_PNG73.png";
 import { ButtonStyled } from "../Contact/style";
 import HomeWrapper from "./style";
 
@@ -36,11 +38,37 @@ function Home() {
 
       <div className="calculator">
         <h1>
-          Do you want to learn more? Check out our{" "}
+          Do you want to learn more? Check out our
           <Link to="/calculator" className="link">
             loan calculator
           </Link>
         </h1>
+      </div>
+
+      <div className="reg-advert">
+        <div className="adimg">
+          <img src={allstud} alt="student" />
+        </div>
+        <div className="adform">
+          <div className="box1">
+            <div className="lobo">
+              <FaPenFancy className="fa" />
+              <h3>Register Account</h3>
+            </div>
+          </div>
+          <div className="box1">
+            <div className="lobo">
+              <FaSearch className="fa" />
+              <h3>Find The Loan Available</h3>
+            </div>
+          </div>
+          <div className="box1">
+            <div className="lobo">
+              <FaWpforms className="fa" />
+              <h3>Apply For The Loan</h3>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="feedbtn">

@@ -78,6 +78,46 @@ const HomeWrapper = styled.div`
   .trust {
     margin-top: 40px;
   }
+
+  .reg-advert {
+    margin-top: 30px;
+    display: flex;
+    padding: 0 50px;
+    justify-content: space-around;
+    .adimg {
+      padding: 20px;
+    }
+    img {
+      width: 100%;
+    }
+    .adform {
+      padding: 20px;
+      width: 50%;
+    }
+    .box1 {
+      margin-top: 8px;
+      padding: 20px;
+      box-shadow: 0 0.05em 0.05em 0 rgba(0, 0, 0, 0.25),
+        0 0.4em 1em 0 rgba(0, 0, 0, 0.15) !important;
+      border-radius: 9px;
+      .lobo {
+        display: flex;
+        .fa {
+          margin-top: 5px;
+          margin-right: 10px;
+        }
+        h3 {
+          font-size: 21px;
+        }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      .box1 {
+        width: 100%;
+      }
+    }
+  }
 `;
 export default HomeWrapper;
 

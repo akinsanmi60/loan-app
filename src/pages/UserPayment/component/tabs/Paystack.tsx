@@ -8,7 +8,7 @@ import AuthContext from "Context/AuthProvider";
 import FormField from "common/FormField";
 import { Input } from "@chakra-ui/react";
 import { inputStyles } from "pages/Contact/style";
-import { ButtonStyled, WrapperAll } from "./styled";
+import { ButtonStyled, WrapperAll } from "../styled";
 
 function PaystackIntegration() {
   const { authUser } = useContext(AuthContext);
@@ -76,7 +76,7 @@ function PaystackIntegration() {
           ) : (
             <>
               <div className="labelinput">
-                <FormField label="Business Name">
+                <FormField label="Owner's Name">
                   <Input
                     value={ownerName}
                     focusBorderColor="none"
@@ -114,7 +114,7 @@ function PaystackIntegration() {
           <div className="labelinput">
             <FormField label="Amount">
               <Input
-                value={amount}
+                placeholder="Enter Amount"
                 focusBorderColor="none"
                 sx={inputStyles}
                 type="text"

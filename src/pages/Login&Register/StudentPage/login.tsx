@@ -74,7 +74,7 @@ function LoginForm() {
       pushToLocalStorage(token, user);
       const { isEmailVerified } = user;
       if (isEmailVerified === true) {
-        navigate("/auth/studentdashboard");
+        navigate("/auth/student_dashboard");
       } else {
         navigate("/verificationpage");
       }

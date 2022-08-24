@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { businessNavigation, studentNavigation } from "utils/navigationRoutes";
 import SideNav from "../../common/AppLayout/sideNav";
-// import TopNav from "../../common/AppLayout/topNav";
+import TopNav from "../../common/AppLayout/topNav";
 import AppContainer from "./style";
 
 function AppLayout() {
@@ -16,10 +16,12 @@ function AppLayout() {
 
   return (
     <AppContainer>
+      <div className="navwrap">
+        <TopNav navigationModel={navigationModel} />
+      </div>
       <div className="container">
         <SideNav navigationModel={navigationModel} />
         <div className="AppContentBox">
-          {/* <TopNav /> */}
           <div className="inner-content">
             <Outlet />
           </div>
