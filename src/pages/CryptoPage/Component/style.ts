@@ -121,35 +121,36 @@ export const InfoWrapper = styled.div`
   }
 `;
 
+export const SelectedButton = styled.span`
+  border: 1px solid #6900ff;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: Montserrat;
+  cursor: pointer;
+  background-color: none;
+  color: #6900ff;
+  font-weight: 200;
+  &:hover {
+    background-color: #6900ff;
+    color: black;
+  }
+  width: 20%;
+`;
+
 export const GlobalWrap = styled.div`
-    .content{
-      .btn {
-        display: flex;
-        margin-top: 20px;
-        justify-content: space-around;
-        width: 100%;
-      }
-       @media screen and (max-width: 425px) {
+  .content {
+    .btn {
+      display: flex;
+      margin-top: 20px;
+      justify-content: space-around;
+      width: 100%;
+    }
+    @media screen and (max-width: 425px) {
       .btn {
         display: none;
+      }
     }
-    }
-`;
-export const SelectedButton = styled.span`
-border: 1px solid  #6900ff;
-border-radius: 5px;
-padding: 10px;
-padding-left: 20px;
-padding-right: 20px;
-font-family: Montserrat;
-cursor: pointer;
-background-color: none ;
-color:  #6900ff;
-font-weight: 200,
-&:hover: {
-background-olor:  #6900ff;
-color: black;
-},
-width: 20%;
-      //   margin: 5,
+  }
 `;
