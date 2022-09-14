@@ -2,7 +2,6 @@
 import React, { useContext, useState } from "react";
 import PaystackPop from "@paystack/inline-js";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import toastOptions from "hooks/toast";
 import AuthContext from "Context/AuthProvider";
 import FormField from "common/FormField";

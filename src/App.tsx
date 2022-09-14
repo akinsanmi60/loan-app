@@ -49,7 +49,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 900);
+    }, 3000);
   }, []);
 
   return (
@@ -58,72 +58,77 @@ function App() {
       {loading ? (
         <LoaderLayout loading />
       ) : (
-        <Routes>
-          {Object.entries(ROUTESWITHLAYER).map(itemRoute => {
-            const [key, value] = itemRoute;
-            const RouteComponent = value.element;
-            return (
-              <Route
-                key={key}
-                path={value.path}
-                element={
-                  <LayoutWrapper>
-                    <OuterLayout>
-                      <RouteComponent />
-                    </OuterLayout>
-                  </LayoutWrapper>
-                }
-              />
-            );
-          })}
+        <React.Suspense fallback>
+          <Routes>
+            {Object.entries(ROUTESWITHLAYER).map(itemRoute => {
+              const [key, value] = itemRoute;
+              const RouteComponent = value.element;
+              return (
+                <Route
+                  key={key}
+                  path={value.path}
+                  element={
+                    <LayoutWrapper>
+                      <OuterLayout>
+                        <RouteComponent />
+                      </OuterLayout>
+                    </LayoutWrapper>
+                  }
+                />
+              );
+            })}
 
-          {/* {Common} */}
-          <Route
-            element={
-              <PrivateRoute accounts={[Account.Business, Account.Student]} />
-            }
-          >
-            <Route path="/verificationpage" element={<VerificationPage />} />
-          </Route>
-
-          {/** Permission denied route */}
-          <Route path="/unauthorized" element={<Unauthorized />} />
-          <Route path="/*" element={<Error />} />
-          <Route path="/resetpassword" element={<ResetFormPage />} />
-
-          {/* {BusinessLogin} */}
-          <Route path="/businessregister" element={<BusinessRegister />} />
-          <Route path="/businesslogin" element={<BusinessLogin />} />
-          {/** Protected routes */}
-          <Route element={<PrivateRoute accounts={[Account.Business]} />}>
-            <Route path="/auth" element={<AppLayout />}>
-              <Route index element={<Board />} />
-              <Route path="business_dashboard" element={<Board />} />
-              <Route path="business_payment" element={<UserPaymentPage />} />
-              <Route
-                path="business_application"
-                element={<StudentLoanForm />}
-              />
-              <Route path="business_schedule" element={<LoanSchedule />} />
-              <Route path="business_setting" element={<SettingsPage />} />
+            {/* {Common} */}
+            <Route
+              element={
+                <PrivateRoute accounts={[Account.Business, Account.Student]} />
+              }
+            >
+              <Route path="/verificationpage" element={<VerificationPage />} />
             </Route>
-          </Route>
 
-          {/* {StudentLogin} */}
-          <Route path="/studentregister" element={<StudentRegister />} />
-          <Route path="/studentlogin" element={<StudentLogin />} />
-          {/** Protected routes */}
-          <Route element={<PrivateRoute accounts={[Account.Student]} />}>
-            <Route path="/auth" element={<AppLayout />}>
-              <Route index element={<Board />} />
-              <Route path="student_dashboard" element={<Board />} />
-              <Route path="student_application" element={<StudentLoanForm />} />
-              <Route path="student_payment" element={<UserPaymentPage />} />
-              <Route path="student_schedule" element={<LoanSchedule />} />
-              <Route path="student_setting" element={<SettingsPage />} />
+            {/** Permission denied route */}
+            <Route path="/unauthorized" element={<Unauthorized />} />
+            <Route path="/*" element={<Error />} />
+            <Route path="/resetpassword" element={<ResetFormPage />} />
+
+            {/* {BusinessLogin} */}
+            <Route path="/businessregister" element={<BusinessRegister />} />
+            <Route path="/businesslogin" element={<BusinessLogin />} />
+            {/** Protected routes */}
+            <Route element={<PrivateRoute accounts={[Account.Business]} />}>
+              <Route path="/auth" element={<AppLayout />}>
+                <Route index element={<Board />} />
+                <Route path="business_dashboard" element={<Board />} />
+                <Route path="business_payment" element={<UserPaymentPage />} />
+                <Route
+                  path="business_application"
+                  element={<StudentLoanForm />}
+                />
+                <Route path="business_schedule" element={<LoanSchedule />} />
+                <Route path="business_setting" element={<SettingsPage />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
+
+            {/* {StudentLogin} */}
+            <Route path="/studentregister" element={<StudentRegister />} />
+            <Route path="/studentlogin" element={<StudentLogin />} />
+            {/** Protected routes */}
+            <Route element={<PrivateRoute accounts={[Account.Student]} />}>
+              <Route path="/auth" element={<AppLayout />}>
+                <Route index element={<Board />} />
+                <Route path="student_dashboard" element={<Board />} />
+                <Route
+                  path="student_application"
+                  element={<StudentLoanForm />}
+                />
+                <Route path="student_payment" element={<UserPaymentPage />} />
+                <Route path="student_schedule" element={<LoanSchedule />} />
+                <Route path="student_setting" element={<SettingsPage />} />
+              </Route>
+            </Route>
+          </Routes>
+        </React.Suspense>
       )}
     </div>
   );

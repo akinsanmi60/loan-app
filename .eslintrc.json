@@ -19,6 +19,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "import", "react-hooks"],
   "rules": {
+    "no-nested-ternary": "off",
     "react/no-unescaped-entities": [0, {}],
     "no-unused-vars": [0, {}],
     "react/prop-types": "off",

@@ -233,16 +233,6 @@ function StudentProfile() {
           </button>
         </div>
       </div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
-      <div>fnndkndkdn</div>
       <button type="submit" onClick={logout}>
         logout
       </button>

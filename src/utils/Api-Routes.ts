@@ -15,7 +15,7 @@ export const UPDATE_USER = "http://localhost:5500/user/updateuser";
 
 // Third Party API
 export const CoinList = (currency: string) =>
-  `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=200&page=1&sparkline=false`;
+  `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=600&page=1&sparkline=false`;
 export const SingleCoin = (id: string | undefined) =>
   `https://api.coingecko.com/api/v3/coins/${id}`;
 export const HistoricalChart = (id: string, currency: string, days = 365) =>

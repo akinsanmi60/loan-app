@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const StudentWrapper = styled.div`
   color: #16194f;
- 
-
   .img {
     background-size: contain;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
   }
-   p {
+
+  p {
     font-size: 18px;
     @media screen and (min-width: 1025px) {
       font-size: 18px;
@@ -25,9 +24,7 @@ export const StudentWrapper = styled.div`
       font-size: 15px;
     }
   }
-  .wallpaper img {
-       
-  }
+
   .pawa {
     margin-bottom: 50px;
     .faq {
@@ -39,7 +36,6 @@ export const StudentWrapper = styled.div`
       @media screen and (max-width: 425px) {
         font-size: 20px;
       }
-
     }
     .eligibilty {
       margin-top: 22px;
@@ -62,27 +58,27 @@ export const StudentWrapper = styled.div`
         }
       }
       @media screen and (max-width: 425px) {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
       }
     }
-
   }
   .general {
     margin-top: 80px;
     margin-bottom: 80px;
-       @media screen and (max-width: 375px) {
+    @media screen and (max-width: 375px) {
       margin-bottom: 25px;
     }
   }
+
   .focus {
     display: flex;
     .image {
-      display: flex;   
+      display: flex;
       align-items: center;
       flex: 5;
       img {
-      width: 100vw;
-      height: 346px;
+        width: 100vw;
+        height: 346px;
       }
     }
     .text {
@@ -93,23 +89,22 @@ export const StudentWrapper = styled.div`
         text-align: justify;
         margin-top: 5px;
       }
-     
-    } 
-
-     @media screen and (min-width: 1026px) {
-       .text {
-            p {
-        font-size: 22px;
-        text-align: justify;
-        margin-top: 5px;
-      }
-       }
-        img {
-      width: 650px;
-      height: 446px;
     }
-     }
 
+    @media screen and (min-width: 1026px) {
+      .text {
+        p {
+          font-size: 22px;
+          text-align: justify;
+          margin-top: 5px;
+        }
+
+        img {
+          width: 650px;
+          height: 446px;
+        }
+      }
+    }
     @media screen and (max-width: 425px) {
       flex-direction: column;
       flex-direction: column-reverse;
@@ -127,13 +122,14 @@ export const StudentWrapper = styled.div`
     @media screen and (max-width: 375px) {
       img {
         width: 307px;
+      }
     }
     @media screen and (max-width: 320px) {
       img {
         width: 253px;
+      }
     }
   }
-
 `;
 
 const QuestionStyled = styled.div`

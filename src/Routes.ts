@@ -1,21 +1,31 @@
-import VerificationPage from "pages/Login&Register/Verify/verify";
-import Unauthorized from "pages/Error/unauthorized";
-import Error from "pages/Error/error";
+import React from "react";
 import Home from "pages/Home";
-import Contact from "pages/Contact";
-import Service from "pages/ServicesPage";
-import About from "pages/About";
-import Question from "pages/Question";
-import Press from "pages/Press";
-import StudentPage from "pages/LoansPage/student";
-import BusinessPage from "pages/LoansPage/Business";
-import LoanCalculator from "pages/LoanCalculator";
-import RemittancePage from "pages/Remittance";
-import CarLoanPage from "pages/CarLoan";
-import MortgagePage from "pages/Mortgage";
-import CryptoHome from "pages/CryptoPage/featurePages/Home";
-import CoinPage from "pages/CryptoPage/featurePages/CoinPage";
-import ResetFormPage from "pages/Login&Register/ResetPassword";
+
+const VerificationPage = React.lazy(
+  () => import("pages/Login&Register/Verify/verify"),
+);
+const Unauthorized = React.lazy(() => import("pages/Error/unauthorized"));
+const Error = React.lazy(() => import("pages/Error/error"));
+const LazyContact = React.lazy(() => import("pages/Contact"));
+const Service = React.lazy(() => import("pages/ServicesPage"));
+const About = React.lazy(() => import("pages/About"));
+const Question = React.lazy(() => import("pages/Question"));
+const Press = React.lazy(() => import("pages/Press"));
+const StudentPage = React.lazy(() => import("pages/LoansPage/student"));
+const BusinessPage = React.lazy(() => import("pages/LoansPage/Business"));
+const LoanCalculator = React.lazy(() => import("pages/LoanCalculator"));
+const RemittancePage = React.lazy(() => import("pages/Remittance"));
+const CarLoanPage = React.lazy(() => import("pages/CarLoan"));
+const MortgagePage = React.lazy(() => import("pages/Mortgage"));
+const CryptoHome = React.lazy(
+  () => import("pages/CryptoPage/featurePages/Home"),
+);
+const CoinPage = React.lazy(
+  () => import("pages/CryptoPage/featurePages/CoinPage"),
+);
+const ResetFormPage = React.lazy(
+  () => import("pages/Login&Register/ResetPassword"),
+);
 
 const ROUTESWITHOUTLAYER = {
   VerificationPage: {
@@ -51,7 +61,7 @@ export const ROUTESWITHLAYER = {
   },
   Contact: {
     id: "2",
-    element: Contact,
+    element: LazyContact,
     path: "/contact",
   },
   Service: {

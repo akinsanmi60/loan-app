@@ -20,7 +20,9 @@ function AppLayout() {
         <TopNav navigationModel={navigationModel} />
       </div>
       <div className="container">
-        <SideNav navigationModel={navigationModel} />
+        <div className="sidebox">
+          <SideNav navigationModel={navigationModel} />
+        </div>
         <div className="AppContentBox">
           <div className="inner-content">
             <Outlet />
