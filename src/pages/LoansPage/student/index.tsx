@@ -64,7 +64,7 @@ function Student() {
       <div className="general">
         <div className="focus">
           <div className="text">
-            <h2 className="faqtitle">Humoni focused</h2>
+            <h2 className="faqtitle">ACE focused</h2>
             <div>
               <p>
                 We understand that students may not have much experience dealing
@@ -72,9 +72,9 @@ function Student() {
                 to providing support through the process with transparent
                 information and only lending when we are confident that the
                 student has the ability and means to maintain an affordable
-                repayment schedule. Due to Humoni’s ethos of responsible
-                lending, tuition payments are paid directly to universities and
-                higher education establishments.
+                repayment schedule. Due to ACE’s ethos of responsible lending,
+                tuition payments are paid directly to universities and higher
+                education establishments.
               </p>
               <p>
                 <br />

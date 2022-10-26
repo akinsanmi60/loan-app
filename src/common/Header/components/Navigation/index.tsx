@@ -7,7 +7,7 @@ function HeaderNavigation() {
   return (
     <NavigationStyled>
       <NavLink to="/">
-        <h1>HUMONI</h1>
+        <h1>ACE</h1>
       </NavLink>
 
       <div className="drawerbox">

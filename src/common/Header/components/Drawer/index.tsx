@@ -61,7 +61,7 @@ function DrawerExample() {
             paddingLeft="6"
           >
             <Text marginTop="130px" fontWeight="900" fontSize="30">
-              HUMONI
+              ACE
             </Text>
             <Text marginTop="-1">+234813759225</Text>
           </Box>

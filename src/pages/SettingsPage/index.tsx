@@ -58,11 +58,7 @@ function SettingsPage() {
       toast.error(err?.message, toastOptions);
     },
   });
-  // eslint-disable-next-line consistent-return
   const forSubmit = (valueInput: any) => {
-    if (valueInput.newPassword !== valueInput.confirmPassword) {
-      return toast.error("passwords do not match", toastOptions);
-    }
     const payload = {
       ...valueInput,
       _id,

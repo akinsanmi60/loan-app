@@ -21,7 +21,7 @@ function index() {
       <FootWrapper>
         <div className="footercase">
           <div className="detail">
-            <h4>HUMONI</h4>
+            <h4>ACE</h4>
             <Link to="/about" className="link">
               About
             </Link>
@@ -111,8 +111,8 @@ function index() {
         <div className="foottext">
           <h4>Legal Terms and Policies</h4>
           <div className="copyright">
-            <p>Copyright © Humoni {newYear}. All rights reserved</p>
-            <h4>HUMONI</h4>
+            <p>Copyright © ACE {newYear}. All rights reserved</p>
+            <h4>ACE</h4>
           </div>
         </div>
       </FootWrapper>

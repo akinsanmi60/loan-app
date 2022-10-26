@@ -12,7 +12,7 @@ function LoaderLayout({ loading }: { loading: true }) {
           loading={loading}
           speedMultiplier={2}
         />
-        <h1>Humoni Finance</h1>
+        <h1>Ace Finance</h1>
       </div>
     </LoaderWrapper>
   );

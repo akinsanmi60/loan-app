@@ -16,14 +16,14 @@ function Home() {
       </div>
 
       <div className="who">
-        <h2>Why Humoni?</h2>
+        <h2>Why ACE?</h2>
         <p>
           We use machine learning to predict borrower's behaviour and instantly
           evaluate loan applications. We aim at offering digital financial
           services to help you get closer to your personal and business goals.
           <br />
           <br />
-          We're the best partner for international students in Africa! HUMONI
+          We're the best partner for international students in Africa! ACE
           offers student loans for international students who are attending an
           eligible U.k. college or university.
         </p>
