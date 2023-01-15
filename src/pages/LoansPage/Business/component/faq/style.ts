@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const QuestionStyled = styled.div`
   background-color: #fff;
-  width: 100%;
+  width: 80%;
   margin: 1rem 0;
   padding: 1.8rem 2.8rem;
   border-radius: 24px;

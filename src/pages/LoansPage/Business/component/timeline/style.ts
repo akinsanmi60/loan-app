@@ -4,6 +4,7 @@ const TimeWrapper = styled.div`
   h1 {
     font-size: 22px;
     color: #16194f;
+    margin-top: 25px;
     @media screen and (max-width: 425px) {
       font-size: 17px;
     }

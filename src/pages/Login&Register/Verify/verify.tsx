@@ -110,7 +110,7 @@ function Verification() {
             <div className="var-text">
               <h3>Welcome</h3>
               <h3>to</h3>
-              <h3>ACE</h3>
+              <h3>Humoni</h3>
               {authUser?.user.accountType === "business" ? (
                 <p className="welname"> {authUser?.user.businessName}</p>
               ) : authUser?.user.accountType === "student" ? (

@@ -22,7 +22,7 @@ function SideNav({ navigationModel }: SideProp) {
       <div className="top_section">
         <div className="top">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-            ACE
+            Humoni
           </h1>
           <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
             <FaBars onClick={toggle} />

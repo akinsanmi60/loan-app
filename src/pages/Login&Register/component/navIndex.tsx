@@ -5,7 +5,7 @@ function NavIndexPage() {
   return (
     <div>
       <NavLink to="/">
-        <h1>ACE</h1>
+        <h1>AC</h1>
       </NavLink>
     </div>
   );

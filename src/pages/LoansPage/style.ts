@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StudentWrapper = styled.div`
   color: #16194f;
+
   .img {
     background-size: contain;
     background-repeat: no-repeat;
@@ -94,7 +95,7 @@ export const StudentWrapper = styled.div`
     @media screen and (min-width: 1026px) {
       .text {
         p {
-          font-size: 22px;
+          font-size: 19px;
           text-align: justify;
           margin-top: 5px;
         }
@@ -134,7 +135,7 @@ export const StudentWrapper = styled.div`
 
 const QuestionStyled = styled.div`
   background-color: #fff;
-  width: 100%;
+  width: 80%;
   margin: 1rem 0;
   padding: 1.8rem 2.8rem;
   border-radius: 24px;

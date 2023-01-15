@@ -34,11 +34,14 @@ const HomeWrapper = styled.div`
       font-size: 20px;
     }
   }
+
   .img {
     background-repeat: no-repeat;
-    background-size: contain;
+    object-fit: cover;
     width: 100%;
+    height: 550px;
   }
+
   .who {
     margin-top: 26px;
     h2 {
@@ -62,8 +65,7 @@ const HomeWrapper = styled.div`
   }
 
   .feedbtn,
-  .btn,
-  .calculator {
+  .btn {
     display: flex;
     justify-content: center;
     .link {
@@ -72,20 +74,40 @@ const HomeWrapper = styled.div`
   }
 
   .calculator {
+    position: relative;
     margin-top: 74px;
+    .calText {
+      position: absolute;
+      top: 0;
+      margin-top: 15px;
+      padding: 20px;
+    }
+    @media screen and (max-width: 768px) {
+      .textCal {
+        font-size: 19px;
+      }
+    }
+    @media screen and (max-width: 425px) {
+      .textCal {
+        font-size: 13px;
+      }
+    }
   }
 
   .trust {
     margin-top: 40px;
   }
+  .advertBox {
+    background-color: #f3f7fd;
+    padding: 50px 0;
+  }
 
   .reg-advert {
     margin-top: 30px;
     display: flex;
-    padding: 0 50px;
     justify-content: space-around;
+
     .adimg {
-      padding: 20px;
     }
     img {
       width: 100%;
@@ -113,9 +135,38 @@ const HomeWrapper = styled.div`
     }
     @media screen and (max-width: 768px) {
       flex-direction: column;
+      .adform {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8px;
+        padding: 5px;
+        margin-top: 10px;
+      }
       .box1 {
         width: 100%;
+        padding: 15px;
+
+        .lobo {
+          .fa {
+            margin-top: 5px;
+            margin-right: 10px;
+          }
+          h3 {
+            font-size: 15px;
+          }
+        }
       }
+    }
+    @media screen and (max-width: 425px) {
+      .adform {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 5px;
+      }
+    }
+    @media screen and (max-width: 320px) {
+      margin-top: 0px;
     }
   }
 `;

@@ -19,7 +19,7 @@ import PrivateRoute from "hooks/privateRoute";
 // utils
 import LayoutWrapper from "utils/WebpageWrap";
 // style
-import OuterLayout from "styles/layout";
+// import OuterLayout from "styles/layout";
 import LoaderLayout from "common/LoaderLayout";
 
 import AppLayout from "pages/App";
@@ -69,9 +69,7 @@ function App() {
                   path={value.path}
                   element={
                     <LayoutWrapper>
-                      <OuterLayout>
-                        <RouteComponent />
-                      </OuterLayout>
+                      <RouteComponent />
                     </LayoutWrapper>
                   }
                 />

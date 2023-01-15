@@ -14,11 +14,9 @@ import {
   FaBriefcase,
   FaBuilding,
   FaCar,
-  FaCoins,
   FaFacebookSquare,
   FaLaptopHouse,
   FaLinkedin,
-  FaNewspaper,
   FaQuestion,
   FaReceipt,
   FaRocketchat,
@@ -61,7 +59,7 @@ function DrawerExample() {
             paddingLeft="6"
           >
             <Text marginTop="130px" fontWeight="900" fontSize="30">
-              ACE
+              Humoni
             </Text>
             <Text marginTop="-1">+234813759225</Text>
           </Box>
@@ -72,8 +70,6 @@ function DrawerExample() {
               const motoIcon = routeLink.icon === "moto";
               const mortIcon = routeLink.icon === "mort";
               const remtIcon = routeLink.icon === "remt";
-              const cryptoIcon = routeLink.icon === "crypto";
-              const pressIcon = routeLink.icon === "press";
               const qusetIcon = routeLink.icon === "ques";
               const caseIcon = routeLink.icon === "career";
               const chatIcon = routeLink.icon === "chat";
@@ -92,10 +88,6 @@ function DrawerExample() {
                           <FaLaptopHouse />
                         ) : remtIcon ? (
                           <FaReceipt />
-                        ) : cryptoIcon ? (
-                          <FaCoins />
-                        ) : pressIcon ? (
-                          <FaNewspaper />
                         ) : qusetIcon ? (
                           <FaQuestion />
                         ) : caseIcon ? (

@@ -66,7 +66,7 @@ function ResetFormPage() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="titlebox">
             <h1 className="title">
-              <Link to="/">ACE Finance</Link>
+              <Link to="/">Humoni Finance</Link>
             </h1>
             <h2 className="hero">Reset Your Password</h2>
           </div>

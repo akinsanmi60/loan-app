@@ -29,13 +29,13 @@ function About() {
       </div>
       <div className="feed">
         <div className="feedtitle">
-          <p className="title">Work With ACE</p>
+          <p className="title">Work With Humoni</p>
           <h1>We're Hiring!</h1>
           <p>
             Our team is passionate about building smart tools to provide
             customized recommendations for all borrowers. Join us to help fix
             the system!{" "}
-            <span>Learn more about what it’s like to work at ACE</span>
+            <span>Learn more about what it’s like to work at Humoni</span>
           </p>
         </div>
         <div className="feedbtn">

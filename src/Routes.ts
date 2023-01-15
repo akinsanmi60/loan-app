@@ -17,12 +17,6 @@ const LoanCalculator = React.lazy(() => import("pages/LoanCalculator"));
 const RemittancePage = React.lazy(() => import("pages/Remittance"));
 const CarLoanPage = React.lazy(() => import("pages/CarLoan"));
 const MortgagePage = React.lazy(() => import("pages/Mortgage"));
-const CryptoHome = React.lazy(
-  () => import("pages/CryptoPage/featurePages/Home"),
-);
-const CoinPage = React.lazy(
-  () => import("pages/CryptoPage/featurePages/CoinPage"),
-);
 const ResetFormPage = React.lazy(
   () => import("pages/Login&Register/ResetPassword"),
 );
@@ -113,15 +107,5 @@ export const ROUTESWITHLAYER = {
     id: "12",
     element: MortgagePage,
     path: "/mortgage",
-  },
-  CryptoHome: {
-    id: "13",
-    element: CryptoHome,
-    path: "/cryptohome",
-  },
-  CoinPage: {
-    id: "14",
-    element: CoinPage,
-    path: "/coins/:id",
   },
 };
