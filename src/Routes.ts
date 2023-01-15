@@ -10,7 +10,6 @@ const LazyContact = React.lazy(() => import("pages/Contact"));
 const Service = React.lazy(() => import("pages/ServicesPage"));
 const About = React.lazy(() => import("pages/About"));
 const Question = React.lazy(() => import("pages/Question"));
-const Press = React.lazy(() => import("pages/Press"));
 const StudentPage = React.lazy(() => import("pages/LoansPage/student"));
 const BusinessPage = React.lazy(() => import("pages/LoansPage/Business"));
 const LoanCalculator = React.lazy(() => import("pages/LoanCalculator"));
@@ -73,11 +72,7 @@ export const ROUTESWITHLAYER = {
     element: Question,
     path: "/question",
   },
-  Press: {
-    id: "6",
-    element: Press,
-    path: "/press",
-  },
+
   StudentPage: {
     id: "7",
     element: StudentPage,

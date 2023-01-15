@@ -13,8 +13,6 @@ const LinkItem = styled.li`
 export default LinkItem;
 
 export const Wrapper = styled.div`
-  display: grid;
-  // grid-template-columns: 0.3fr 1fr;
   .text {
     padding-right: 40px;
   }
@@ -31,12 +29,13 @@ export const Wrapper = styled.div`
 
 export const QuestionStyled = styled.div`
   background-color: #fff;
-  width: 100%;
+  width: 70%;
   margin: 1rem 0;
   padding: 1.8rem 2.8rem;
-  border-radius: 24px;
+  border-radius: 6px;
   transition: all 0.4s ease-in-out;
-  box-shadow: 0px 25px 50px rgba(22, 25, 79, 0.05);
+  box-shadow: 0 0.25em 0.5em 0 rgb(0 0 0 / 25%),
+    0 0.4em 1.25em 0 rgb(0 0 0 / 15%) !important;
 
   p {
     transition: all 0.4s ease-in-out;

@@ -138,7 +138,7 @@ const QuestionStyled = styled.div`
   width: 80%;
   margin: 1rem 0;
   padding: 1.8rem 2.8rem;
-  border-radius: 24px;
+  border-radius: 6px;
   transition: all 0.4s ease-in-out;
   box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25),
     0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) !important;

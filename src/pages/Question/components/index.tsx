@@ -37,7 +37,10 @@ function StudentQA() {
   return (
     <div>
       {questionsA.map(question => (
-        <div key={question.title}>
+        <div
+          key={question.title}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <Questioncard question={question} />
         </div>
       ))}
